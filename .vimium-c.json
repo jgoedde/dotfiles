@@ -1,0 +1,73 @@
+{
+	"name": "Vimium C",
+	"@time": "29/08/2024, 19:19:50",
+	"time": 1724951990452,
+	"environment": {
+		"extension": "2.11.3",
+		"platform": "win",
+		"chromium": 128
+	},
+	"allBrowserUrls": true,
+	"exclusionRules": [
+		{
+			"passKeys": "",
+			"pattern": ":https://www.openvim.com/"
+		},
+		{
+			"passKeys": "",
+			"pattern": ":https://spiele.spiegel.de/"
+		},
+		{
+			"passKeys": "",
+			"pattern": ":https://www.50plus.de/"
+		},
+		{
+			"passKeys": "",
+			"pattern": ":https://games.focus.de/"
+		},
+		{
+			"passKeys": "",
+			"pattern": ":https://pr0gramm.com/"
+		}
+	],
+	"grabBackFocus": true,
+	"keyLayout": 2,
+	"keyMappings": [
+		"#!no-check",
+		"# Insert your preferred key mappings here.",
+		"map gf goForward",
+		"map gb goBack",
+		"unmap L",
+		"unmap H",
+		""
+	],
+	"linkHintCharacters": "sadjklewcmgh",
+	"searchEngines": [
+		"g|go|gg|google|Google: https://www.google.com/search?q=%s \\",
+		"  www.google.com re=/^(?:\\.[a-z]{2,4})?\\/search\\b.*?[#&?]q=([^#&]*)/i\\",
+		"  blank=https://www.google.com/ Google",
+		"",
+		"g.m|gm|g.map|gmap: https://www.google.com/maps?q=%s \\",
+		"  blank=https://www.google.com/maps Google Maps",
+		"",
+		"calc|c|v.m|math: vimium://math\\ $S re= Calculate",
+		"",
+		"js\\:|Js: javascript:\\ $S; JavaScript",
+		"",
+		"y|yt|you: https://www.youtube.com/results?search_query=%s \\",
+		"  blank=https://youtube.com Youtube",
+		"",
+		"sp: https://www.startpage.com/sp/search?query=%s \\",
+		"  blank=https://startpage.com Startpage",
+		"",
+		"d: https://www.duden.de/suchen/dudenonline/%s \\",
+		"  blank=https://duden.de Duden",
+		"",
+		"deen: https://www.deepl.com/en/translator#de/en/%s \\",
+		"  blank=https://deepl.com Deutsch-Englisch",
+		"ende: https://www.deepl.com/en/translator#en/de/%s \\",
+		"  blank=https://deepl.com Englisch-Deutsch",
+		""
+	],
+	"vimSync": true
+}
