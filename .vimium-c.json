@@ -1,7 +1,7 @@
 {
 	"name": "Vimium C",
-	"@time": "9/10/2024, 8:58:08 AM",
-	"time": 1725951488550,
+	"@time": "9/10/2024, 1:03:37 PM",
+	"time": 1725966217070,
 	"environment": {
 		"extension": "1.99.997",
 		"platform": "linux",
@@ -226,7 +226,7 @@
 		"",
 		"#bar::before{",
 		"/*for hint or content icon before typing*/",
-		"  content: \"➤\";",
+		"  content: \">\";",
 		"  position: absolute;",
 		"  left: 20px;",
 		"  z-index: 300;",
