@@ -1,7 +1,11 @@
-#!/usr/bin/env bashgit clone --bare git@github.com:jgoedde/dotfiles.git $HOME/.dotfiles
+#!/usr/bin/bash
+
 function config {
    git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
 }
+
+git clone --bare git@github.com:jgoedde/dotfiles.git $HOME/.dotfiles
+
 mkdir -p .dotfiles-backup
 config checkout
 if [ $? = 0 ]; then
