@@ -1,13 +1,1 @@
-# Install
-
-## Dotfiles:
-
-```console
-julian@julian-pc:~$ curl https://raw.githubusercontent.com/jgoedde/dotfiles/master/install-dotfiles.sh | bash
-```
-
-## ZSH plugins:
-
-```console
-julian@julian-pc:~$ curl https://raw.githubusercontent.com/jgoedde/dotfiles/master/install-zsh-plugins.sh | zsh
-```
+![image](https://github.com/user-attachments/assets/7c24847a-32ec-4c2a-b234-cc042b3ea8f7)
