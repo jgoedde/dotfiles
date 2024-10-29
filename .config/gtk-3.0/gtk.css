@@ -1,0 +1,78 @@
+/*
+#pulseaudio-button * {
+    -gtk-icon-transform: scale(.66);
+}
+#xfce4-notification-plugin * {
+    -gtk-icon-transform: scale(.66);
+}
+*/
+
+/* Systray Theming */
+.xfce4-panel #systray-9 .horizontal {
+    background-color: #62568b;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #ffffff;
+}
+
+.xfce4-panel {
+    font-size: 14px;
+    font-family: "JetBrains Mono", monospace;
+}
+
+.xfce4-panel .tasklist .toggle :checked {
+    border-radius: 5px;
+    background: #313244;
+}
+
+.tasklist button:checked {
+    border-bottom: 3px outset #7287fd;
+}
+
+/*.flat,*/
+/*.toggle {*/
+/*    font-family: 'Hack';*/
+/*    font-size: 14px;*/
+/*    padding: 2px;*/
+/*}*/
+
+/*.flat:checked,*/
+/*.toggle:checked {*/
+/*    font-family: 'Hack';*/
+/*    font-size: 14px;*/
+/*    border-radius: 5px;*/
+/*    border-bottom: 3px outset #dc8a78;*/
+/*    padding: 2px;*/
+/*}*/
+
+#xfce4-notification-plugin {
+    color: #ea76cb;
+    padding: 2px;
+}
+
+#sn-button {
+    /*padding: 2px;*/
+    /*margin-left: 3px;*/
+    /*margin-right: 3px;*/
+
+    /*background-color: #8839ef;*/
+    /*color: #ffffff;*/
+    /*!*padding-left: 10px;*!*/
+    /*!*padding-right: 10px;*!*/
+}
+
+/*Sound*/
+#pulseaudio-button {
+    background-color: #e5c890;
+    color: #ffffff;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/*Battery*/
+#xfce4-power-manager-plugin {
+    background-color: #a6d189;
+    color:#ffffff;
+    padding-left:10px;
+    padding-right:10px;
+}
