@@ -1,0 +1,10 @@
+[user]
+noWindowsListIfSingle=false
+showPreviews=true
+showWindowCount=false
+indicatorStyle=0
+inactiveIndicatorStyle=2
+indicatorColorFromTheme=true
+forceIconSize=true
+iconSize=48
+indicatorOrientation=0

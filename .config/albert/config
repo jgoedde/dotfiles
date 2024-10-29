@@ -1,0 +1,69 @@
+[General]
+telemetry=false
+
+[applications]
+enabled=true
+terminal=xfce4-terminal
+
+[calculator_qalculate]
+enabled=true
+
+[clipboard]
+enabled=true
+persistent=true
+trigger=c
+
+[files]
+enabled=true
+home\julian\Dokumente\followSymlinks=false
+home\julian\Dokumente\indexhidden=false
+home\julian\Dokumente\maxDepth=255
+home\julian\Dokumente\mimeFilters=inode/directory, application/*, audio/*, video/*, image/*
+home\julian\Dokumente\nameFilters=@Invalid()
+home\julian\Dokumente\scanInterval=5
+home\julian\Dokumente\useFileSystemWatches=false
+home\julian\Downloads\followSymlinks=false
+home\julian\Downloads\indexhidden=false
+home\julian\Downloads\maxDepth=255
+home\julian\Downloads\mimeFilters=inode/directory, application/*, audio/*, video/*, image/*
+home\julian\Downloads\nameFilters=@Invalid()
+home\julian\Downloads\scanInterval=5
+home\julian\Downloads\useFileSystemWatches=false
+home\julian\followSymlinks=false
+home\julian\indexhidden=false
+home\julian\maxDepth=255
+home\julian\mimeFilters=inode/directory, application/*, audio/*, video/*, image/*
+home\julian\nameFilters=@Invalid()
+home\julian\scanInterval=5
+home\julian\useFileSystemWatches=false
+paths=/home/julian, /home/julian/Dokumente, /home/julian/Downloads
+
+[mpris]
+enabled=true
+
+[system]
+enabled=true
+
+[timer]
+enabled=true
+
+[urlhandler]
+enabled=true
+
+[websearch]
+enabled=true
+
+[widgetsboxmodel]
+alwaysOnTop=true
+clearOnHide=false
+clientShadow=true
+darkTheme=Legacy Dark Blue
+displayScrollbar=false
+followCursor=true
+hideOnFocusLoss=true
+historySearch=true
+itemCount=5
+lightTheme=Legacy Dark Violet
+quitOnClose=false
+showCentered=true
+systemShadow=true

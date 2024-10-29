@@ -1,0 +1,6 @@
+Command=/home/julian/current_song.sh
+UseLabel=0
+Text=(genmon)
+UpdatePeriod=3000
+Font=JetBrains Mono 10
+

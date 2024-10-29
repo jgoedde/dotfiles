@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-terminal" version="1.0">
+  <property name="background-mode" type="string" value="TERMINAL_BACKGROUND_TRANSPARENT"/>
+  <property name="background-darkness" type="double" value="1"/>
+  <property name="color-background" type="string" value="#24273a"/>
+  <property name="color-cursor" type="string" value="#f4dbd6"/>
+  <property name="color-palette" type="string" value="#494d64;#ed8796;#a6da95;#eed49f;#8aadf4;#f5bde6;#8bd5ca;#b8c0e0;#5b6078;#ed8796;#a6da95;#eed49f;#8aadf4;#f5bde6;#8bd5ca;#a5adcb"/>
+  <property name="font-name" type="string" value="MesloLGS NF 10"/>
+  <property name="misc-always-show-tabs" type="bool" value="false"/>
+  <property name="misc-bell" type="bool" value="false"/>
+  <property name="misc-borders-default" type="bool" value="true"/>
+  <property name="misc-menubar-default" type="bool" value="false"/>
+  <property name="color-use-theme" type="bool" value="false"/>
+  <property name="color-background-vary" type="bool" value="false"/>
+  <property name="color-foreground" type="string" value="#cad3f5"/>
+  <property name="color-cursor-foreground" type="string" value="#181926"/>
+  <property name="color-cursor-use-default" type="bool" value="false"/>
+  <property name="color-selection" type="string" value="#cad3f5"/>
+  <property name="color-selection-background" type="string" value="#5b6078"/>
+  <property name="color-selection-use-default" type="bool" value="false"/>
+  <property name="color-bold" type="string" value=""/>
+  <property name="color-bold-use-default" type="bool" value="true"/>
+  <property name="color-bold-is-bright" type="bool" value="true"/>
+  <property name="tab-activity-color" type="string" value="#f5a97f"/>
+  <property name="misc-toolbar-default" type="bool" value="false"/>
+  <property name="shortcuts-no-mnemonics" type="bool" value="false"/>
+  <property name="title-mode" type="string" value="TERMINAL_TITLE_HIDE"/>
+</channel>
