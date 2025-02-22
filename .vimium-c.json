@@ -23,6 +23,7 @@
 		}
 	],
 	"grabBackFocus": true,
+	"autoDarkMode": 1,
 	"keyLayout": 2,
 	"keyMappings": [
 		"#!no-check",
