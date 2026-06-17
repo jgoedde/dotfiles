@@ -1,0 +1,90 @@
+[
+    {
+        "fallback": false,
+        "iconPath": "file:/home/jg/.local/share/albert/websearch/876d04c6.png",
+        "id": "876d04c6",
+        "name": "ChatGPT",
+        "trigger": "chat",
+        "url": "https://chatgpt.com/?q=%s&temporary-chat=true"
+    },
+    {
+        "fallback": false,
+        "iconPath": "file:/home/jg/.local/share/albert/websearch/7363f1b8.png",
+        "id": "7363f1b8",
+        "name": "DWDS",
+        "trigger": "d",
+        "url": "https://www.dwds.de/wb/%s"
+    },
+    {
+        "fallback": false,
+        "iconPath": "file:/home/jg/.local/share/albert/websearch/15a1a3e6.png",
+        "id": "15a1a3e6",
+        "name": "DeepL Write",
+        "trigger": "dwrite",
+        "url": "https://www.deepl.com/en/write#en-US/%s"
+    },
+    {
+        "fallback": false,
+        "iconPath": "file:/home/jg/.local/share/albert/websearch/8bbc917f.png",
+        "id": "8bbc917f",
+        "name": "Deutsch-Englisch",
+        "trigger": "deen",
+        "url": "https://www.deepl.com/en/translator#de/en/%s"
+    },
+    {
+        "fallback": false,
+        "iconPath": "file:/home/jg/.local/share/albert/websearch/8d0e377c.png",
+        "id": "8d0e377c",
+        "name": "English-Deutsch",
+        "trigger": "ende",
+        "url": "https://www.deepl.com/en/translator#en/de/%s"
+    },
+    {
+        "fallback": false,
+        "iconPath": ":github",
+        "id": "2539d248",
+        "name": "GitHub",
+        "trigger": "gh",
+        "url": "https://github.com/search?utf8=✓&q=%s"
+    },
+    {
+        "fallback": true,
+        "iconPath": ":google",
+        "id": "2afd9492",
+        "name": "Google",
+        "trigger": "g",
+        "url": "https://www.google.com/search?q=%s"
+    },
+    {
+        "fallback": false,
+        "iconPath": "file:/home/jg/.local/share/albert/websearch/130dfba0.png",
+        "id": "130dfba0",
+        "name": "Google Maps",
+        "trigger": "gmaps",
+        "url": "https://www.google.com/maps/search/%s/"
+    },
+    {
+        "fallback": false,
+        "iconPath": "file:/home/jg/.local/share/albert/websearch/25e634ff.png",
+        "id": "25e634ff",
+        "name": "Google Maps",
+        "trigger": "gm",
+        "url": "https://www.google.com/maps/search/%s/"
+    },
+    {
+        "fallback": false,
+        "iconPath": "file:/home/jg/.local/share/albert/websearch/d2e3a115.png",
+        "id": "d2e3a115",
+        "name": "Reddit",
+        "trigger": "reddit",
+        "url": "https://www.google.com/search?q=Reddit%20%s"
+    },
+    {
+        "fallback": false,
+        "iconPath": ":youtube",
+        "id": "be81be02",
+        "name": "YouTube",
+        "trigger": "y",
+        "url": "https://www.youtube.com/results?search_query=%s"
+    }
+]
