@@ -1,3 +1,5 @@
 zoxide
 fzf
 eza
+fonts-firacode
+

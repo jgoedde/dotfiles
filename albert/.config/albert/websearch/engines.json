@@ -8,7 +8,7 @@
         "url": "https://chatgpt.com/?q=%s&temporary-chat=true"
     },
     {
-        "fallback": false,
+        "fallback": true,
         "iconPath": "file:/home/jg/.local/share/albert/websearch/7363f1b8.png",
         "id": "7363f1b8",
         "name": "DWDS",
@@ -16,7 +16,7 @@
         "url": "https://www.dwds.de/wb/%s"
     },
     {
-        "fallback": false,
+        "fallback": true,
         "iconPath": "file:/home/jg/.local/share/albert/websearch/15a1a3e6.png",
         "id": "15a1a3e6",
         "name": "DeepL Write",
@@ -24,7 +24,7 @@
         "url": "https://www.deepl.com/en/write#en-US/%s"
     },
     {
-        "fallback": false,
+        "fallback": true,
         "iconPath": "file:/home/jg/.local/share/albert/websearch/8bbc917f.png",
         "id": "8bbc917f",
         "name": "Deutsch-Englisch",
@@ -32,7 +32,7 @@
         "url": "https://www.deepl.com/en/translator#de/en/%s"
     },
     {
-        "fallback": false,
+        "fallback": true,
         "iconPath": "file:/home/jg/.local/share/albert/websearch/8d0e377c.png",
         "id": "8d0e377c",
         "name": "English-Deutsch",
@@ -40,7 +40,7 @@
         "url": "https://www.deepl.com/en/translator#en/de/%s"
     },
     {
-        "fallback": false,
+        "fallback": true,
         "iconPath": ":github",
         "id": "2539d248",
         "name": "GitHub",
@@ -64,7 +64,7 @@
         "url": "https://www.google.com/maps/search/%s/"
     },
     {
-        "fallback": false,
+        "fallback": true,
         "iconPath": "file:/home/jg/.local/share/albert/websearch/25e634ff.png",
         "id": "25e634ff",
         "name": "Google Maps",
@@ -80,7 +80,7 @@
         "url": "https://www.google.com/search?q=Reddit%20%s"
     },
     {
-        "fallback": false,
+        "fallback": true,
         "iconPath": ":youtube",
         "id": "be81be02",
         "name": "YouTube",

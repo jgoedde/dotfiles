@@ -28,7 +28,7 @@ trigger=c
 size=4
 
 [files]
-enabled=true
+enabled=false
 fuzzy=true
 home\jg\Documents\followSymlinks=false
 home\jg\Documents\indexhidden=false
@@ -57,7 +57,7 @@ paths=/home/jg/Documents, /home/jg/Downloads, /home/jg/Pictures
 enabled=true
 
 [python.albert_zen]
-current_profile_path=3fcd6ohe.Default (release)
+current_profile_path=jjnj2xjh.Default (release)
 enabled=true
 fuzzy=false
 index_history=true
@@ -67,12 +67,12 @@ enabled=false
 fuzzy=true
 
 [python.jetbrains_projects]
-enabled=true
+enabled=false
 fuzzy=true
 match_path=false
 
 [python.kill]
-enabled=true
+enabled=false
 
 [system]
 enabled=true

@@ -14,7 +14,8 @@ while read -r repo; do
 done < "$DOTFILES/zsh/custom-plugins.txt"
 
 git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-ln -sf "$target/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+
+ln -sf "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
 # System-Pakete prüfen (nicht automatisch installieren, nur warnen)
 echo "Prüfe System-Abhängigkeiten..."
