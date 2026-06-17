@@ -1,5 +1,5 @@
+stow
 zoxide
 fzf
 eza
 fonts-firacode
-
