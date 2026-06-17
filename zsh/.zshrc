@@ -131,26 +131,9 @@ esac
 # Set up fzf key bindings and fuzzy completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval $(thefuck --alias)
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
-
-path+=('/home/jg/Downloads/jira_1.7.0_linux_x86_64/bin')
-
-#gnuke() {
-#  echo "WARNING: This will irreversibly delete all local changes and untracked files!"
-#  read -q "REPLY?Are you sure? (y/n) "
-#  echo
-#  if [[ $REPLY =~ ^[Yy]$ ]]; then
-#    git reset --hard HEAD && git clean -fd
-#    echo "Nuked local changes."
-#  else
-#    echo "Aborted."
-#  fi
-#}
 
 gnuke() {
   local skip_prompts=0
