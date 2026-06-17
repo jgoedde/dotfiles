@@ -19,7 +19,7 @@ while read -r repo; do
   target="$ZSH_CUSTOM/themes/$name"
   [ -d "$target" ] || git clone --depth 1 "$repo" "$target"
   # spaceship braucht zusätzlich einen .zsh-theme Symlink
-  ln -s "$target/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+  ln -sf "$target/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 done < "$DOTFILES/zsh/custom-themes.txt"
 
 # System-Pakete prüfen (nicht automatisch installieren, nur warnen)
