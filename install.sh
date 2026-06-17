@@ -13,14 +13,8 @@ while read -r repo; do
 	[ -d "$target" ] || git clone --depth 1 "$repo" "$target"
 done < "$DOTFILES/zsh/custom-plugins.txt"
 
-# Themes
-while read -r repo; do
-  name=$(basename "$repo")
-  target="$ZSH_CUSTOM/themes/$name"
-  [ -d "$target" ] || git clone --depth 1 "$repo" "$target"
-  # spaceship braucht zusätzlich einen .zsh-theme Symlink
-  ln -sf "$target/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-done < "$DOTFILES/zsh/custom-themes.txt"
+git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+ln -sf "$target/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
 # System-Pakete prüfen (nicht automatisch installieren, nur warnen)
 echo "Prüfe System-Abhängigkeiten..."
@@ -41,5 +35,9 @@ while read -r pkg; do
     echo "  fehlt: $pkg (z.B. mit '$PKG_HINT $pkg' installieren)"
   fi
 done < "$DOTFILES/system-packages.txt"
+
+echo "Installing inshellisense"
+
+npm install -g @microsoft/inshellisense
 
 echo "Setup complete"
