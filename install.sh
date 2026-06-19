@@ -4,7 +4,7 @@ set -e
 DOTFILES="$HOME/dotfiles"
 ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 
-stow -t ~ -d "$DOTFILES" zsh albert
+stow -t ~ -d "$DOTFILES" zsh albert inshellisense
 
 # Third-Party-Plugins
 while read -r repo; do
@@ -13,7 +13,12 @@ while read -r repo; do
 	[ -d "$target" ] || git clone --depth 1 "$repo" "$target"
 done < "$DOTFILES/zsh/custom-plugins.txt"
 
-git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+# Third-Party-Themes
+while read -r repo; do
+	name=$(basename "$repo")
+	target="$ZSH_CUSTOM/themes/$name"
+	[ -d "$target" ] || git clone --depth 1 "$repo" "$target"
+done < "$DOTFILES/zsh/custom-themes.txt"
 
 ln -sf "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
