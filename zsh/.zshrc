@@ -8,10 +8,13 @@ ZSH_THEME="spaceship"
 
 plugins=(
     git
+    sudo
+    web-search
     zsh-fzf-history-search
     zsh-autosuggestions
     zsh-syntax-highlighting
     fast-syntax-highlighting
+    dirhistory
 )
 
 source $ZSH/oh-my-zsh.sh
