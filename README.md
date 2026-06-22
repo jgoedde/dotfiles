@@ -28,7 +28,7 @@ cd ~/dotfiles
 After installing kitty, set it as default terminal.
 
 ```sh
-org.gnome.desktop.default-applications.terminal exec 'kitty'
+gsettings set org.gnome.desktop.default-applications.terminal exec kitty
 ```
 
 ## Prerequisites (not auto-installed)
