@@ -1,5 +1,4 @@
 export ZSH="$HOME/.oh-my-zsh"
-export PATH=$PATH:~/.cargo/bin/
 export PATH=$PATH:~/.local/bin/
 
 ZSH_THEME="spaceship"
