@@ -4,7 +4,7 @@ set -e
 DOTFILES="$HOME/dotfiles"
 ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 
-stow -t ~ -d "$DOTFILES" zsh albert inshellisense fastfetch kitty
+stow -t ~ -d "$DOTFILES" zsh albert inshellisense fastfetch kitty Thunar
 
 # Third-Party-Plugins
 while read -r repo; do
