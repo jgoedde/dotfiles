@@ -51,8 +51,13 @@ eval "$(zoxide init zsh --cmd cd)"
 
 [[ -f ~/.inshellisense/init/zsh/init.zsh ]] && source ~/.inshellisense/init/zsh/init.zsh
 
+# -----------------------------------------------------
+# Aliases
+# -----------------------------------------------------
 source $ZSH_CUSTOM/gnuke.zsh
 source $ZSH_CUSTOM/gpatch.zsh
+source $ZSH_CUSTOM/filemanager.zsh
+source $ZSH_CUSTOM/files.zsh
 
 # -----------------------------------------------------
 # Fastfetch
