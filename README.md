@@ -6,6 +6,7 @@ Personal dotfiles for **Zorin OS 17** (Ubuntu 22.04 base) managed with [GNU Stow
 
 - **Shell:** zsh + [oh-my-zsh](https://ohmyz.sh/) + [spaceship-prompt](https://spaceship-prompt.sh/)
 - **Terminal:** [kitty](https://sw.kovidgoyal.net/kitty/)
+- **File Manager:** Thunar
 - **Launcher:** [albert](https://albertlauncher.github.io/)
 - **Shell tools:**
     - [zoxide](https://github.com/ajeetdsouza/zoxide) — smarter `cd`
