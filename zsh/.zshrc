@@ -12,7 +12,6 @@ plugins=(
     web-search
     zsh-fzf-history-search
     zsh-autosuggestions
-    zsh-syntax-highlighting
     fast-syntax-highlighting
     dirhistory
 )
