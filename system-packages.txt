@@ -2,3 +2,4 @@ stow
 zoxide
 fzf
 eza
+fastfetch

@@ -46,3 +46,10 @@ eval "$(zoxide init zsh --cmd cd)"
 
 source $ZSH_CUSTOM/gnuke.zsh
 source $ZSH_CUSTOM/gpatch.zsh
+
+# -----------------------------------------------------
+# Fastfetch
+# -----------------------------------------------------
+if [[ $(tty) == *"pts"* ]]; then
+    fastfetch
+fi
