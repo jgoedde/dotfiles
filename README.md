@@ -25,6 +25,12 @@ cd ~/dotfiles
 
 `install.sh` stows configs, clones zsh plugins/themes, and warns about missing system packages.
 
+After installing kitty, set it as default terminal.
+
+```sh
+org.gnome.desktop.default-applications.terminal exec 'kitty'
+```
+
 ## Prerequisites (not auto-installed)
 
 Install these **before** running `install.sh`. Marked with ⚠️ where `apt install` is not enough.
