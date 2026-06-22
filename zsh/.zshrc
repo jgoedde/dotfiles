@@ -1,8 +1,8 @@
 export ZSH="$HOME/.oh-my-zsh"
+export PATH=$PATH:~/.cargo/bin/
+export PATH=$PATH:~/.local/bin/
 
 ZSH_THEME="spaceship"
-
-export PATH=$HOME/.local/bin:$HOME/.local/share/JetBrains/Toolbox/scripts:$PATH
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -17,6 +17,12 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# zsh history
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -25,7 +31,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # pnpm
-export PNPM_HOME="/home/jg/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;

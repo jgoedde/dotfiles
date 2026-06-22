@@ -28,6 +28,9 @@ enabled=true
 fuzzy=false
 index_history=true
 
+[python.color]
+enabled=true
+
 [system]
 enabled=true
 
