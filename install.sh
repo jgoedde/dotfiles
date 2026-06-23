@@ -4,7 +4,7 @@ set -e
 DOTFILES="$HOME/dotfiles"
 ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 
-stow -t ~ -d "$DOTFILES" zsh albert inshellisense fastfetch kitty Thunar
+stow -t ~ -d "$DOTFILES" zsh albert inshellisense fastfetch kitty Thunar wallpaper
 
 # Third-Party-Plugins
 while read -r repo; do
@@ -35,5 +35,10 @@ done < "$DOTFILES/system-packages.txt"
 echo "Installing inshellisense"
 
 npm install -g @microsoft/inshellisense
+
+# Wallpaper colors
+echo "Setting up wallpaper timer..."
+systemctl --user daemon-reload
+systemctl --user enable --now wallpaper-change.timer
 
 echo "Setup complete"

@@ -1,0 +1,7 @@
+[Unit]
+Description=Change wallpaper and update Kitty colors
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/wallpaper-change.sh
+Environment="DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/%U/bus"
