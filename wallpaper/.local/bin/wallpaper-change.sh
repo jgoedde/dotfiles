@@ -9,10 +9,7 @@ WALLPAPER=$(find "$WALLS_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -i
 gsettings set org.gnome.desktop.background picture-uri "file://$WALLPAPER"
 gsettings set org.gnome.desktop.background picture-uri-dark "file://$WALLPAPER"
 
-wal -i "$WALLPAPER" -q --backend wal
+gnome_scheme=$(gsettings get org.gnome.desktop.interface color-scheme)
+[[ "$gnome_scheme" == "'prefer-dark'" ]] && matugen_mode="dark" || matugen_mode="light"
 
-cp ~/.cache/wal/colors-kitty.conf ~/.config/kitty/colors-kitty.conf
-
-kill -SIGUSR1 $(pgrep -x kitty) 2>/dev/null
-
-exit 0
+matugen image "$WALLPAPER" -m "$matugen_mode" -q --source-color-index 0
