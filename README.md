@@ -37,6 +37,12 @@ After installing kitty, set it as default terminal.
 gsettings set org.gnome.desktop.default-applications.terminal exec kitty
 ```
 
+After installing Thunar, set it as default application for files.
+
+```shell
+xdg-mime default thunar.desktop inode/directory
+```
+
 ## Prerequisites (not auto-installed)
 
 Install these **before** running `install.sh`. Marked with ⚠️ where `apt install` is not enough.
