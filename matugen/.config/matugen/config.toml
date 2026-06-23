@@ -16,3 +16,8 @@ output_path = '~/.config/gtk-3.0/gtk.css'
 input_path = '~/.config/matugen/templates/gtk-colors.css'
 output_path = '~/.config/gtk-4.0/gtk.css'
 post_hook = '~/.config/matugen/post-hook-scripts/gtk-themes-reload.sh'
+
+[templates.gnome-shell]
+input_path = '~/.config/matugen/templates/gnome-shell.css'
+output_path = '~/.themes/Material-Gnome/gnome-shell/gnome-shell.css'
+post_hook = "dconf write /org/gnome/shell/extensions/user-theme/name \"'default'\" && dconf write /org/gnome/shell/extensions/user-theme/name \"'Material-Gnome'\""

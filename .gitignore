@@ -9,4 +9,5 @@ wallpaper/.config/systemd/user/timers.target.wants/
 
 kitty/.config/kitty/colors-matugen.conf
 matugen/.config/gtk-3.0/
-matugen/.config/gtk-4.0/
+
+material-gnome/.themes/Material-Gnome/gnome-shell/gnome-shell.css
