@@ -48,8 +48,9 @@ eval "$(pyenv init - zsh)"
 
 eval "$(zoxide init zsh --cmd cd)"
 
-
-[[ -f ~/.inshellisense/init/zsh/init.zsh ]] && source ~/.inshellisense/init/zsh/init.zsh
+if [[ "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]]; then
+    [[ -f ~/.inshellisense/init/zsh/init.zsh ]] && source ~/.inshellisense/init/zsh/init.zsh
+fi
 
 # -----------------------------------------------------
 # Aliases
