@@ -9,4 +9,4 @@ WALLPAPER=$(find "$WALLS_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -i
 gsettings set org.gnome.desktop.background picture-uri "file://$WALLPAPER"
 gsettings set org.gnome.desktop.background picture-uri-dark "file://$WALLPAPER"
 
-matugen image "$WALLPAPER" -m dark -q --source-color-index 0
+matugen image "$WALLPAPER" -m dark -q --source-color-index 0 --type scheme-expressive
