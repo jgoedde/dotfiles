@@ -3,3 +3,7 @@ zoxide
 fzf
 eza
 fastfetch
+thunar
+matugen
+kitty
+albert
