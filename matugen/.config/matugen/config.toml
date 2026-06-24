@@ -21,3 +21,7 @@ post_hook = '~/.config/matugen/post-hook-scripts/gtk-themes-reload.sh'
 input_path = '~/.config/matugen/templates/gnome-shell.css'
 output_path = '~/.themes/Material-Gnome/gnome-shell/gnome-shell.css'
 #post_hook = "dconf write /org/gnome/shell/extensions/user-theme/name \"'default'\" && dconf write /org/gnome/shell/extensions/user-theme/name \"'Material-Gnome'\""
+
+[templates.rofi]
+input_path = '~/.config/matugen/templates/rofi-colors.rasi'
+output_path = '~/.config/rofi/colors.rasi'
