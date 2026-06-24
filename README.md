@@ -43,6 +43,11 @@ After installing Thunar, set it as default application for files.
 xdg-mime default thunar.desktop inode/directory
 ```
 
+In order to register albert trigger on super key, clear it's value first.
+```sh
+gsettings set org.gnome.mutter overlay-key ''
+```
+
 ## Prerequisites (not auto-installed)
 
 Install these **before** running `install.sh`. Marked with ⚠️ where `apt install` is not enough.
