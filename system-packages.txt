@@ -7,4 +7,3 @@ thunar
 matugen
 kitty
 albert
-rofi
