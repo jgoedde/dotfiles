@@ -12,14 +12,12 @@ from albert import *
 
 md_iid = "3.0"
 md_version = "1.0"
-md_name = "Zen Browser"
-md_description = "Access Zen Browser (Firefox fork) bookmarks and history"
+md_name = "Firefox"
+md_description = "Access Firefox bookmarks and history"
 md_license = "MIT"
-md_url = "https://github.com/tomsquest/albert_plugin_firefox_bookmarks"
-md_readme_url = "https://github.com/albertlauncher/albert-plugin-python-firefox/blob/main/README.md"
-md_authors = ["@tomsquest"]
-md_maintainers = ["@tomsquest"]
-md_credits = ["@stevenxxiu", "@sagebind"]
+md_authors = ["@jgoedde"]
+md_maintainers = ["@jgoedde"]
+md_credits = ["@tomsquest"]
 
 firefox_bookmark_icon = Path(__file__).parent / "firefox_bookmark.svg"
 firefox_history_icon = Path(__file__).parent / "firefox_history.svg"
@@ -160,24 +158,14 @@ class Plugin(PluginInstance, IndexQueryHandler):
         IndexQueryHandler.__init__(self)
         self.thread = None
 
-        # Get the browser data directory (Zen Browser or Firefox fallback)
+        # Get the Firefox root directory
         match platform.system():
             case "Darwin":
-                # Try Zen Browser first, fallback to Firefox
-                zen_dir = Path.home() / "Library" / "Application Support" / "zen"
                 firefox_dir = Path.home() / "Library" / "Application Support" / "Firefox"
-                self.browser_data_dir = zen_dir if zen_dir.exists() else firefox_dir
+                self.browser_data_dir = firefox_dir
             case "Linux":
-                # Try Zen Browser Flatpak first, then native Zen, then Firefox
-                zen_flatpak_dir = Path.home() / ".var" / "app" / "app.zen_browser.zen" / ".zen"
-                zen_native_dir = Path.home() / ".zen"
                 firefox_dir = Path.home() / ".mozilla" / "firefox"
-                if zen_flatpak_dir.exists():
-                    self.browser_data_dir = zen_flatpak_dir
-                elif zen_native_dir.exists():
-                    self.browser_data_dir = zen_native_dir
-                else:
-                    self.browser_data_dir = firefox_dir
+                self.browser_data_dir = firefox_dir
             case _:
                 raise NotImplementedError(f"Unsupported platform: {platform.system()}")
 
@@ -207,7 +195,7 @@ class Plugin(PluginInstance, IndexQueryHandler):
         return [self]
 
     def defaultTrigger(self):
-        return "z "
+        return "f "
 
     @property
     def current_profile_path(self):
