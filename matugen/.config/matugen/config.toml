@@ -25,3 +25,8 @@ output_path = '~/.themes/Material-Gnome/gnome-shell/gnome-shell.css'
 [templates.obsidian]
 input_path = '~/.config/matugen/templates/obsidian.css'
 output_path = '~/.cache/matugen/obsidian-matugen.css'
+
+[templates.pywalfox]
+input_path = '~/.config/matugen/templates/pywalfox-colors.json'
+output_path = '~/.cache/wal/colors.json'
+post_hook = 'pywalfox update'
