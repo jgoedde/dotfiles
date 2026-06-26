@@ -1,6 +1,6 @@
 # Disable async prompt. See https://github.com/spaceship-prompt/spaceship-prompt/issues/1193
 SPACESHIP_PROMPT_ASYNC=false
-SPACESHIP_USER_SHOW=always
+SPACESHIP_PACKAGE_SHOW_PRIVATE=true
 
 SPACESHIP_PROMPT_ORDER=(
   time           # Time stamps section
