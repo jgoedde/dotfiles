@@ -30,3 +30,8 @@ output_path = '~/.cache/matugen/obsidian-matugen.css'
 input_path = '~/.config/matugen/templates/pywalfox-colors.json'
 output_path = '~/.cache/wal/colors.json'
 post_hook = 'pywalfox update'
+
+[templates.bat]
+input_path = '~/.config/matugen/templates/bat-colors.tmTheme'
+output_path = '~/.config/bat/themes/matugen-bat-colors.tmTheme'
+post_hook = 'bat cache --build'
