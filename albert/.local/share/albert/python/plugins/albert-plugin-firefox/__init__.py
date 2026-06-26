@@ -115,14 +115,18 @@ def get_history(places_db: Path) -> List[Tuple[str, str, str, str]]:
         with get_connection(places_db) as conn:
             cursor = conn.cursor()
 
-            # Query history excluding bookmarks
+            # Query history excluding bookmarks, deduped by title (or base URL when no title)
             cursor.execute("""
-                           SELECT place.guid, place.title, place.url, place.url_hash
+                           SELECT MIN(place.guid), place.title, MIN(place.url), MIN(place.url_hash)
                            FROM moz_places place
                                     LEFT JOIN moz_bookmarks bookmark ON place.id = bookmark.fk
                            WHERE place.hidden = 0
                              AND place.url IS NOT NULL
                              AND bookmark.id IS NULL
+                           GROUP BY COALESCE(
+                               NULLIF(TRIM(place.title), ''),
+                               SUBSTR(place.url, 1, INSTR(place.url || '?', '?') - 1)
+                           )
                            """)
 
             return cursor.fetchall()
