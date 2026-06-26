@@ -1,1 +1,1 @@
-{{colors.background.default.hex}}, {{colors.primary.default.hex}}, #007A5A, {{colors.surface.default.hex}}
+{{colors.background.default.hex}}, {{colors.primary_container.default.hex}}, #007A5A, {{colors.primary.default.hex}}
