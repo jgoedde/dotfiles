@@ -19,6 +19,7 @@ md_authors = ["@jgoedde"]
 md_maintainers = ["@jgoedde"]
 md_credits = ["@tomsquest"]
 
+REFRESH_INTERVAL = 5 * 60  # seconds
 firefox_bookmark_icon = Path(__file__).parent / "firefox_bookmark.svg"
 firefox_history_icon = Path(__file__).parent / "firefox_history.svg"
 
@@ -157,6 +158,7 @@ class Plugin(PluginInstance, IndexQueryHandler):
         PluginInstance.__init__(self)
         IndexQueryHandler.__init__(self)
         self.thread = None
+        self._timer = None
 
         # Get the Firefox root directory
         match platform.system():
@@ -187,7 +189,11 @@ class Plugin(PluginInstance, IndexQueryHandler):
             self._index_history = False
             self.writeConfig("index_history", self._index_history)
 
+        self._schedule_refresh()
+
     def __del__(self):
+        if self._timer:
+            self._timer.cancel()
         if self.thread and self.thread.is_alive():
             self.thread.join()
 
@@ -237,6 +243,15 @@ class Plugin(PluginInstance, IndexQueryHandler):
                 },
             },
         ]
+
+    def _schedule_refresh(self):
+        self._timer = threading.Timer(REFRESH_INTERVAL, self._auto_refresh)
+        self._timer.daemon = True
+        self._timer.start()
+
+    def _auto_refresh(self):
+        self.updateIndexItems()
+        self._schedule_refresh()
 
     def updateIndexItems(self):
         if self.thread and self.thread.is_alive():
