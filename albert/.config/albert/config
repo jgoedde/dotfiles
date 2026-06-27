@@ -8,6 +8,9 @@ telemetry=false
 enabled=true
 fuzzy=true
 
+[calculator_qalculate]
+enabled=true
+
 [fallback_order]
 1\extension=websearch
 1\fallback=2afd9492
@@ -23,7 +26,7 @@ size=4
 enabled=true
 
 [python.albert-plugin-firefox]
-current_profile_path=e6pmv1r8.default-release
+current_profile_path=xiuvjmeb.default-release
 enabled=true
 fuzzy=false
 index_history=true
