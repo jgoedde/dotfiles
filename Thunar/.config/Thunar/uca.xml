@@ -6,7 +6,7 @@
 	<submenu></submenu>
 	<unique-id>1782124842280882-1</unique-id>
 	<command>kitty -d %f</command>
-	<description>Example for a custom action</description>
+	<description>Opens kitty at current location</description>
 	<range></range>
 	<patterns>*</patterns>
 	<startup-notify/>
