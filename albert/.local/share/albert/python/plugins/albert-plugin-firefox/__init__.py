@@ -39,7 +39,7 @@ def get_available_profiles(browser_root: Path) -> List[str]:
             if section.startswith("Profile") and "Path" in config[section]:
                 profile_path = browser_root / config[section]["Path"]
                 if (profile_path / "places.sqlite").exists() and (
-                        profile_path / "favicons.sqlite"
+                    profile_path / "favicons.sqlite"
                 ).exists():
                     profiles.append(config[section]["Path"])
 
@@ -167,7 +167,9 @@ class Plugin(PluginInstance, IndexQueryHandler):
         # Get the Firefox root directory
         match platform.system():
             case "Darwin":
-                firefox_dir = Path.home() / "Library" / "Application Support" / "Firefox"
+                firefox_dir = (
+                    Path.home() / "Library" / "Application Support" / "Firefox"
+                )
                 self.browser_data_dir = firefox_dir
             case "Linux":
                 firefox_dir = Path.home() / ".mozilla" / "firefox"
@@ -181,11 +183,13 @@ class Plugin(PluginInstance, IndexQueryHandler):
             raise RuntimeError("No browser profiles found")
 
         # Initialize profile selection
-        self._current_profile_path = self.readConfig("current_profile_path", str)
-        if self._current_profile_path not in self.profiles:
-            # Use first profile as default if current profile is not valid
+        if len(self.profiles) == 1:
             self._current_profile_path = self.profiles[0]
-            self.writeConfig("current_profile_path", self._current_profile_path)
+        else:
+            self._current_profile_path = self.readConfig("current_profile_path", str)
+            if self._current_profile_path not in self.profiles:
+                self._current_profile_path = self.profiles[0]
+                self.writeConfig("current_profile_path", self._current_profile_path)
 
         # Initialize history indexing preference
         self._index_history = self.readConfig("index_history", bool)
@@ -228,16 +232,20 @@ class Plugin(PluginInstance, IndexQueryHandler):
         self.updateIndexItems()
 
     def configWidget(self):
-        return [
-            {
-                "type": "combobox",
-                "property": "current_profile_path",
-                "label": "Browser Profile",
-                "items": self.profiles,
-                "widget_properties": {
-                    "toolTip": "Select browser profile to search bookmarks from"
-                },
-            },
+        widgets = []
+        if len(self.profiles) > 1:
+            widgets.append(
+                {
+                    "type": "combobox",
+                    "property": "current_profile_path",
+                    "label": "Browser Profile",
+                    "items": self.profiles,
+                    "widget_properties": {
+                        "toolTip": "Select browser profile to search bookmarks from"
+                    },
+                }
+            )
+        widgets.append(
             {
                 "type": "checkbox",
                 "property": "index_history",
@@ -245,8 +253,9 @@ class Plugin(PluginInstance, IndexQueryHandler):
                 "widget_properties": {
                     "toolTip": "Enable or disable indexing of browser history"
                 },
-            },
-        ]
+            }
+        )
+        return widgets
 
     def _schedule_refresh(self):
         self._timer = threading.Timer(REFRESH_INTERVAL, self._auto_refresh)
@@ -265,7 +274,9 @@ class Plugin(PluginInstance, IndexQueryHandler):
 
     def update_index_items_task(self):
         places_db = self.browser_data_dir / self.current_profile_path / "places.sqlite"
-        favicons_db = self.browser_data_dir / self.current_profile_path / "favicons.sqlite"
+        favicons_db = (
+            self.browser_data_dir / self.current_profile_path / "favicons.sqlite"
+        )
 
         bookmarks = get_bookmarks(places_db)
         info(f"Found {len(bookmarks)} bookmarks")
@@ -347,4 +358,3 @@ class Plugin(PluginInstance, IndexQueryHandler):
                 )
 
         self.setIndexItems(index_items)
-
