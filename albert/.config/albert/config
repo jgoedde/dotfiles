@@ -33,6 +33,11 @@ index_history=true
 [python.color]
 enabled=true
 
+[python.jetbrains_projects]
+enabled=true
+fuzzy=true
+match_path=false
+
 [system]
 enabled=true
 
