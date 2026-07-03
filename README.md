@@ -23,7 +23,7 @@ Personal dotfiles for **Zorin OS 17** (Ubuntu 22.04 base) managed with [GNU Stow
 ## Install
 
 ```sh
-git clone https://github.com/jgoedde/dotfiles ~/dotfiles
+git clone --recurse-submodules https://github.com/jgoedde/dotfiles ~/dotfiles
 cd ~/dotfiles
 ./install.sh
 ```
