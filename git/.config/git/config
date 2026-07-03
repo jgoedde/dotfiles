@@ -12,6 +12,7 @@
     churn = "!git log --all -M -C --name-only --format='format:' \"$@\" | sort | grep -v '^$' | uniq -c | sort -n -r | awk 'BEGIN {print \"count\tfile\"} {print $1 \"\t\" $2}' | less"
     clear = !git reset --hard && git clean -dfx
     contains = merge-base --is-ancestor
+    count = shortlog -sn
     ignore = update-index --assume-unchanged
     ignored = "!git ls-files -v | grep '^[[:lower:]]'"
     issue = !gh issue
