@@ -1,0 +1,3 @@
+[submodule "albert/.local/share/albert/python/plugins/albert-plugin-firefox"]
+	path = albert/.local/share/albert/python/plugins/albert-plugin-firefox
+	url = https://github.com/jgoedde/albert-plugin-firefox
