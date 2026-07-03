@@ -1,0 +1,40 @@
+[core]
+    excludesfile = ~/.config/git/ignore
+[init]
+    defaultBranch = main
+[alias]
+    aliases = config --get-regexp "^alias\\."
+    all = "!find . -type d -name .git -prune -execdir pwd ';' -execdir git $@ ';' #"
+    amend = commit --amend
+    browse = "!gh repo view --web"
+    cb = "!git checkout $(git branch -a --format '%(refname)' | sed -e 's#^refs/heads/##' -e 's#^refs/remotes/[^/]*/##' | sort | uniq | $FILTER)"
+    cm = "!git rev-parse --quiet --verify main && git checkout main || git checkout master"
+    churn = "!git log --all -M -C --name-only --format='format:' \"$@\" | sort | grep -v '^$' | uniq -c | sort -n -r | awk 'BEGIN {print \"count\tfile\"} {print $1 \"\t\" $2}' | less"
+    clear = !git reset --hard && git clean -dfx
+    contains = merge-base --is-ancestor
+    ignore = update-index --assume-unchanged
+    ignored = "!git ls-files -v | grep '^[[:lower:]]'"
+    issue = !gh issue
+    pr = !gh pr
+    pr-apply = "!gh pr diff $@ | git apply - #"
+    prune-local = "!git fetch -p && git branch --format '%(refname:short) %(upstream:track)' | grep '\\[gone\\]$' | cut -d' ' -f1 | xargs git branch -D"
+    pub = "!git push -u origin $(git rev-parse --abbrev-ref HEAD)"
+    remotes = remote --verbose
+    s = status --short --branch
+    sb = "!git stash && git checkout $1 && git stash pop #"
+    snapshot = commit --allow-empty-message -m ''
+    squash = rebase -i
+    staged = diff --staged
+    tags = tag --list
+    undo = reset HEAD~1 --mixed
+    unignore = update-index --no-assume-unchanged
+    up = !git stash push --include-untracked && git pull --rebase && git stash pop
+    update = "!git fetch origin $1:$1"
+    wip = !git add -A && git commit -m wip
+    yank-tag = "!git tag -d $1 && git push origin :refs/tags/$1 #"
+    uncommit = reset --soft HEAD^
+    unstage = reset
+[pull]
+    rebase = true
+[color]
+    ui = true

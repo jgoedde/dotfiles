@@ -63,8 +63,6 @@ fi
 # -----------------------------------------------------
 # Aliases
 # -----------------------------------------------------
-source $ZSH_CUSTOM/gnuke.zsh
-source $ZSH_CUSTOM/gpatch.zsh
 source $ZSH_CUSTOM/filemanager.zsh
 source $ZSH_CUSTOM/files.zsh
 
