@@ -4,7 +4,7 @@ set -e
 DOTFILES="$HOME/dotfiles"
 ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 
-stow -t ~ -d "$DOTFILES" zsh albert inshellisense fastfetch kitty Thunar wallpaper matugen material-gnome bat git
+stow -t ~ -d "$DOTFILES" zsh albert fastfetch kitty Thunar wallpaper matugen material-gnome bat git
 
 # Third-Party-Plugins
 while read -r repo; do
@@ -31,10 +31,6 @@ while read -r pkg; do
     echo "  fehlt: $pkg"
   fi
 done < "$DOTFILES/system-packages.txt"
-
-echo "Installing inshellisense"
-
-npm install -g @microsoft/inshellisense
 
 # Wallpaper colors
 echo "Setting up wallpaper timer..."

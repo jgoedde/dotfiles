@@ -13,7 +13,6 @@ Personal dotfiles for **Zorin OS 17** (Ubuntu 22.04 base) managed with [GNU Stow
     - [fzf](https://github.com/junegunn/fzf) — fuzzy finder
     - [eza](https://github.com/eza-community/eza) — modern `ls`
     - [fastfetch](https://github.com/fastfetch-cli/fastfetch) — system info on shell start
-    - [inshellisense](https://github.com/microsoft/inshellisense) — IDE-style shell completions
 - zsh
   plugins: [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions), [zsh-fzf-history-search](https://github.com/joshskidmore/zsh-fzf-history-search), [fast-syntax-highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting) —
   cloned by `install.sh`
@@ -28,7 +27,7 @@ cd ~/dotfiles
 ./install.sh
 ```
 
-`install.sh` stows configs, clones zsh plugins/themes, installs inshellisense via npm, enables the wallpaper-change
+`install.sh` stows configs, clones zsh plugins/themes, enables the wallpaper-change
 systemd timer, and warns about missing system packages.
 
 After installing kitty, set it as default terminal.
