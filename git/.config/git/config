@@ -35,6 +35,7 @@
     yank-tag = "!git tag -d $1 && git push origin :refs/tags/$1 #"
     uncommit = reset --soft HEAD^
     unstage = reset
+    nuke = reset --hard HEAD && git clean -fd
 [pull]
     rebase = true
 [color]
