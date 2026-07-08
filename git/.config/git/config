@@ -35,6 +35,7 @@
     uncommit = reset --soft HEAD^
     unstage = reset
     nuke = !git reset --hard && git clean -df
+    nuke-remote = "!git fetch && git reset --hard @{u} && git clean -df"
 [pull]
     rebase = true
 [color]
