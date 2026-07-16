@@ -23,4 +23,4 @@
 *.pem
 .idea/gradle.xml
 
-.claude/settings.local.json
+**/.claude/settings.local.json
