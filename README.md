@@ -32,7 +32,7 @@ my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
 - Launcher: albert launcher with [custom firefox plugin](https://github.com/jgoedde/albert-plugin-firefox) and search engines like
   Duden, YouTube, Google Maps etc.
 - Matugen
-    - generates themes based on wallpaper (see below _Wallpapers_ section)
+    - generates themes based on wallpaper (see below [Wallpapers](#how-wallpapers-work) section)
 - git config for local ignores and aliases
 - pywalfox to use the material colors in Firefox
 
