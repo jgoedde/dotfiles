@@ -35,8 +35,3 @@ post_hook = 'pywalfox update'
 input_path = '~/.config/matugen/templates/bat-colors.tmTheme'
 output_path = '~/.config/bat/themes/matugen-bat-colors.tmTheme'
 post_hook = 'bat cache --build'
-
-[templates.slack]
-input_path = '~/.config/matugen/templates/slack.txt'
-output_path = '~/.cache/matugen/slack-matugen.txt'
-post_hook = 'cat ~/.cache/matugen/slack-matugen.txt | xclip -sel clipboard'
