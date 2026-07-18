@@ -1,4 +1,9 @@
 alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+
 alias ls="eza -a --icons=always"
 alias ll="eza -al --icons=always"
 alias lt="eza -a --tree --level=1 --icons=always"
