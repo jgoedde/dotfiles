@@ -2,7 +2,7 @@
 
 my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
 
-{insert sc here}
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/71f499c6-70d4-4433-8568-c97c7b775940" />
 
 <!-- TOC -->
 * [dotfiles](#dotfiles)
