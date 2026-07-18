@@ -22,16 +22,6 @@ done < "$DOTFILES/zsh/custom-themes.txt"
 
 ln -sf "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
-# System-Pakete prüfen (nicht automatisch installieren, nur warnen)
-echo "Prüfe System-Abhängigkeiten..."
-
-while read -r pkg; do
-  [[ "$pkg" =~ ^#.*$ || -z "$pkg" ]] && continue
-  if ! command -v "$pkg" &>/dev/null; then
-    echo "  fehlt: $pkg"
-  fi
-done < "$DOTFILES/system-packages.txt"
-
 # Wallpaper colors
 echo "Setting up wallpaper timer..."
 systemctl --user daemon-reload

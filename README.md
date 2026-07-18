@@ -1,34 +1,68 @@
 # dotfiles
 
-Personal dotfiles for **Zorin OS 17** (Ubuntu 22.04 base) managed with [GNU Stow](https://www.gnu.org/software/stow/).
+my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
 
-## Stack
+{insert sc here}
 
-- **Shell:** zsh + [oh-my-zsh](https://ohmyz.sh/) + [spaceship-prompt](https://spaceship-prompt.sh/)
-- **Terminal:** [kitty](https://sw.kovidgoyal.net/kitty/)
-- **File Manager:** Thunar
-- **Launcher:** [albert](https://albertlauncher.github.io/)
-- **Shell tools:**
-    - [zoxide](https://github.com/ajeetdsouza/zoxide) — smarter `cd`
-    - [fzf](https://github.com/junegunn/fzf) — fuzzy finder
-    - [eza](https://github.com/eza-community/eza) — modern `ls`
-    - [fastfetch](https://github.com/fastfetch-cli/fastfetch) — system info on shell start
+<!-- TOC -->
+* [dotfiles](#dotfiles)
+  * [Components overview](#components-overview)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+    * [What install.sh installs](#what-installsh-installs)
+    * [Desktop configuration](#desktop-configuration)
+  * [How Wallpapers work](#how-wallpapers-work)
+  * [Font used](#font-used)
+  * [Inspirations](#inspirations)
+<!-- TOC -->
+
+## Components overview
+
+- GNU stow to create symlinks to actual user directories
+- Terminal: kitty
+- Shell: zsh
+    - oh-my-zsh for theming and plugins
+        - spaceship prompt
+    - fzf (fuzzy file utility)
+    - bat (better cat)
+    - fastfetch on launch
+    - eza for a better `ls` with icons & colors
+    - zoxide for smarter `cd`
+- File manager: Thunuar file manager with Kitty integration
+- Launcher: albert launcher with [custom firefox plugin](https://github.com/jgoedde/albert-plugin-firefox) and search engines like
+  Duden, YouTube, Google Maps etc.
+- Matugen
+    - generates themes based on wallpaper (see below _Wallpapers_ section)
+- git config for local ignores and aliases
+- pywalfox to use the material colors in Firefox
+
+## Prerequisites
+
+- git
+- stow
 - zsh
-  plugins: [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions), [zsh-fzf-history-search](https://github.com/joshskidmore/zsh-fzf-history-search), [fast-syntax-highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting) —
-  cloned by `install.sh`
-- **Wallpaper:** systemd timer (`wallpaper-change.timer`) cycles wallpapers automatically
-- **Font:** [Hack Nerd Font Mono](https://www.nerdfonts.com/) — required for icons in kitty, eza, fastfetch
+- kitty
+- oh-my-zsh
 
-## Install
+## Installation
 
-```sh
+```shell
 git clone --recurse-submodules https://github.com/jgoedde/dotfiles ~/dotfiles
 cd ~/dotfiles
 ./install.sh
 ```
 
-`install.sh` stows configs, clones zsh plugins/themes, enables the wallpaper-change
-systemd timer, and warns about missing system packages.
+### What install.sh installs
+
+`install.sh` is doing three things:
+
+1. stowing the config dirs
+2. installing the zsh plugins and spaceship prompt
+3. setting up the wallpaper change timer
+
+It does not download any other dependencies that are listed in Components section. Install them yourself.
+
+### Desktop configuration
 
 After installing kitty, set it as default terminal.
 
@@ -42,25 +76,22 @@ After installing Thunar, set it as default application for files.
 xdg-mime default thunar.desktop inode/directory
 ```
 
-In order to register albert trigger on super key, clear it's value first.
-```sh
-gsettings set org.gnome.mutter overlay-key ''
-```
+## How Wallpapers work
 
-## Prerequisites (not auto-installed)
+Walls are expected to live in `$HOME/Pictures/walls`
+A systemd timer is set up every hour to change to a random wallpaper from the dir.
+Then, matugen is used to generate themes for following apps:
 
-Install these **before** running `install.sh`. Marked with ⚠️ where `apt install` is not enough.
+- kitty colors
+- bat
+- gtk (v3 and v4)
+- obsidian
+- pywalfox
 
-| Tool                   | Install                                                                                                               |
-|------------------------|-----------------------------------------------------------------------------------------------------------------------|
-| oh-my-zsh ⚠️           | [ohmyz.sh](https://ohmyz.sh/) — curl installer                                                                        |
-| kitty ⚠️               | [docs](https://sw.kovidgoyal.net/kitty/binary/) — official installer script, apt package is outdated                  |
-| Hack Nerd Font Mono ⚠️ | [nerdfonts.com](https://www.nerdfonts.com/font-downloads) — download, unzip to `~/.local/share/fonts`, `fc-cache -fv` |
-| eza ⚠️                 | [install guide](https://github.com/eza-community/eza/blob/main/INSTALL.md) — needs PPA or cargo                       |
-| albert ⚠️              | [albertlauncher.github.io](https://albertlauncher.github.io/installing/) — needs PPA                                  |
-| stow                   | `sudo apt install stow`                                                                                               |
-| zoxide                 | `sudo apt install zoxide`                                                                                             |
-| fzf                    | `sudo apt install fzf`                                                                                                |
-| fastfetch              | `sudo apt install fastfetch`                                                                                          |
-| npm                    | `sudo apt install nodejs npm`                                                                                         |
-| pyenv ⚠️               | [github.com/pyenv/pyenv](https://github.com/pyenv/pyenv#installation) — curl installer                                |
+## Font used
+
+[_Hack Nerd Font_](https://www.nerdfonts.com/font-downloads), used in `kitty/.config/kitty/kitty.conf`
+
+## Inspirations
+
+- Stefan Raabe, https://github.com/mylinuxforwork/dotfiles
