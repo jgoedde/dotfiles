@@ -1,11 +1,11 @@
-# dotfiles
+# My Dots ⚙️ for Productivity
 
 my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
 
 {insert sc here}
 
 <!-- TOC -->
-* [dotfiles](#dotfiles)
+* [My Dots ⚙️ for Productivity](#my-dots--for-productivity)
   * [Components overview](#components-overview)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
