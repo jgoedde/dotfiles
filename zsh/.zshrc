@@ -1,76 +1,17 @@
-export ZSH="$HOME/.oh-my-zsh"
-export PATH=$PATH:~/.local/bin/
+ZSH_CONFIG_DIR="$HOME/.config/zsh"
 
-ZSH_THEME="spaceship"
+# Load shipped files in order, unless a same-named override exists in custom/
+for f in "$ZSH_CONFIG_DIR"/*.zsh(N); do
+  name=$(basename "$f")
+  if [[ -f "$ZSH_CONFIG_DIR/custom/$name" ]]; then
+    source "$ZSH_CONFIG_DIR/custom/$name"
+  else
+    source "$f"
+  fi
+done
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-plugins=(
-    git
-    sudo
-    web-search
-    zsh-fzf-history-search
-    zsh-autosuggestions
-    fast-syntax-highlighting
-    dirhistory
-)
-
-source $ZSH/oh-my-zsh.sh
-
-# zsh history
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-setopt appendhistory
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-# Set up fzf key bindings and fuzzy completion
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Preview file content using bat (https://github.com/sharkdp/bat)
-export FZF_CTRL_T_OPTS="
-  --walker-skip .git,node_modules,target
-  --preview 'bat -n --color=always {}'
-  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
-
-export PYENV_ROOT="$HOME/.pyenv"
-if [[ -d $PYENV_ROOT/bin ]]; then
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init - zsh)"
-fi
-
-[ -d "$HOME/.local/bin/zoxide" ] && eval "$(zoxide init zsh --cmd cd)"
-
-if [[ -d /home/linuxbrew ]]; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
-fi
-
-[ -d $HOME/.deno ] && source "$HOME/.deno/env"
-
-# -----------------------------------------------------
-# Aliases
-# -----------------------------------------------------
-source $ZSH_CUSTOM/filemanager.zsh
-source $ZSH_CUSTOM/files.zsh
-
-# -----------------------------------------------------
-# Fastfetch
-# -----------------------------------------------------
-if [[ $(tty) == *"pts"* ]]; then
-    fastfetch
-fi
+# Load any extra custom files that aren't overrides (new additions)
+for f in "$ZSH_CONFIG_DIR"/custom/*.zsh(N); do
+  name=$(basename "$f")
+  [[ -f "$ZSH_CONFIG_DIR/$name" ]] || source "$f"
+done
