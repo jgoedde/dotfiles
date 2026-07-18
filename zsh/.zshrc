@@ -60,6 +60,8 @@ if [[ -d /home/linuxbrew ]]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 fi
 
+[ -d $HOME/.deno ] && source "$HOME/.deno/env"
+
 # -----------------------------------------------------
 # Aliases
 # -----------------------------------------------------
