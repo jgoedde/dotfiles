@@ -54,7 +54,7 @@ if [[ -d $PYENV_ROOT/bin ]]; then
     eval "$(pyenv init - zsh)"
 fi
 
-[ -d "$HOME/.local/bin/zoxide"] && eval "$(zoxide init zsh --cmd cd)"
+[ -d "$HOME/.local/bin/zoxide" ] && eval "$(zoxide init zsh --cmd cd)"
 
 if [[ -d /home/linuxbrew ]]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
