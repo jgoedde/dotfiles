@@ -1,5 +1,6 @@
 [config]
 reload_apps = true
+type = "SchemeSmart"
 
 [config.reload_apps_list]
 kitty = true
