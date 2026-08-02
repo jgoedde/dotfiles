@@ -12,7 +12,6 @@ stow -t ~ -d "$DOTFILES" \
 	Thunar \
 	wallpaper \
 	matugen \
-	material-gnome \
 	bat \
 	git \
 	fzf \
