@@ -1,0 +1,75 @@
+# Enable auto-completion and keybindings
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Default fd command
+FD="fd --hidden --follow"
+
+# Use fd instead of default find
+export FZF_DEFAULT_COMMAND="$FD --type f --type l"
+
+export FZF_DEFAULT_OPTS=" \
+--reverse
+--multi
+--info=inline
+--no-separator
+--tabstop=4
+--highlight-line
+--bind 'ctrl-o:execute(open {+})'
+--bind 'ctrl-y:execute-silent(echo -n {+} | wl-copy)'
+--bind 'ctrl-e:execute($EDITOR {+} < /dev/tty > /dev/tty 2>&1)'
+--bind 'alt-x:exclude-multi'
+--bind 'focus:transform-preview-label:echo [ {} ]'
+--preview '~/.config/fzf/fzf-previewer.sh {}'
+--preview-window 'right,60%,nowrap'
+"
+
+# Use fd for FZF completion
+# 1). listing files and dirs ($1 is the base path to start search) such as "vim ~/.config/**<TAB>"
+_fzf_compgen_path() {
+    fd --hidden --follow . "$1"
+}
+# 2). listing dirs such as "cd **<TAB>"
+_fzf_compgen_dir() {
+    fd --type d --hidden --follow . "$1"
+}
+
+# Use matugen colors
+export FZF_DEFAULT_OPTS_FILE="$HOME/.config/fzf/fzf-colors.conf"
+
+# CTRL-R to search the command history
+export FZF_CTRL_R_OPTS=" \
+    --prompt 'Command History> ' \
+    --preview 'echo {}' \
+    --bind 'ctrl-y:execute-silent(echo -n {2..} | wl-copy)+abort' \
+    --header ':: CTRL-Y (copy to clipboard)' \
+"
+
+# CTRL-T to paste the selected files and directories onto the command-line
+# - ALT-/: toggling listing items under HOME and CWD
+# - ALT-R: list items under system root
+export FZF_CTRL_T_COMMAND="$FD"
+export FZF_CTRL_T_OPTS="
+--prompt 'Fzf [Current]> '
+--header ':: ALT-/ (toggle HOME/CWD), ALT-R (Root)'
+--bind 'alt-r:reload($FD . /)+change-prompt(Fzf [Root]> )'
+--bind 'alt-/:transform:
+    [[ ! \$FZF_PROMPT =~ HOME ]] && {
+        echo \"reload($FD . $HOME)+change-prompt(Fzf [HOME]> )\";
+    } || { \
+        echo \"reload($FD)+change-prompt(Fzf [CWD]> )\";
+    }' \
+"
+
+# fzf + git
+# Reference: https://github.com/junegunn/fzf-git.sh
+# CTRL-G + ? to show this list
+# CTRL-G + F for Files
+# CTRL-G + B for Branches
+# CTRL-G + T for Tags
+# CTRL-G + R for Remotes
+# CTRL-G + H for commit Hashes
+# CTRL-G + S for Stashes
+# CTRL-G + L for reflogs
+# CTRL-G + W for Worktrees
+# CTRL-G + E for Each ref (git for-each-ref)
+source ~/.config/fzf/fzf-git.sh

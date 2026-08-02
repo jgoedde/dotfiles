@@ -4,7 +4,19 @@ set -e
 DOTFILES="$HOME/dotfiles"
 ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 
-stow -t ~ -d "$DOTFILES" zsh albert fastfetch kitty Thunar wallpaper matugen material-gnome bat git
+stow -t ~ -d "$DOTFILES" \
+	zsh \
+	albert \
+	fastfetch \
+	kitty \
+	Thunar \
+	wallpaper \
+	matugen \
+	material-gnome \
+	bat \
+	git \
+	fzf \
+	fd
 
 # Third-Party-Plugins
 while read -r repo; do
