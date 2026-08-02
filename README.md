@@ -19,22 +19,23 @@ my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
 ## Components overview
 
 - GNU stow to create symlinks to actual user directories
-- Terminal: kitty
+- Terminal: [kitty](https://github.com/kovidgoyal/kitty)
 - Shell: zsh
-    - oh-my-zsh for theming and plugins
-        - spaceship prompt
-    - fzf (fuzzy file utility)
-    - bat (better cat)
-    - fastfetch on launch
-    - eza for a better `ls` with icons & colors
-    - zoxide for smarter `cd`
+    - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) for theming and plugins
+        - [`spaceship prompt`](https://github.com/spaceship-prompt/spaceship-prompt)
+    - [`fzf`](https://github.com/junegunn/fzf) (fuzzy file utility)
+    - [`bat`](https://github.com/sharkdp/bat) (better cat)
+    - [`fastfetch`](https://github.com/fastfetch-cli/fastfetch) on launch
+    - [`eza`](https://github.com/eza-community/eza) for a better `ls` with icons & colors
+    - [`zoxide`](https://github.com/ajeetdsouza/zoxide) for smarter `cd`
+    - [`fd`](https://github.com/sharkdp/fd#command-not-found-for-aliases-or-shell-functions) for better `find`
 - File manager: Thunuar file manager with Kitty integration
-- Launcher: albert launcher with [custom firefox plugin](https://github.com/jgoedde/albert-plugin-firefox) and search engines like
-  Duden, YouTube, Google Maps etc.
-- Matugen
+- Launcher: [albert](https://github.com/albertlauncher/albert) launcher with search engines like Duden, YouTube, Google
+  Maps etc.
+- [matugen](https://github.com/InioX/matugen)
     - generates themes based on wallpaper (see below [Wallpapers](#how-wallpapers-work) section)
 - git config for local ignores and aliases
-- pywalfox to use the material colors in Firefox
+- [pywalfox](https://github.com/frewacom/pywalfox) to use the material colors in Firefox
 
 ## Prerequisites
 
@@ -47,7 +48,7 @@ my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
 ## Installation
 
 ```shell
-git clone --recurse-submodules https://github.com/jgoedde/dotfiles ~/dotfiles
+git clone https://github.com/jgoedde/dotfiles ~/dotfiles
 cd ~/dotfiles
 ./install.sh
 ```
@@ -79,14 +80,15 @@ xdg-mime default thunar.desktop inode/directory
 ## How Wallpapers work
 
 Walls are expected to live in `$HOME/Pictures/walls`
-A systemd timer is set up every hour to change to a random wallpaper from the dir.
-Then, matugen is used to generate themes for following apps:
+A systemd timer is set up every hour to change to a random wallpaper from the dir. Then, matugen is used to generate
+themes for following apps:
 
 - kitty colors
 - bat
 - gtk (v3 and v4)
 - obsidian
 - pywalfox
+- fzf
 
 ## Font used
 
@@ -95,3 +97,4 @@ Then, matugen is used to generate themes for following apps:
 ## Inspirations
 
 - Stefan Raabe, https://github.com/mylinuxforwork/dotfiles
+- rockyzhang24, https://github.com/rockyzhang24/dotfiles
