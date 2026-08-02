@@ -31,3 +31,7 @@ post_hook = 'pywalfox update'
 input_path = '~/.config/matugen/templates/bat-colors.tmTheme'
 output_path = '~/.config/bat/themes/matugen-bat-colors.tmTheme'
 post_hook = 'bat cache --build'
+
+[templates.fzf]
+input_path = '~/.config/matugen/templates/fzf-colors.conf'
+output_path = '~/.config/fzf/fzf-colors.conf'
