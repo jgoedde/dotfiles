@@ -1,11 +1,14 @@
-# My Dots ⚙️ for Productivity
+## My Dots ⚙️ for Productivity
 
 my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
 
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/71f499c6-70d4-4433-8568-c97c7b775940" />
 
+## Table Of Contents
+
 <!-- TOC -->
-* [My Dots ⚙️ for Productivity](#my-dots--for-productivity)
+  * [My Dots ⚙️ for Productivity](#my-dots--for-productivity)
+  * [Table Of Contents](#table-of-contents)
   * [Components overview](#components-overview)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
