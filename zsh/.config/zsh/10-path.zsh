@@ -1,6 +1,12 @@
 export PATH=$PATH:~/.local/bin/
 
 #-----------------------------------
+# editor
+#-----------------------------------
+export EDITOR="jetedit"
+export VISUAL="jetedit"
+
+#-----------------------------------
 # NVM
 #-----------------------------------
 export NVM_DIR="$HOME/.nvm"

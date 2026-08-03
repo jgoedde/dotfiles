@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# $EDITOR shim: open file in whatever JetBrains IDE is installed via Toolbox, in LightEdit mode.
+set -euo pipefail
+
+scripts_dir="$HOME/.local/share/JetBrains/Toolbox/scripts"
+ide=""
+if [[ -d "$scripts_dir" ]]; then
+    for f in "$scripts_dir"/*; do
+        [[ -x "$f" ]] && { ide="$f"; break; }
+    done
+fi
+
+if [[ -z "$ide" ]]; then
+    echo "jetedit: no JetBrains Toolbox IDE found in $scripts_dir" >&2
+    exit 1
+fi
+
+exec "$ide" nosplash -e "$@"
