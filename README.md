@@ -7,16 +7,18 @@ my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
 ## Table Of Contents
 
 <!-- TOC -->
-  * [My Dots ⚙️ for Productivity](#my-dots--for-productivity)
-  * [Table Of Contents](#table-of-contents)
-  * [Components overview](#components-overview)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
+
+* [My Dots ⚙️ for Productivity](#my-dots--for-productivity)
+* [Table Of Contents](#table-of-contents)
+* [Components overview](#components-overview)
+* [Prerequisites](#prerequisites)
+* [Installation](#installation)
     * [What install.sh installs](#what-installsh-installs)
     * [Desktop configuration](#desktop-configuration)
-  * [How Wallpapers work](#how-wallpapers-work)
-  * [Font used](#font-used)
-  * [Inspirations](#inspirations)
+* [How Wallpapers work](#how-wallpapers-work)
+* [Font used](#font-used)
+* [Inspirations](#inspirations)
+
 <!-- TOC -->
 
 ## Components overview
@@ -34,13 +36,14 @@ my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
 - File manager: Thunar file manager with Kitty integration
 - Launcher: [albert](https://github.com/albertlauncher/albert) launcher with search engines like Duden, YouTube, Google
   Maps etc.
+    - themed with a matugen-generated Material You palette (see below [Wallpapers](#how-wallpapers-work) section)
 - [matugen](https://github.com/InioX/matugen)
     - generates themes based on wallpaper (see below [Wallpapers](#how-wallpapers-work) section)
 - git config for local ignores and aliases
 - [pywalfox](https://github.com/frewacom/pywalfox) to use the material colors in Firefox
 - [`fd`](https://github.com/sharkdp/fd) for better `find`
-- `$EDITOR`/`$VISUAL` set to `jetedit` (`zsh/.local/bin/jetedit`), a wrapper that opens whatever
-  JetBrains Toolbox IDE is installed in LightEdit mode
+- `$EDITOR`/`$VISUAL` set to `jetedit` (`zsh/.local/bin/jetedit`), a wrapper that opens whatever JetBrains Toolbox IDE
+  is installed in LightEdit mode
 
 ## Prerequisites
 
@@ -94,6 +97,8 @@ themes for following apps:
 - obsidian
 - pywalfox
 - fzf
+- alberts `widgetsboxmodel` theme (restarts albert to apply, via
+  `albert restart`)
 
 The generated kitty/bat/fzf color configs are committed to the repo (and marked
 `skip-worktree` locally) so a fresh clone has working colors before matugen ever runs.
