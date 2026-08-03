@@ -5,7 +5,7 @@
 	<name>Open Terminal Here</name>
 	<submenu></submenu>
 	<unique-id>1782124842280882-1</unique-id>
-	<command>kitty -d %f</command>
+	<command>&lt;command&gt;sh -c &apos;PATH=&quot;$HOME/.local/kitty.app/bin:$PATH&quot; exec kitty -d &quot;$1&quot;&apos; sh %f&lt;/command&gt;</command>
 	<description>Opens kitty at current location</description>
 	<range></range>
 	<patterns>*</patterns>
