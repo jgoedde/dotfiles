@@ -6,6 +6,7 @@ ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 
 stow -t ~ -d "$DOTFILES" \
 	zsh \
+	spaceship-prompt \
 	albert \
 	fastfetch \
 	kitty \
