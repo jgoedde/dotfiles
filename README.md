@@ -25,13 +25,13 @@ my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
 - Terminal: [kitty](https://github.com/kovidgoyal/kitty)
 - Shell: zsh
     - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) for theming and plugins
-        - [`spaceship prompt`](https://github.com/spaceship-prompt/spaceship-prompt)
+    - [`spaceship prompt`](https://github.com/spaceship-prompt/spaceship-prompt)
     - [`fzf`](https://github.com/junegunn/fzf) (fuzzy file utility)
     - [`bat`](https://github.com/sharkdp/bat) (better cat)
     - [`fastfetch`](https://github.com/fastfetch-cli/fastfetch) on launch
     - [`eza`](https://github.com/eza-community/eza) for a better `ls` with icons & colors
     - [`zoxide`](https://github.com/ajeetdsouza/zoxide) for smarter `cd`
-- File manager: Thunuar file manager with Kitty integration
+- File manager: Thunar file manager with Kitty integration
 - Launcher: [albert](https://github.com/albertlauncher/albert) launcher with search engines like Duden, YouTube, Google
   Maps etc.
 - [matugen](https://github.com/InioX/matugen)
@@ -39,6 +39,8 @@ my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
 - git config for local ignores and aliases
 - [pywalfox](https://github.com/frewacom/pywalfox) to use the material colors in Firefox
 - [`fd`](https://github.com/sharkdp/fd) for better `find`
+- `$EDITOR`/`$VISUAL` set to `jetedit` (`zsh/.local/bin/jetedit`), a wrapper that opens whatever
+  JetBrains Toolbox IDE is installed in LightEdit mode
 
 ## Prerequisites
 
@@ -92,6 +94,9 @@ themes for following apps:
 - obsidian
 - pywalfox
 - fzf
+
+The generated kitty/bat/fzf color configs are committed to the repo (and marked
+`skip-worktree` locally) so a fresh clone has working colors before matugen ever runs.
 
 ## Font used
 
