@@ -31,7 +31,6 @@ my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
     - [`fastfetch`](https://github.com/fastfetch-cli/fastfetch) on launch
     - [`eza`](https://github.com/eza-community/eza) for a better `ls` with icons & colors
     - [`zoxide`](https://github.com/ajeetdsouza/zoxide) for smarter `cd`
-    - [`fd`](https://github.com/sharkdp/fd#command-not-found-for-aliases-or-shell-functions) for better `find`
 - File manager: Thunuar file manager with Kitty integration
 - Launcher: [albert](https://github.com/albertlauncher/albert) launcher with search engines like Duden, YouTube, Google
   Maps etc.
@@ -39,6 +38,7 @@ my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
     - generates themes based on wallpaper (see below [Wallpapers](#how-wallpapers-work) section)
 - git config for local ignores and aliases
 - [pywalfox](https://github.com/frewacom/pywalfox) to use the material colors in Firefox
+- [`fd`](https://github.com/sharkdp/fd) for better `find`
 
 ## Prerequisites
 
