@@ -17,6 +17,7 @@ enabled=true
 
 [commandline]
 enabled=true
+global_handler_enabled=false
 
 [fallback_order]
 1\extension=websearch
