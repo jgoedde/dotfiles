@@ -3,7 +3,7 @@ reload_apps = true
 
 # One of `SchemeContent`, `SchemeExpressive`, `SchemeFidelity`, `SchemeFruitSalad`, `SchemeMonochrome`,
 # `SchemeNeutral`, `SchemeRainbow`, `SchemeTonalSpot`, `SchemeVibrant`, `SchemeSmart`
-type = "SchemeExpressive"
+type = "SchemeContent"
 
 [config.reload_apps_list]
 kitty = true
