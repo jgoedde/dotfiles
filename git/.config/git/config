@@ -38,5 +38,7 @@
     nuke-remote = "!git fetch && git reset --hard @{u} && git clean -df"
 [pull]
     rebase = true
+[rerere]
+    enabled = true
 [color]
     ui = true
