@@ -1,17 +1,37 @@
-ZSH_CONFIG_DIR="$HOME/.config/zsh"
+#            _
+#    _______| |__  _ __ ___
+#   |_  / __| '_ \| '__/ __|
+#  _ / /\__ \ | | | | | (__
+# (_)___|___/_| |_|_|  \___|
+#
+# -----------------------------------------------------
+# zshrc loader
+# -----------------------------------------------------
 
-# Load shipped files in order, unless a same-named override exists in custom/
-for f in "$ZSH_CONFIG_DIR"/*.zsh(N); do
-  name=$(basename "$f")
-  if [[ -f "$ZSH_CONFIG_DIR/custom/$name" ]]; then
-    source "$ZSH_CONFIG_DIR/custom/$name"
-  else
-    source "$f"
-  fi
+# DON'T CHANGE THIS FILE
+
+# You can define your custom configuration by adding
+# files in ~/.config/zsh
+# or by creating a folder ~/.config/zsh/custom
+# with copies of files from ~/.config/zsh
+# You can also create a .zshrc_custom file in your home directory
+# -----------------------------------------------------
+
+# -----------------------------------------------------
+# Load modular configuration
+# -----------------------------------------------------
+
+for f in ~/.config/zsh/*; do
+    if [ ! -d $f ]; then
+        c=`echo $f | sed -e "s=.config/zsh=.config/zsh/custom="`
+        [[ -f $c ]] && source $c || source $f
+    fi
 done
 
-# Load any extra custom files that aren't overrides (new additions)
-for f in "$ZSH_CONFIG_DIR"/custom/*.zsh(N); do
-  name=$(basename "$f")
-  [[ -f "$ZSH_CONFIG_DIR/$name" ]] || source "$f"
-done
+# -----------------------------------------------------
+# Load single customization file (if exists)
+# -----------------------------------------------------
+
+if [ -f ~/.zshrc_custom ]; then
+    source ~/.zshrc_custom
+fi
