@@ -17,6 +17,7 @@ my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
     * [Desktop configuration](#desktop-configuration)
 * [How Wallpapers work](#how-wallpapers-work)
 * [Font used](#font-used)
+* [Cursor](#cursor)
 * [Inspirations](#inspirations)
 
 <!-- TOC -->
@@ -44,6 +45,7 @@ my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
 - [`fd`](https://github.com/sharkdp/fd) for better `find`
 - `$EDITOR`/`$VISUAL` set to `jetedit` (`zsh/.local/bin/jetedit`), a wrapper that opens whatever JetBrains Toolbox IDE
   is installed in LightEdit mode
+- [Material Bibata Cursor](https://github.com/SakibShahariar/material-bibata-cursor) - See [Cursors](#cursor)
 
 ## Prerequisites
 
@@ -106,6 +108,26 @@ The generated kitty/bat/fzf color configs are committed to the repo (and marked
 ## Font used
 
 [_Hack Nerd Font_](https://www.nerdfonts.com/font-downloads), used in `kitty/.config/kitty/kitty.conf`
+
+## Cursor
+
+Matugen is wired up with [Material Bibata Cursor](https://github.com/SakibShahariar/material-bibata-cursor). That setup
+changes the cursor colors based on the wallpaper colors. It requires the cursor pack to live under `~/.icons`. One
+directory in there for each cursor. Something like
+
+```text
+.icons
+├── Bibata-Material-Apricot
+├── Bibata-Material-Beige
+├── Bibata-Material-Blush
+├── Bibata-Material-Brown
+├── Bibata-Material-Charcoal
+├── ...etc
+└── default
+```
+
+When Matugen is run, it detects the according pre-existing Material Design themed cursor and applies that for either
+GNOME & GTK Applications, Hyprland compositor or XCursor fallback
 
 ## Inspirations
 
