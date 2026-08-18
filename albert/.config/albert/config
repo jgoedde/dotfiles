@@ -10,7 +10,10 @@ enabled=true
 
 [applications]
 enabled=true
-fuzzy=true
+fuzzy=false
+
+[bluetooth]
+enabled=true
 
 [calculator_qalculate]
 enabled=true
@@ -30,11 +33,18 @@ global_handler_enabled=false
 4\fallback=be81be02
 size=4
 
+[mediaremote]
+enabled=true
+
 [python]
 enabled=true
 
 [python.color]
 enabled=true
+
+[python.docker]
+enabled=true
+trigger=dock
 
 [python.firefox]
 current_profile_path=xiuvjmeb.default-release
@@ -43,7 +53,7 @@ index_history=true
 
 [python.jetbrains_projects]
 enabled=true
-fuzzy=true
+fuzzy=false
 match_path=false
 
 [system]
