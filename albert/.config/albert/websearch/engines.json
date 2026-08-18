@@ -37,7 +37,7 @@
         "id": "2539d248",
         "name": "GitHub",
         "trigger": "gh",
-        "url": "https://github.com/search?utf8=✓&q=%s"
+        "url": "https://github.com/search?q=%s"
     },
     {
         "fallback": true,
