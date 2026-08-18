@@ -1,4 +1,5 @@
 export PATH=$PATH:~/.local/bin/
+export PATH=$PATH:/usr/local/go/bin
 
 #-----------------------------------
 # editor
@@ -47,3 +48,8 @@ fi
 # deno
 #-----------------------------------
 [ -d $HOME/.deno ] && source "$HOME/.deno/env"
+
+#-----------------------------------
+# go
+#-----------------------------------
+command -v go >/dev/null && export PATH="$PATH:$(go env GOPATH)/bin"
