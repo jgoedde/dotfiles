@@ -56,6 +56,9 @@ enabled=true
 fuzzy=false
 match_path=false
 
+[python.kill]
+enabled=true
+
 [system]
 enabled=true
 
