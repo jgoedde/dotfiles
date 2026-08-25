@@ -8,6 +8,10 @@
     cb = "!git checkout $(git branch -a --format '%(refname)' | sed -e 's#^refs/heads/##' -e 's#^refs/remotes/[^/]*/##' | sort | uniq | $FILTER)"
     churn = "!git log --all -M -C --name-only --format='format:' \"$@\" | sort | grep -v '^$' | uniq -c | sort -n -r | awk 'BEGIN {print \"count\tfile\"} {print $1 \"\t\" $2}' | less"
     cm = "!git rev-parse --quiet --verify main && git checkout main || git checkout master"
+    conflicted-prs = "!gh pr list --author \"@me\" \
+      --base \"$(gh repo view --json defaultBranchRef --jq .defaultBranchRef.name)\" \
+      --json number,title,mergeable,url \
+      --jq '.[] | select(.mergeable == \"CONFLICTING\") | \"#\\(.number)  \\(.title)  \\(.url)\"'"
     count = shortlog -sn
     ignored = "!git ls-files -v | grep '^[[:lower:]]'"
     nuke = !git reset --hard && git clean -df
