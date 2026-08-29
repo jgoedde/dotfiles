@@ -43,8 +43,6 @@ my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
 - git config for local ignores and aliases
 - [pywalfox](https://github.com/frewacom/pywalfox) to use the material colors in Firefox
 - [`fd`](https://github.com/sharkdp/fd) for better `find`
-- `$EDITOR`/`$VISUAL` set to `jetedit` (`zsh/.local/bin/jetedit`), a wrapper that opens whatever JetBrains Toolbox IDE
-  is installed in LightEdit mode
 - [Material Bibata Cursor](https://github.com/SakibShahariar/material-bibata-cursor) - See [Cursors](#cursor)
 
 ## Prerequisites

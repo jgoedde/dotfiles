@@ -2,12 +2,6 @@ export PATH=$PATH:~/.local/bin/
 export PATH=$PATH:/usr/local/go/bin
 
 #-----------------------------------
-# editor
-#-----------------------------------
-export EDITOR="jetedit"
-export VISUAL="jetedit"
-
-#-----------------------------------
 # NVM
 #-----------------------------------
 export NVM_DIR="$HOME/.nvm"
