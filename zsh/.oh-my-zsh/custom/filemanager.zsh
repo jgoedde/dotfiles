@@ -1,1 +1,3 @@
-function filemanager() { thunar "$@" &>/dev/null & disown }
+function fm() {
+  xdg-open "${@:-.}" >/dev/null 2>&1 &!
+}

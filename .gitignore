@@ -4,5 +4,4 @@ __pycache__/
 .venv/
 *.log
 
-Thunar/.config/Thunar/accels.scm
 wallpaper/.config/systemd/user/timers.target.wants/

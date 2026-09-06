@@ -10,7 +10,6 @@ stow -t ~ -d "$DOTFILES" \
 	albert \
 	fastfetch \
 	kitty \
-	Thunar \
 	wallpaper \
 	matugen \
 	bat \

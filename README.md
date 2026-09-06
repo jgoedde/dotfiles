@@ -34,7 +34,6 @@ my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
     - [`fastfetch`](https://github.com/fastfetch-cli/fastfetch) on launch
     - [`eza`](https://github.com/eza-community/eza) for a better `ls` with icons & colors
     - [`zoxide`](https://github.com/ajeetdsouza/zoxide) for smarter `cd`
-- File manager: Thunar file manager with Kitty integration
 - Launcher: [albert](https://github.com/albertlauncher/albert) launcher with search engines like Duden, YouTube, Google
   Maps etc.
     - themed with a matugen-generated Material You palette (see below [Wallpapers](#how-wallpapers-work) section)
@@ -77,12 +76,6 @@ After installing kitty, set it as default terminal.
 
 ```sh
 gsettings set org.gnome.desktop.default-applications.terminal exec kitty
-```
-
-After installing Thunar, set it as default application for files.
-
-```shell
-xdg-mime default thunar.desktop inode/directory
 ```
 
 ## How Wallpapers work
