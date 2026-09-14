@@ -1,6 +1,10 @@
 export PATH=$PATH:~/.local/bin/
 export PATH=$PATH:/usr/local/go/bin
 
+# Opt out to tracking. Some applications support this. (`gh` CLI for example).
+# https://donottrack.sh
+export DO_NOT_TRACK=1
+
 #-----------------------------------
 # NVM
 #-----------------------------------
