@@ -96,7 +96,8 @@ The generated kitty/bat/fzf color configs are committed to the repo (and marked
 
 ## Font used
 
-[_Hack Nerd Font_](https://www.nerdfonts.com/font-downloads), used in `kitty/.config/kitty/kitty.conf`
+~~[_Hack Nerd Font_](https://www.nerdfonts.com/font-downloads)~ _JetBrains Mono_, used in
+`kitty/.config/kitty/kitty.conf`
 
 ## Cursor
 
