@@ -12,13 +12,88 @@ kitty = true
 input_path = '~/.config/matugen/templates/kitty-colors.conf'
 output_path = '~/.config/kitty/colors-matugen.conf'
 
+#[templates.gtk3]
+#input_path = '~/.config/matugen/templates/gtk-colors.css'
+#output_path = '~/.config/gtk-3.0/gtk.css'
+
+#[templates.gtk4]
+#input_path = '~/.config/matugen/templates/gtk-colors.css'
+#output_path = '~/.config/gtk-4.0/gtk.css'
+#post_hook = '~/.config/matugen/post-hook-scripts/gtk-themes-reload.sh'
+
+[templates.gnome-shell]
+input_path = '~/.config/matugen/templates/gnome-shell.css'
+output_path = '~/.themes/material-gnome-theme/gnome-shell/gnome-shell-stub.css'
+# post_hook = "~/.config/matugen/post-hook-scripts/merge-layout.sh"
+
+[templates.gnome-shell-active]
+input_path = "~/.config/matugen/templates/gnome-active-layout.css"
+output_path = "~/.themes/material-gnome-theme/gnome-shell/layouts/active-layout.css"
+
+[templates.gnome-shell-floating-capsule]
+input_path = '~/.config/matugen/templates/gnome-floating-capsule.css'
+output_path = '~/.themes/material-gnome-theme/gnome-shell/layouts/floating-capsule.css'
+
+[templates.gnome-shell-floating-capsule-glass]
+input_path = '~/.config/matugen/templates/gnome-floating-capsule-glass.css'
+output_path = '~/.themes/material-gnome-theme/gnome-shell/layouts/floating-capsule-glass.css'
+
+[templates.gnome-shell-pill-duo]
+input_path = '~/.config/matugen/templates/gnome-pill-duo.css'
+output_path = '~/.themes/material-gnome-theme/gnome-shell/layouts/pill-duo.css'
+
+[templates.gnome-unified-pill]
+input_path = '~/.config/matugen/templates/gnome-segmented-pill.css'
+output_path = '~/.themes/material-gnome-theme/gnome-shell/layouts/segmented-pill.css'
+
+[templates.gnome-unified-capsule-bottom]
+input_path = '~/.config/matugen/templates/gnome-unified-capsule-bottom.css'
+output_path = '~/.themes/material-gnome-theme/gnome-shell/layouts/unified-capsule-bottom.css'
+
+[templates.gnome-unified-bar]
+input_path = '~/.config/matugen/templates/gnome-unified-bar.css'
+output_path = '~/.themes/material-gnome-theme/gnome-shell/layouts/unified-bar.css'
+
+[templates.gnome-unified-capsule]
+input_path = '~/.config/matugen/templates/gnome-unified-capsule.css'
+output_path = '~/.themes/material-gnome-theme/gnome-shell/layouts/unified-capsule.css'
+
+[templates.gnome-structured-box]
+input_path = '~/.config/matugen/templates/gnome-structured-box.css'
+output_path = '~/.themes/material-gnome-theme/gnome-shell/layouts/structured-box.css'
+
+[templates.gnome-default]
+input_path = '~/.config/matugen/templates/gnome-default.css'
+output_path = '~/.themes/material-gnome-theme/gnome-shell/layouts/default.css'
+
+[templates.gnome-unified-border]
+input_path = '~/.config/matugen/templates/gnome-unified-border.css'
+output_path = '~/.themes/material-gnome-theme/gnome-shell/layouts/unified-border.css'
+
+[templates.gnome-segmented-dock]
+input_path = '~/.config/matugen/templates/gnome-segmented-dock.css'
+output_path = '~/.themes/material-gnome-theme/gnome-shell/layouts/segmented-dock.css'
+
+[templates.gnome-default-transperacy]
+input_path = '~/.config/matugen/templates/gnome-default-transparecy.css'
+output_path = '~/.themes/material-gnome-theme/gnome-shell/layouts/default-transparecy.css'
+
 [templates.gtk3]
-input_path = '~/.config/matugen/templates/gtk-colors.css'
-output_path = '~/.config/gtk-3.0/gtk.css'
+input_path = '~/.config/matugen/templates/gtk3-colors.css'
+output_path = '~/.themes/material-gnome-theme/gtk-3.0/colors.css'
+
+[templates.gtk3_theme]
+input_path = '~/.config/matugen/templates/gtk3-colors.css'
+output_path = '~/.config/gtk-3.0/colors.css'
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme "Material Gnome"'
 
 [templates.gtk4]
-input_path = '~/.config/matugen/templates/gtk-colors.css'
-output_path = '~/.config/gtk-4.0/gtk.css'
+input_path = '~/.config/matugen/templates/gtk4-colors.css'
+output_path = '~/.themes/material-gnome-theme/gtk-4.0/colors.css'
+
+[templates.gtk4_theme]
+input_path = '~/.config/matugen/templates/gtk4-colors.css'
+output_path = '~/.config/gtk-4.0/colors.css'
 post_hook = '~/.config/matugen/post-hook-scripts/gtk-themes-reload.sh'
 
 [templates.obsidian]
@@ -42,9 +117,9 @@ output_path = '~/.config/fzf/fzf-colors.conf'
 [templates.albert]
 input_path = '~/.config/matugen/templates/albert-theme.ini'
 output_path = '~/.local/share/albert/widgetsboxmodel/themes/Matugen.ini'
-post_hook = 'albert restart'
+#post_hook = 'albert restart'
 
 [templates.cursor]
 input_path = "~/.config/matugen/templates/cursors.json"
 output_path = "~/.config/colors.json"
-post_hook = "~/.config/matugen/post-hook-scripts/cursor_matugen.sh"
+#post_hook = "~/.config/matugen/post-hook-scripts/cursor_matugen.sh"

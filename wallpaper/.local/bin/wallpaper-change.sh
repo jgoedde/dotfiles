@@ -9,6 +9,8 @@ WALLPAPER=$(find "$WALLS_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -i
 gsettings set org.gnome.desktop.background picture-uri "file://$WALLPAPER"
 gsettings set org.gnome.desktop.background picture-uri-dark "file://$WALLPAPER"
 
+export RUST_BACKTRACE=full
+
 matugen image "$WALLPAPER" -m dark -q --source-color-index 0
 
 POST_SCRIPT="$HOME/.local/bin/wallpaper-post.sh"
