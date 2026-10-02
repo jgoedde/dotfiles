@@ -15,7 +15,8 @@ stow -t ~ -d "$DOTFILES" \
 	bat \
 	git \
 	fzf \
-	fd
+	fd \
+	npm
 
 # Third-Party-Plugins
 while read -r repo; do
