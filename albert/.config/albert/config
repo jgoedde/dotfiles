@@ -36,6 +36,9 @@ size=4
 [mediaremote]
 enabled=true
 
+[obsidian]
+enabled=true
+
 [python]
 enabled=true
 
@@ -60,6 +63,9 @@ match_path=false
 enabled=true
 
 [system]
+enabled=true
+
+[timer]
 enabled=true
 
 [urlhandler]
