@@ -25,6 +25,8 @@
     wip = commit -am "wip"
 [pull]
     rebase = true
+[push]
+    autoSetupRemote = true
 [rerere]
     enabled = true
 [color]
