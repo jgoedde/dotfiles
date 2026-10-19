@@ -16,6 +16,7 @@ stow -t ~ -d "$DOTFILES" \
 	git \
 	fzf \
 	fd \
+	claude \
 	npm
 
 # Third-Party-Plugins
