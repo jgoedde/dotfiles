@@ -16,18 +16,26 @@ if git -C "$cwd" rev-parse --git-dir > /dev/null 2>&1; then
   # Get branch
   branch=$(git -C "$cwd" --no-optional-locks rev-parse --abbrev-ref HEAD 2>/dev/null)
 
-  # Count staged files
-  staged=$(git -C "$cwd" --no-optional-locks diff --cached --name-only 2>/dev/null | wc -l)
-
-  # Count unstaged files (modified + deleted, not untracked)
-  unstaged=$(git -C "$cwd" --no-optional-locks diff --name-only 2>/dev/null | wc -l)
-
-  # Count untracked files
-  untracked=$(git -C "$cwd" --no-optional-locks ls-files --others --exclude-standard 2>/dev/null | wc -l)
-
-  printf '\033[01;36m%s\033[00m | \033[01;32m%s\033[00m | S: \033[01;33m%s\033[00m | U: \033[01;33m%s\033[00m | A: \033[01;33m%s\033[00m' \
-    "$repo_name" "$branch" "$staged" "$unstaged" "$untracked"
+  printf '\033[01;36m%s\033[00m | \033[01;32m%s\033[00m' \
+    "$repo_name" "$branch"
 else
   # Not a git repo
   printf '\033[01;36m%s\033[00m' "$cwd"
 fi
+
+# Caveman plugin mode (per-session file, falls back to global flag)
+cfg="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
+session_id=$(echo "$input" | sed -n 's/.*"session_id":"\([A-Za-z0-9_-]*\)".*/\1/p')
+caveman_flag="$cfg/.caveman-active"
+if [ -n "$session_id" ] && [ -f "$cfg/.caveman-sessions/$session_id.mode" ]; then
+  caveman_flag="$cfg/.caveman-sessions/$session_id.mode"
+fi
+caveman_mode=""
+if [ -f "$caveman_flag" ] && [ ! -L "$caveman_flag" ]; then
+  caveman_mode=$(head -c 64 "$caveman_flag" | tr -cd 'a-z0-9-')
+fi
+case "$caveman_mode" in
+  ''|off) printf ' | \033[02mCV: off\033[00m' ;;
+  caveman|lite|full) printf ' | \033[38;5;172mCV\033[00m' ;;
+  *) printf ' | \033[38;5;172mCV: %s\033[00m' "$caveman_mode" ;;
+esac
