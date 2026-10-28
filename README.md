@@ -37,10 +37,16 @@ my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
     - themed with a matugen-generated Material You palette (see below [Wallpapers](#how-wallpapers-work) section)
 - [matugen](https://github.com/InioX/matugen)
     - generates themes based on wallpaper (see below [Wallpapers](#how-wallpapers-work) section)
-- git config for local ignores and aliases
+- git config for local ignores and aliases (`pull.rebase`, `push.autoSetupRemote`, `rerere`)
 - [pywalfox](https://github.com/frewacom/pywalfox) to use the material colors in Firefox
-- [`fd`](https://github.com/sharkdp/fd) for better `find`
+- [`fd`](https://github.com/sharkdp/fd) for better `find`, also used as fzf source
+- [btop](https://github.com/aristocratos/btop) and [micro](https://github.com/zyedidia/micro), both matugen themed
 - [Material Bibata Cursor](https://github.com/SakibShahariar/material-bibata-cursor) - See [Cursors](#cursor)
+- Claude Code settings + status line (via [`ccstatusline`](https://github.com/sirmalloc/ccstatusline))
+- `.npmrc` with funding messages disabled
+
+The zsh config is modular: `~/.zshrc` only sources `~/.config/zsh/*` in order. Machine-local overrides go into
+`~/.config/zsh/custom/<same-filename>` or `~/.zshrc_custom`, not into the repo.
 
 ## Prerequisites
 
@@ -49,6 +55,7 @@ my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
 - zsh
 - kitty
 - oh-my-zsh
+- systemd (user session) and GNOME (`gsettings`)
 
 ## Installation
 
@@ -62,11 +69,12 @@ cd ~/dotfiles
 
 `install.sh` is doing three things:
 
-1. stowing the config dirs
+1. stowing the config dirs (each top-level dir is a stow package mirroring `$HOME`)
 2. installing the zsh plugins and spaceship prompt
 3. setting up the wallpaper change timer
 
 It does not download any other dependencies that are listed in Components section. Install them yourself.
+The repo is expected at `~/dotfiles`.
 
 ### Desktop configuration
 
@@ -79,8 +87,8 @@ gsettings set org.gnome.desktop.default-applications.terminal exec kitty
 ## How Wallpapers work
 
 Walls are expected to live in `$HOME/Pictures/walls`
-A systemd timer is set up every hour to change to a random wallpaper from the dir. Then, matugen is used to generate
-themes for following apps:
+A systemd user timer runs every hour (and 30s after boot) to change to a random wallpaper from the dir. Then, matugen
+is used (dark mode, `SchemeContent`) to generate themes for following apps:
 
 - kitty colors
 - bat
@@ -90,13 +98,19 @@ themes for following apps:
 - fzf
 - alberts `widgetsboxmodel` theme (restarts albert to apply, via
   `albert restart`)
+- btop
+- micro
+- cursor (see [Cursor](#cursor))
+
+An optional, untracked `~/.local/bin/wallpaper-post.sh` runs afterwards for machine-local steps, e.g. copying the
+Obsidian snippet into a vault (see `wallpaper-post.example.sh`).
 
 The generated kitty/bat/fzf color configs are committed to the repo (and marked
 `skip-worktree` locally) so a fresh clone has working colors before matugen ever runs.
 
 ## Font used
 
-~~[_Hack Nerd Font_](https://www.nerdfonts.com/font-downloads)~ _JetBrains Mono_, used in
+~~[_Hack Nerd Font_](https://www.nerdfonts.com/font-downloads)~~ _JetBrains Mono_, used in
 `kitty/.config/kitty/kitty.conf`
 
 ## Cursor
