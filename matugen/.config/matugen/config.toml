@@ -52,6 +52,7 @@ post_hook = "~/.config/matugen/post-hook-scripts/cursor_matugen.sh"
 [templates.btop]
 input_path = '~/.config/matugen/templates/btop.theme'
 output_path = '~/.config/btop/themes/matugen.theme'
+post_hook = 'pkill -USR2 btop || true'
 
 [templates.micro]
 input_path = "~/.config/matugen/templates/micro"
