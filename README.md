@@ -2,7 +2,7 @@
 
 my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
 
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/71f499c6-70d4-4433-8568-c97c7b775940" />
+<img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/13a8f46f-9c18-442b-956c-bfe06611d3da" />
 
 <h2>Table Of Contents</h2>
 
