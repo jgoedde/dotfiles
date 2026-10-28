@@ -18,6 +18,7 @@ stow -t ~ -d "$DOTFILES" \
 	fd \
 	claude \
 	btop \
+	micro \
 	npm
 
 # Third-Party-Plugins
