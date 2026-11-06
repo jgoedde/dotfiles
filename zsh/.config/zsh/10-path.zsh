@@ -1,4 +1,4 @@
-export PATH=$PATH:~/.local/bin/
+export PATH=$PATH:$HOME/.local/bin/
 export PATH=$PATH:/usr/local/go/bin
 
 # Opt out to tracking. Some applications support this. (`gh` CLI for example).
