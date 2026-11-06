@@ -22,4 +22,9 @@ if (( $+commands[pay-respects] )); then
   # Appended, so other apps give it the lowest precedence.
   export XDG_CONFIG_DIRS="${XDG_CONFIG_DIRS:-/etc/xdg}:$HOME/.cache/matugen/xdg"
   eval "$(pay-respects zsh --alias fuck)"
+  # Skip probes with redirected stderr (e.g. spaceship's `cygpath --version`)
+  command_not_found_handler() {
+    [[ -t 2 ]] || return 127
+    eval $(__pr_base "cnf" "$*")
+  }
 fi
