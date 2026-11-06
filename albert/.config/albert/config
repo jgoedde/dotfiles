@@ -49,6 +49,9 @@ enabled=true
 enabled=true
 trigger=dock
 
+[python.emoji]
+enabled=true
+
 [python.firefox]
 current_profile_path=xiuvjmeb.default-release
 enabled=true
