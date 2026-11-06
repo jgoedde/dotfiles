@@ -32,6 +32,8 @@ my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
     - [`fastfetch`](https://github.com/fastfetch-cli/fastfetch) on launch
     - [`eza`](https://github.com/eza-community/eza) for a better `ls` with icons & colors
     - [`zoxide`](https://github.com/ajeetdsouza/zoxide) for smarter `cd`
+- [pay-respects](https://github.com/iffse/pay-respects) funny little utility for the command line.
+    - matugen themed: matugen only writes the `[colors]` layer to `~/.cache/matugen/xdg/`, added to `XDG_CONFIG_DIRS`; settings stay in the `pay-respects` stow package
 - Launcher: [albert](https://github.com/albertlauncher/albert) launcher with search engines like Duden, YouTube, Google
   Maps etc.
     - themed with a matugen-generated Material You palette (see below [Wallpapers](#how-wallpapers-work) section)

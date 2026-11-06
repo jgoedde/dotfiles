@@ -1,0 +1,16 @@
+# Reference: https://github.com/iffse/pay-respects/blob/main/config.md
+# Colors are not set here: matugen writes them to ~/.cache/matugen/xdg/pay-respects/config.toml,
+# which is picked up via XDG_CONFIG_DIRS (see zsh/.config/zsh/30-customization.zsh).
+
+# Use the rules of the first entry for every command in the set (matches the ls/cat aliases).
+merge_commands = [
+	["ls", "eza"],
+	["cat", "bat"],
+]
+
+# Interactive programs that print nothing useful; don't wait for their output.
+blocking_commands = ["vim", "nano", "micro", "btop", "less", "fzf", "ssh"]
+
+[module.request-ai]
+# Local rules only, nothing leaves the machine.
+enabled = false

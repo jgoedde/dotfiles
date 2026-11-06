@@ -57,3 +57,7 @@ post_hook = 'pkill -USR2 btop || true'
 [templates.micro]
 input_path = "~/.config/matugen/templates/micro"
 output_path = "~/.config/micro/colorschemes/matugen.micro"
+
+[templates.pay-respects]
+input_path = '~/.config/matugen/templates/pay-respects.toml'
+output_path = '~/.cache/matugen/xdg/pay-respects/config.toml'

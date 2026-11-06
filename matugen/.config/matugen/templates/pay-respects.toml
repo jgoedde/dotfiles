@@ -1,0 +1,9 @@
+[colors]
+# Parts to correct and error messages
+wrong = "{{colors.error.default.hex}}"
+# Confirmations and successful states
+correct = "{{colors.tertiary.default.hex}}"
+# Unchanged parts and interface elements
+accent = "{{colors.primary.default.hex}}"
+# Keep the terminal foreground (kitty is already matugen-themed)
+normal = "none"
