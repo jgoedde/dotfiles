@@ -1,0 +1,12 @@
+[Unit]
+Description=Patch the dfiles UI for Qt 6.8 (see ~/.local/bin/dfiles-patch-ui.sh)
+Before=dfiles.service
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/dfiles-patch-ui.sh
+
+[Install]
+WantedBy=graphical-session.target
