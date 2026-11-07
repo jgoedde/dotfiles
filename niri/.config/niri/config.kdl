@@ -6,6 +6,8 @@ config-notification {
     disable-failed
 }
 
+spawn-at-startup "albert"
+
 gestures {
     hot-corners {
         off
