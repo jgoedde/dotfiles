@@ -50,7 +50,7 @@ enabled=true
 trigger=dock
 
 [python.emoji]
-enabled=true
+enabled=false
 
 [python.firefox]
 current_profile_path=mekdlxu0.default-esr
@@ -72,6 +72,9 @@ enabled=true
 enabled=true
 
 [urlhandler]
+enabled=true
+
+[vpn]
 enabled=true
 
 [websearch]
