@@ -23,6 +23,3 @@ alias dots="cd ~/dotfiles"
 
 alias filemanager='fm'
 alias files='fm'
-
-alias wp-tui='wp-tui && exit'
-
