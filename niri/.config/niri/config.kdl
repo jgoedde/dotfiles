@@ -223,14 +223,10 @@ window-rule {
     match app-id="kitty"
     draw-border-with-background false
 }
-// Albert launcher: centered (Wayland ignores albert's own showCentered), no focus ring / border.
-// "top" = horizontally centered; y is fixed so the input stays put while results grow downward.
-// x=203: Qt maps albert's first frame unscaled (814px * 1.5 = 1221px) and shrinks it right after;
-// niri centers on that first frame, so shift by (1221 - 814) / 2. Re-tune if scale or window_width change.
+// Albert launcher: no focus ring / border.
 window-rule {
     match app-id=r#"^albert$"#
     open-floating true
-    default-floating-position x=203 y=250 relative-to="top"
     focus-ring { off; }
     border { off; }
 }

@@ -16,3 +16,4 @@ fzf/.config/fzf/fzf-colors.conf
 micro/.config/micro/colorschemes/matugen.micro
 albert/.local/share/albert/python/plugins/albert.pyi
 /albert/.local/share/albert/albert.history
+/micro/.config/micro/buffers/history
