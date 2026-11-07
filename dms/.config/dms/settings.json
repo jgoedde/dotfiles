@@ -1,0 +1,31 @@
+{
+  "dmsWindowsFloatingSeeded": [
+    "niri"
+  ],
+  "configVersion": 42,
+  "connectedFrameBarStyleBackups": {},
+  "frameEnabled": false,
+  "batteryAutoPowerSaver": true,
+  "acProfileName": "2",
+  "batteryProfileName": "0",
+  "builtInPluginSettings": {
+    "dms_qr_generator": {
+      "trigger": "qrg"
+    },
+    "dms_power": {
+      "trigger": "pw"
+    },
+    "dms_clipboard_search": {
+      "trigger": "cb"
+    },
+    "dms_settings_search": {
+      "trigger": "?"
+    }
+  },
+  "wellbeingEnabled": false,
+  "floatingWindowSyncGlobal": true,
+  "terminalPalette": "medium",
+  "currentThemeName": "dynamic",
+  "currentThemeCategory": "dynamic",
+  "matugenSpec": "2025"
+}

@@ -5,3 +5,14 @@ __pycache__/
 *.log
 
 wallpaper/.config/systemd/user/timers.target.wants/
+
+albert/.local/share/albert/albert.db
+albert/.local/share/albert/state
+albert/.local/share/albert/python.firefox/favicons
+albert/.local/share/albert/widgetsboxmodel/themes/Matugen.ini
+bat/.config/bat/themes/matugen-bat-colors.tmTheme
+btop/.config/btop/themes/matugen.theme
+fzf/.config/fzf/fzf-colors.conf
+micro/.config/micro/colorschemes/matugen.micro
+albert/.local/share/albert/python/plugins/albert.pyi
+/albert/.local/share/albert/albert.history

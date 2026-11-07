@@ -53,7 +53,7 @@ trigger=dock
 enabled=true
 
 [python.firefox]
-current_profile_path=e6pmv1r8.default-release
+current_profile_path=mekdlxu0.default-esr
 enabled=true
 index_history=true
 

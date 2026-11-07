@@ -1,5 +1,5 @@
 [Unit]
-Description=Change wallpaper and update Kitty colors
+Description=Switch to a random wallpaper and re-theme via matugen
 
 [Service]
 Type=oneshot

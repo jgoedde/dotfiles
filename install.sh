@@ -20,6 +20,8 @@ stow -t ~ -d "$DOTFILES" \
 	btop \
 	micro \
 	pay-respects \
+	niri \
+	dms \
 	npm
 
 # Third-Party-Plugins
