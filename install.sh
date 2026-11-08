@@ -9,7 +9,7 @@ stow -t ~ -d "$DOTFILES" \
 	spaceship-prompt \
 	albert \
 	fastfetch \
-	kitty \
+	ghostty \
 	wallpaper \
 	matugen \
 	bat \

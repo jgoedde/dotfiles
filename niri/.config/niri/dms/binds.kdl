@@ -4,6 +4,7 @@ binds {
     Alt+XF86Launch1 hotkey-overlay-title="Screenshot: Window" { spawn "dms" "screenshot" "window"; }
     Ctrl+Alt+Delete hotkey-overlay-title="Task Manager" { spawn "dms" "ipc" "call" "processlist" "focusOrToggle"; }
     Ctrl+Alt+M hotkey-overlay-title="Task Manager" { spawn "dms" "ipc" "call" "processlist" "focusOrToggle"; }
+    Ctrl+Period hotkey-overlay-title="Emoji Picker" { spawn "dms" "ipc" "call" "emojiPicker" "open"; }
     Ctrl+Print hotkey-overlay-title="Screenshot: Full Screen" { spawn "dms" "screenshot" "full"; }
     Ctrl+XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "decrement" "3"; }
     Ctrl+XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "increment" "3"; }
@@ -142,9 +143,9 @@ binds {
     Mod+Shift+E { quit; }
     Ctrl+O hotkey-overlay-title="Albert launcher" { spawn "albert" "show"; }
     Mod+Ctrl+W hotkey-overlay-title="Random Wallpaper" { spawn-sh "~/.local/bin/wallpaper-change.sh"; }
-    Mod+Return hotkey-overlay-title="Open Terminal" { spawn "kitty"; }
-    Mod+T hotkey-overlay-title="Open Terminal" { spawn "kitty"; }
-    XF86TouchpadToggle allow-when-locked=true repeat=false { spawn "niri" "msg" "action" "toggle-touchpad"; }
+    Mod+Return hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
+    Mod+T hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
+    XF86TouchpadToggle repeat=false allow-when-locked=true { spawn "niri" "msg" "action" "toggle-touchpad"; }
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+O repeat=false { toggle-overview; }
     Mod+Tab repeat=false { toggle-overview; }
