@@ -124,7 +124,8 @@
       "hoverPopoutDelay": 150,
       "island": true,
       "dot": false,
-      "islandHighContrast": false
+      "islandHighContrast": false,
+      "islandInteractionMode": "click"
     },
     {
       "id": "dot1794082029515",
