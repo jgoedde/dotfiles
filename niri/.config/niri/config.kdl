@@ -6,8 +6,6 @@ config-notification {
     disable-failed
 }
 
-spawn-at-startup "albert"
-
 gestures {
     hot-corners {
         off
@@ -223,13 +221,6 @@ window-rule {
     match app-id="com.mitchellh.ghostty"
     match app-id="ghostty"
     draw-border-with-background false
-}
-// Albert launcher: no focus ring / border.
-window-rule {
-    match app-id=r#"^albert$"#
-    open-floating true
-    focus-ring { off; }
-    border { off; }
 }
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"

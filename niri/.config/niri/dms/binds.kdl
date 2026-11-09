@@ -142,12 +142,12 @@ binds {
     Mod+WheelScrollRight { focus-column-right; }
     Mod+Shift+P { power-off-monitors; }
     Mod+Shift+E { quit; }
-    Ctrl+O hotkey-overlay-title="Albert launcher" { spawn "albert" "show"; }
     Mod+Ctrl+W hotkey-overlay-title="Random Wallpaper" { spawn-sh "~/.local/bin/wallpaper-change.sh"; }
     Mod+Return hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
     Mod+T hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
     XF86TouchpadToggle repeat=false allow-when-locked=true { spawn "niri" "msg" "action" "toggle-touchpad"; }
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+O repeat=false { toggle-overview; }
+    Ctrl+O hotkey-overlay-title="Spotlight Bar" { spawn "dms" "ipc" "call" "spotlight-bar" "toggle"; }
     Mod+Tab repeat=false { toggle-overview; }
 }
