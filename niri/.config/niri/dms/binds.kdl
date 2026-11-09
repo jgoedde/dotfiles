@@ -23,7 +23,7 @@ binds {
     Mod+Shift+C hotkey-overlay-title="Color Picker" { spawn "dms" "ipc" "call" "color-picker" "toggle"; }
     Mod+Shift+N hotkey-overlay-title="Notepad: Expand" { spawn "dms" "ipc" "call" "notepad" "toggleExpand"; }
     Mod+Shift+S hotkey-overlay-title="Screenshot: Region" { spawn "dms" "screenshot"; }
-    Mod+Shift+Slash hotkey-overlay-title="Keyboard Shortcuts" { spawn "dms" "ipc" "call" "keybinds" "toggle" "niri"; }
+    Mod+F1 hotkey-overlay-title="Keyboard Shortcuts" { spawn "dms" "ipc" "call" "keybinds" "toggle" "niri"; }
     Mod+Shift+W hotkey-overlay-title="Create window rule" { spawn "dms" "ipc" "call" "window-rules" "toggle"; }
     Mod+Space hotkey-overlay-title="Application Launcher" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
     Mod+V hotkey-overlay-title="Clipboard Manager" { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
