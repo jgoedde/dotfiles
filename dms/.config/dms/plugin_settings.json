@@ -5,9 +5,6 @@
   "emojiPicker": {
     "enabled": true
   },
-  "miniDesktop": {
-    "enabled": true
-  },
   "webSearch": {
     "enabled": true,
     "noTrigger": true,
