@@ -24,7 +24,7 @@ else
 	gsettings set org.gnome.desktop.background picture-uri-dark "file://$WALLPAPER"
 fi
 
-# DMS renders the user templates but not their post_hooks (cursor, bat cache, btop, albert, ...),
+# DMS renders the user templates but not their post_hooks (cursor, bat cache, btop, ...),
 # so run matugen ourselves.
 # matugen 4 requires a [config] table; config.toml stays without one because DMS merges
 # it into its own config (which already has [config]), so prepend it to a temp copy.

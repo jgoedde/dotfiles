@@ -16,11 +16,6 @@ post_hook = 'bat cache --build'
 input_path = '~/.config/matugen/templates/fzf-colors.conf'
 output_path = '~/.config/fzf/fzf-colors.conf'
 
-[templates.albert]
-input_path = '~/.config/matugen/templates/albert-theme.ini'
-output_path = '~/.local/share/albert/widgetsboxmodel/themes/Matugen.ini'
-post_hook = 'albert restart'
-
 [templates.cursor]
 input_path = "~/.config/matugen/templates/cursors.json"
 output_path = "~/.config/colors.json"
