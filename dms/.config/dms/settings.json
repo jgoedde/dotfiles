@@ -437,54 +437,5 @@
   "updaterCheckOnStart": true,
   "updaterNotify": true,
   "updaterUpgradeInWindow": false,
-  "desktopWidgetInstances": [
-    {
-      "id": "dw_1794231634480_8q7ijitwl",
-      "widgetType": "systemMonitor",
-      "name": "System Monitor",
-      "enabled": true,
-      "config": {
-        "showHeader": true,
-        "transparency": 0.8,
-        "colorMode": "primary",
-        "customColor": "#ffffff",
-        "showCpu": true,
-        "showCpuGraph": true,
-        "showCpuTemp": true,
-        "showGpuTemp": false,
-        "gpuPciId": "",
-        "showMemory": true,
-        "showMemoryGraph": true,
-        "showNetwork": true,
-        "showNetworkGraph": true,
-        "showDisk": true,
-        "showTopProcesses": false,
-        "topProcessCount": 3,
-        "topProcessSortBy": "cpu",
-        "layoutMode": "auto",
-        "graphInterval": 60,
-        "displayPreferences": [
-          "all"
-        ]
-      }
-    },
-    {
-      "id": "dw_1794231752530_lynxe3ihz",
-      "widgetType": "desktopClock",
-      "name": "Clock",
-      "enabled": true,
-      "config": {
-        "style": "analog",
-        "transparency": 0.91,
-        "colorMode": "primary",
-        "customColor": "#ffffff",
-        "showDate": true,
-        "showAnalogNumbers": true,
-        "showAnalogSeconds": true,
-        "displayPreferences": [
-          "all"
-        ]
-      }
-    }
-  ]
+  "desktopWidgetInstances": []
 }
