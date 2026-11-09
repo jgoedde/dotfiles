@@ -25,6 +25,9 @@ stow -t ~ -d "$DOTFILES" \
 	dfiles \
 	npm
 
+# DMS plugins (launcher web search, calculator, ...), pinned in the lockfile
+dms plugins restore "$DOTFILES/dms/.config/dms/plugins.lock.json"
+
 # Third-Party-Plugins
 while read -r repo; do
 	name=$(basename "$repo")

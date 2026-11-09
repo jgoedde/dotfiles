@@ -1,0 +1,125 @@
+{
+  "quickCapture": {
+    "enabled": true
+  },
+  "emojiPicker": {
+    "enabled": true
+  },
+  "miniDesktop": {
+    "enabled": true
+  },
+  "webSearch": {
+    "enabled": true,
+    "noTrigger": true,
+    "trigger": "",
+    "defaultEngine": "g",
+    "searchEngines": [
+      {
+        "id": "g",
+        "name": "Google",
+        "icon": "material:travel_explore",
+        "url": "https://www.google.com/search?q=%s",
+        "keywords": [
+          "g"
+        ]
+      },
+      {
+        "id": "dwds",
+        "name": "DWDS",
+        "icon": "material:menu_book",
+        "url": "https://www.dwds.de/wb/%s",
+        "keywords": [
+          "d"
+        ]
+      },
+      {
+        "id": "gh",
+        "name": "GitHub",
+        "icon": "unicode:",
+        "url": "https://github.com/search?q=%s",
+        "keywords": [
+          "gh"
+        ]
+      },
+      {
+        "id": "yt",
+        "name": "YouTube",
+        "icon": "material:youtube_activity",
+        "url": "https://www.youtube.com/results?search_query=%s",
+        "keywords": [
+          "y"
+        ]
+      },
+      {
+        "id": "gmaps",
+        "name": "Google Maps",
+        "icon": "material:map",
+        "url": "https://www.google.com/maps/search/%s/",
+        "keywords": [
+          "gm",
+          "gmaps"
+        ]
+      },
+      {
+        "id": "deepl-write",
+        "name": "DeepL Write",
+        "icon": "material:edit_note",
+        "url": "https://www.deepl.com/en/write#en-US/%s",
+        "keywords": [
+          "dwrite"
+        ]
+      },
+      {
+        "id": "deepl-deen",
+        "name": "Deutsch-Englisch",
+        "icon": "material:translate",
+        "url": "https://www.deepl.com/en/translator#de/en/%s",
+        "keywords": [
+          "deen"
+        ]
+      },
+      {
+        "id": "deepl-ende",
+        "name": "English-Deutsch",
+        "icon": "material:translate",
+        "url": "https://www.deepl.com/en/translator#en/de/%s",
+        "keywords": [
+          "ende"
+        ]
+      }
+    ],
+    "disabledEngines": [
+      "google",
+      "duckduckgo",
+      "brave",
+      "bing",
+      "kagi",
+      "youtube",
+      "github",
+      "stackoverflow",
+      "reddit",
+      "wikipedia",
+      "amazon",
+      "ebay",
+      "maps",
+      "images",
+      "twitter",
+      "linkedin",
+      "imdb",
+      "translate",
+      "archlinux",
+      "aur",
+      "nixpkgs",
+      "nixopts",
+      "npmjs",
+      "pypi",
+      "crates",
+      "mdn"
+    ]
+  },
+  "calculator": {
+    "enabled": true,
+    "noTrigger": true,
+    "trigger": ""
+  }
+}
