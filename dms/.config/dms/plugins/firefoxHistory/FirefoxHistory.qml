@@ -34,6 +34,7 @@ QtObject {
                     root.entries = data.map(e => ({
                                 url: e.u,
                                 title: e.t,
+                                icon: e.i || "",
                                 haystack: (e.t + " " + e.u).toLowerCase()
                             }));
                     root.lastRefresh = Date.now();
@@ -96,7 +97,7 @@ QtObject {
 
         return titleHits.concat(urlHits).slice(0, 20).map(e => ({
                     name: e.title,
-                    icon: "material:history",
+                    icon: e.icon || "material:history",
                     comment: displayUrl(e.url),
                     action: "open:" + e.url,
                     categories: ["Firefox"]
