@@ -437,5 +437,6 @@
   "updaterCheckOnStart": true,
   "updaterNotify": true,
   "updaterUpgradeInWindow": false,
-  "desktopWidgetInstances": []
+  "desktopWidgetInstances": [],
+  "terminalsAlwaysDark": true
 }
