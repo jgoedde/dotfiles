@@ -251,7 +251,5 @@ include optional=true "dms/alttab.kdl"
 include optional=true "dms/binds.kdl"
 include optional=true "dms/outputs.kdl"
 include optional=true "dms/cursor.kdl"
-// Wallpaper-matched cursor, written by the matugen cursor post-hook; overrides dms/cursor.kdl
-include optional=true "matugen-cursor.kdl"
 include optional=true "dms/input.kdl"
 include "dms/windowrules.kdl"

@@ -438,5 +438,25 @@
   "updaterNotify": true,
   "updaterUpgradeInWindow": false,
   "desktopWidgetInstances": [],
-  "terminalsAlwaysDark": true
+  "terminalsAlwaysDark": true,
+  "cursorSettings": {
+    "theme": "macOS-White",
+    "size": 24,
+    "niri": {
+      "hideWhenTyping": false,
+      "hideAfterInactiveMs": 0
+    },
+    "hyprland": {
+      "hideOnKeyPress": false,
+      "hideOnTouch": false,
+      "inactiveTimeout": 0,
+      "warpOnMonitorChange": -1
+    },
+    "dwl": {
+      "cursorHideTimeout": 0
+    },
+    "mango": {
+      "cursorHideTimeout": 0
+    }
+  }
 }
