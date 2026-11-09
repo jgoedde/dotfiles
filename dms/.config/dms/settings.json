@@ -421,5 +421,8 @@
   "soundLogin": true,
   "launcherPluginOrder": [
     "urlOpener"
+  ],
+  "mediaExcludePlayers": [
+    "jbl"
   ]
 }
