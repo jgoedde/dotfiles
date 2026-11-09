@@ -9,6 +9,7 @@ binds {
     Ctrl+XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "decrement" "3"; }
     Ctrl+XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "increment" "3"; }
     Ctrl+XF86Launch1 hotkey-overlay-title="Screenshot: Full Screen" { spawn "dms" "screenshot" "full"; }
+    KP_Subtract allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "micmute"; }
     Mod+A hotkey-overlay-title="Control Center" { spawn "dms" "ipc" "call" "control-center" "toggle"; }
     Mod+Alt+I hotkey-overlay-title="Idle Inhibit" { spawn "dms" "ipc" "call" "inhibit" "toggle"; }
     Mod+Alt+L hotkey-overlay-title="Lock Screen" { spawn "dms" "ipc" "call" "lock" "lock"; }
@@ -17,13 +18,13 @@ binds {
     Mod+Comma hotkey-overlay-title="Settings" { spawn "dms" "ipc" "call" "settings" "focusOrToggle"; }
     Mod+Ctrl+N hotkey-overlay-title="Notification Center" { spawn "dms" "ipc" "call" "notifications" "toggle"; }
     Mod+D hotkey-overlay-title="Dash" { spawn "dms" "ipc" "call" "dash" "toggle" ""; }
+    Mod+F1 hotkey-overlay-title="Keyboard Shortcuts" { spawn "dms" "ipc" "call" "keybinds" "toggle" "niri"; }
     Mod+M hotkey-overlay-title="Media" { spawn "dms" "ipc" "call" "dash" "toggle" "media"; }
     Mod+N hotkey-overlay-title="Notepad" { spawn "dms" "ipc" "call" "notepad" "toggle"; }
     Mod+P hotkey-overlay-title="Cycle Display Profile" { spawn "dms" "ipc" "outputs" "cycleProfile"; }
     Mod+Shift+C hotkey-overlay-title="Color Picker" { spawn "dms" "ipc" "call" "color-picker" "toggle"; }
     Mod+Shift+N hotkey-overlay-title="Notepad: Expand" { spawn "dms" "ipc" "call" "notepad" "toggleExpand"; }
     Mod+Shift+S hotkey-overlay-title="Screenshot: Region" { spawn "dms" "screenshot"; }
-    Mod+F1 hotkey-overlay-title="Keyboard Shortcuts" { spawn "dms" "ipc" "call" "keybinds" "toggle" "niri"; }
     Mod+Shift+W hotkey-overlay-title="Create window rule" { spawn "dms" "ipc" "call" "window-rules" "toggle"; }
     Mod+Space hotkey-overlay-title="Application Launcher" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
     Mod+V hotkey-overlay-title="Clipboard Manager" { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
