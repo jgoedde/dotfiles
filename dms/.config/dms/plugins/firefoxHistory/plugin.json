@@ -1,0 +1,17 @@
+{
+    "id": "firefoxHistory",
+    "name": "Firefox History",
+    "description": "Search Firefox history from the launcher",
+    "version": "1.0.0",
+    "author": "Julian Gödde",
+    "icon": "history",
+    "type": "launcher",
+    "capabilities": ["launcher"],
+    "component": "./FirefoxHistory.qml",
+    "trigger": "ff",
+    "requires": ["python3"],
+    "permissions": [
+        "settings_read",
+        "process"
+    ]
+}

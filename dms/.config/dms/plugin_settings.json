@@ -121,5 +121,10 @@
     "enabled": true,
     "noTrigger": true,
     "trigger": ""
+  },
+  "firefoxHistory": {
+    "enabled": true,
+    "noTrigger": true,
+    "trigger": ""
   }
 }
