@@ -418,5 +418,8 @@
     }
   ],
   "useAutoLocation": true,
-  "soundLogin": true
+  "soundLogin": true,
+  "launcherPluginOrder": [
+    "urlOpener"
+  ]
 }
