@@ -31,8 +31,8 @@
   "appDrawerSectionViewModes": {
     "apps": "list"
   },
-  "springBounce": 2,
-  "motionEffect": 3,
+  "springBounce": 1,
+  "motionEffect": 0,
   "barConfigs": [
     {
       "id": "default",
@@ -424,5 +424,13 @@
   ],
   "mediaExcludePlayers": [
     "jbl"
-  ]
+  ],
+  "monoFontFamily": "FiraCode Nerd Font",
+  "fontWeight": 500,
+  "fontScale": 1.03,
+  "displayFontFamily": "Google Sans Flex",
+  "fontFamily": "Quicksand Medium",
+  "lockScreenWallpaperFillMode": "Tile",
+  "lockScreenPowerOffMonitorsOnLock": true,
+  "notificationPopupPosition": 0
 }
