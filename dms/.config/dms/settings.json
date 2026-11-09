@@ -417,5 +417,6 @@
       ]
     }
   ],
-  "useAutoLocation": true
+  "useAutoLocation": true,
+  "soundLogin": true
 }
