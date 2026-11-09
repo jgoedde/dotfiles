@@ -19,7 +19,7 @@ scrollback-limit = 3023
 
 # Terminal features
 mouse-hide-while-typing = true
-copy-on-select = false
+copy-on-select = clipboard
 confirm-close-surface = false
 
 # Disable in-app Ghostty toast notifications
