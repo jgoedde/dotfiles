@@ -1,5 +1,5 @@
 # Enable auto-completion and keybindings
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+(( $+commands[fzf] )) && source <(fzf --zsh)
 
 # Default fd command
 FD="fd --hidden --follow"
