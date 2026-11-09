@@ -1,0 +1,15 @@
+{
+    "id": "urlOpener",
+    "name": "Open URL",
+    "description": "Open the typed URL or domain (e.g. fast.com) in the default browser",
+    "version": "1.0.0",
+    "author": "Julian Gödde",
+    "icon": "open_in_browser",
+    "type": "launcher",
+    "capabilities": ["launcher"],
+    "component": "./UrlOpener.qml",
+    "trigger": "",
+    "permissions": [
+        "settings_read"
+    ]
+}

@@ -38,6 +38,8 @@ my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
   [`calculator`](https://github.com/rochacbruno/DankCalculator) launcher plugins, both without trigger prefix
     - search engines by keyword, e.g. `d <word>` (DWDS), `gh`, `y` (YouTube), `gm` (Google Maps), `deen`/`ende`/`dwrite` (DeepL);
       any other query offers Google and the other engines
+    - typed URLs/domains (`fast.com`, `localhost:3000`) open directly in the default browser via the local `urlOpener`
+      plugin, ranked above the other plugins (`launcherPluginOrder` in `settings.json`)
     - Firefox history via the local `firefoxHistory` plugin (`dms/.config/dms/plugins/firefoxHistory`,
       no trigger, refreshes every 2 min from a copy of `places.sqlite`)
     - configured in `dms/.config/dms/plugin_settings.json`; plugins pinned in `plugins.lock.json`

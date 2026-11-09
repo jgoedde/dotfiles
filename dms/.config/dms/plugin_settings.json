@@ -126,5 +126,10 @@
     "enabled": true,
     "noTrigger": true,
     "trigger": ""
+  },
+  "urlOpener": {
+    "enabled": true,
+    "noTrigger": true,
+    "trigger": ""
   }
 }
