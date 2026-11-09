@@ -102,8 +102,8 @@ Walls are expected to live in `<XDG pictures dir>/Walls` (e.g. `~/Pictures/Walls
 `WALLS_DIR`).
 A systemd user timer runs every hour (and 30s after boot) to change to a random wallpaper from the dir; under niri,
 `Mod+Ctrl+W` does the same on demand. The wallpaper is set via DMS (`dms ipc call wallpaper set`) when it is running,
-otherwise via GNOME `gsettings`. Then, matugen is run in dark mode (with its post hooks, which DMS's own matugen run
-skips) to generate themes for following apps:
+otherwise via GNOME `gsettings`. Then, `matugen-apply.sh` runs matugen (with its post hooks, which DMS's own matugen
+run skips) using the light/dark mode, scheme and contrast currently set in DMS, to generate themes for following apps:
 
 - bat
 - obsidian
@@ -112,6 +112,10 @@ skips) to generate themes for following apps:
 - btop
 - micro
 - cursor (see [Cursor](#cursor))
+
+Toggling light/dark mode in DMS re-runs `matugen-apply.sh` via the `matugen-mode-sync.path` unit (it watches DMS's
+`session.json` and only acts when the mode actually changed). The Obsidian snippet holds both palettes
+(`.theme-dark` / `.theme-light`), so with Obsidian's base color scheme set to "Adapt to system" it switches instantly.
 
 GTK 3/4 colors come from DMS itself (`dank-colors.css`, enabled once via DMS settings → "Apply GTK colors").
 

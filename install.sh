@@ -47,6 +47,7 @@ ln -sf "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/th
 echo "Setting up wallpaper timer..."
 systemctl --user daemon-reload
 systemctl --user enable --now wallpaper-change.timer
+systemctl --user enable --now matugen-mode-sync.path
 
 # dfiles Qt 6.8 workaround (see dfiles/.local/bin/dfiles-patch-ui.sh)
 systemctl --user enable --now dfiles-patch-ui.service

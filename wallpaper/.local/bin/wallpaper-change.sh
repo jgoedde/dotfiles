@@ -24,17 +24,5 @@ else
 	gsettings set org.gnome.desktop.background picture-uri-dark "file://$WALLPAPER"
 fi
 
-# DMS renders the user templates but not their post_hooks (cursor, bat cache, btop, ...),
-# so run matugen ourselves.
-# matugen 4 requires a [config] table; config.toml stays without one because DMS merges
-# it into its own config (which already has [config]), so prepend it to a temp copy.
-MATUGEN_CONFIG="$HOME/.config/matugen/config.toml"
-TMP_CONFIG=$(mktemp --suffix=.toml)
-trap 'rm -f "$TMP_CONFIG"' EXIT
-{ printf '[config]\n\n'; cat "$MATUGEN_CONFIG"; } > "$TMP_CONFIG"
-matugen image "$WALLPAPER" -c "$TMP_CONFIG" -m dark -q --source-color-index 0
-
-POST_SCRIPT="$HOME/.local/bin/wallpaper-post.sh"
-[ -x "$POST_SCRIPT" ] && "$POST_SCRIPT" "$WALLPAPER"
-
-exit 0
+# Re-theme the own matugen templates for the new wallpaper (honours DMS light/dark mode)
+"$HOME/.local/bin/matugen-apply.sh" "$WALLPAPER"
