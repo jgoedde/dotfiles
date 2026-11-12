@@ -373,7 +373,7 @@
       "showOnFullscreen": false,
       "openOnOverview": false,
       "groupByApp": true,
-      "separatePinnedAndRunningApps": false,
+      "separatePinnedAndRunningApps": true,
       "restoreSpecialWorkspaceOnClick": false,
       "isolateDisplays": false,
       "indicatorStyle": "circle",
@@ -382,9 +382,9 @@
       "borderOpacity": 1,
       "borderThickness": 1,
       "launcherEnabled": true,
-      "launcherLogoMode": "os",
+      "launcherLogoMode": "compositor",
       "launcherLogoCustomPath": "",
-      "launcherLogoColorOverride": "",
+      "launcherLogoColorOverride": "primary",
       "launcherLogoSizeOffset": 0,
       "launcherLogoBrightness": 0.5,
       "launcherLogoContrast": 1,
@@ -419,7 +419,7 @@
     }
   ],
   "useAutoLocation": true,
-  "soundLogin": true,
+  "soundLogin": false,
   "launcherPluginOrder": [
     "urlOpener"
   ],
@@ -458,5 +458,17 @@
     "mango": {
       "cursorHideTimeout": 0
     }
-  }
+  },
+  "notificationRules": [
+    {
+      "enabled": true,
+      "field": "appName",
+      "pattern": "wp-tui",
+      "matchType": "contains",
+      "action": "ignore",
+      "urgency": "default",
+      "bypassDnd": false,
+      "conditions": []
+    }
+  ]
 }
