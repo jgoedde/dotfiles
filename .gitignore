@@ -4,7 +4,8 @@ __pycache__/
 .venv/
 *.log
 
-wallpaper/.config/systemd/user/timers.target.wants/
+# systemctl enable writes these through folded stow links (machines stowed before --no-folding)
+*/.config/systemd/user/*.wants/
 
 bat/.config/bat/themes/matugen-bat-colors.tmTheme
 btop/.config/btop/themes/matugen.theme

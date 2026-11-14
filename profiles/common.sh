@@ -13,9 +13,3 @@ while read -r repo; do
 	target="$ZSH_CUSTOM/plugins/$name"
 	[ -d "$target" ] || git clone --depth 1 "$repo" "$target"
 done < "$DOTFILES/zsh/custom-plugins.txt"
-
-# Wallpaper colors
-echo "Setting up wallpaper timer..."
-systemctl --user daemon-reload
-systemctl --user enable --now wallpaper-change.timer
-systemctl --user enable --now matugen-mode-sync.path

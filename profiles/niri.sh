@@ -10,3 +10,6 @@ dms plugins restore "$DOTFILES/dms/.config/dms/plugins.lock.json"
 # dfiles Qt 6.8 workaround (see dfiles/.local/bin/dfiles-patch-ui.sh)
 systemctl --user daemon-reload
 systemctl --user enable --now dfiles-patch-ui.service
+
+# Re-theme the own matugen templates when the wallpaper or light/dark mode changes in DMS
+systemctl --user enable --now matugen-sync.path

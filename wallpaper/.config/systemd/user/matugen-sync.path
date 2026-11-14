@@ -1,0 +1,9 @@
+[Unit]
+Description=Watch DMS session for wallpaper and light/dark mode changes
+
+[Path]
+PathChanged=%h/.local/state/dms/session.json
+Unit=matugen-sync.service
+
+[Install]
+WantedBy=default.target

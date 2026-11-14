@@ -1,6 +1,6 @@
 #!/bin/bash
 # Switch to a random wallpaper and re-theme everything via matugen.
-# Used by the systemd timer and the niri Mod+Ctrl+W binding.
+# Used by the niri Mod+Ctrl+W binding.
 
 PICTURES_DIR=$(xdg-user-dir PICTURES 2>/dev/null || echo "$HOME/Pictures")
 WALLS_DIR="${WALLS_DIR:-$PICTURES_DIR/Walls}"

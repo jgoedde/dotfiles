@@ -1,9 +1,9 @@
 [Unit]
-Description=Re-render own matugen templates after a DMS light/dark mode change
+Description=Re-render own matugen templates after a DMS wallpaper or light/dark mode change
 
 [Service]
 Type=oneshot
 # Let DMS finish its own matugen run first so ours (with post_hooks) lands last
 ExecStartPre=/bin/sleep 2
-ExecStart=%h/.local/bin/matugen-apply.sh --if-mode-changed
+ExecStart=%h/.local/bin/matugen-apply.sh --if-changed
 Environment="DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/%U/bus"

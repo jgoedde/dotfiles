@@ -2,28 +2,25 @@
 # Render the own matugen templates (~/.config/matugen/config.toml) for a wallpaper,
 # matching the light/dark mode, scheme and contrast currently set in DMS.
 #
-# Usage: matugen-apply.sh [--if-mode-changed] [WALLPAPER]
-#   WALLPAPER          defaults to the wallpaper currently shown by DMS
-#   --if-mode-changed  only run when the DMS light/dark mode differs from the last run
-#                      (used by matugen-mode-sync.path on DMS session changes)
+# Usage: matugen-apply.sh [--if-changed] [WALLPAPER]
+#   WALLPAPER     defaults to the wallpaper currently shown by DMS
+#   --if-changed  only run when the wallpaper or the DMS light/dark mode differs from
+#                 the last run (used by matugen-sync.path on DMS session changes)
 
-IF_MODE_CHANGED=0
-if [ "${1:-}" = "--if-mode-changed" ]; then
-	IF_MODE_CHANGED=1
+IF_CHANGED=0
+if [ "${1:-}" = "--if-changed" ]; then
+	IF_CHANGED=1
 	shift
 fi
 
 DMS_SESSION="${XDG_STATE_HOME:-$HOME/.local/state}/dms/session.json"
 DMS_SETTINGS="${XDG_CONFIG_HOME:-$HOME/.config}/dms/settings.json"
-MODE_STAMP="${XDG_CACHE_HOME:-$HOME/.cache}/matugen/last-mode"
+# Records the mode and wallpaper of the last successful run, one per line
+LAST_APPLY="${XDG_CACHE_HOME:-$HOME/.cache}/matugen/last-apply"
 
 MODE=dark
 if [ "$(jq -r '.isLightMode // false' "$DMS_SESSION" 2>/dev/null)" = "true" ]; then
 	MODE=light
-fi
-
-if [ "$IF_MODE_CHANGED" = 1 ] && [ "$(cat "$MODE_STAMP" 2>/dev/null)" = "$MODE" ]; then
-	exit 0
 fi
 
 WALLPAPER="${1:-}"
@@ -31,6 +28,11 @@ if [ -z "$WALLPAPER" ] && command -v dms >/dev/null 2>&1; then
 	WALLPAPER=$(dms ipc call wallpaper get 2>/dev/null)
 fi
 [ -f "$WALLPAPER" ] || { echo "matugen-apply: no wallpaper found" >&2; exit 1; }
+
+APPLY_STATE=$(printf '%s\n%s' "$MODE" "$WALLPAPER")
+if [ "$IF_CHANGED" = 1 ] && [ "$(cat "$LAST_APPLY" 2>/dev/null)" = "$APPLY_STATE" ]; then
+	exit 0
+fi
 
 # Keep scheme and contrast in sync with what DMS renders, so both runs produce the same colors
 SCHEME=$(jq -r '.matugenScheme // "scheme-tonal-spot"' "$DMS_SETTINGS" 2>/dev/null || echo scheme-tonal-spot)
@@ -47,8 +49,8 @@ trap 'rm -f "$TMP_CONFIG"' EXIT
 matugen image "$WALLPAPER" -c "$TMP_CONFIG" -m "$MODE" -t "$SCHEME" --contrast "$CONTRAST" \
 	-q --source-color-index 0 || exit 1
 
-mkdir -p "$(dirname "$MODE_STAMP")"
-echo "$MODE" > "$MODE_STAMP"
+mkdir -p "$(dirname "$LAST_APPLY")"
+printf '%s\n' "$APPLY_STATE" > "$LAST_APPLY"
 
 POST_SCRIPT="$HOME/.local/bin/wallpaper-post.sh"
 [ -x "$POST_SCRIPT" ] && "$POST_SCRIPT" "$WALLPAPER"
