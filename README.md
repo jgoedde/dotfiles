@@ -155,6 +155,8 @@ Packages in `profiles/gnome.txt`:
   (apps, calculator, Firefox history, JetBrains projects, Obsidian, emoji, …), matugen themed
 - `matugen-gnome`: GNOME-only matugen templates and post hooks (gtk3/gtk4, albert) and their
   `config.d/gnome.toml` fragment
+- `ghostty-gnome`: ghostty overrides (`~/.config/ghostty/gnome`) for window decorations, so windows can be moved
+  and resized
 
 `profiles/gnome.sh` sets, via `gsettings`:
 

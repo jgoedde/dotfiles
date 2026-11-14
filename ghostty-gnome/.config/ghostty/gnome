@@ -1,0 +1,4 @@
+# GNOME-only overrides, loaded by config via `config-file = ?gnome`.
+# Mutter has no tiling, so windows need a titlebar and borders to move and resize.
+window-decoration = auto
+gtk-titlebar = true

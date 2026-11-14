@@ -50,3 +50,6 @@ gtk-single-instance = true
 
 # Colors: rendered by matugen (templates/ghostty)
 theme = matugen
+
+# Profile overrides: present only when the profile's ghostty package is stowed
+config-file = ?gnome
