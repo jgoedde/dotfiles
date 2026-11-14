@@ -1,0 +1,36 @@
+# Matugen template for ghostty (~/.config/ghostty/themes/matugen).
+# Always rendered from the dark palette: terminals stay dark in light mode.
+# Black, white, red, blue and magenta follow the wallpaper. Bright red, green, yellow and cyan
+# are fixed so they stay readable.
+
+background = {{colors.surface.dark.hex}}
+foreground = {{colors.on_surface.dark.hex}}
+cursor-color = {{colors.primary.dark.hex}}
+cursor-text = {{colors.on_primary.dark.hex}}
+selection-background = {{colors.secondary_container.dark.hex}}
+selection-foreground = {{colors.on_secondary_container.dark.hex}}
+
+# black
+palette = 0={{colors.surface_container_highest.dark.hex}}
+palette = 8={{colors.outline.dark.hex}}
+# red
+palette = 1={{colors.error.dark.hex}}
+palette = 9=#c49ea0
+# green
+palette = 2=#8fb58f
+palette = 10=#9ec49f
+# yellow
+palette = 3=#aca98a
+palette = 11=#c4c19e
+# blue
+palette = 4={{colors.primary.dark.hex}}
+palette = 12={{colors.primary_fixed.dark.hex}}
+# magenta
+palette = 5={{colors.tertiary.dark.hex}}
+palette = 13={{colors.tertiary_fixed.dark.hex}}
+# cyan
+palette = 6=#8ab3ac
+palette = 14=#9ec3c4
+# white
+palette = 7={{colors.on_surface_variant.dark.hex}}
+palette = 15={{colors.on_surface.dark.hex}}

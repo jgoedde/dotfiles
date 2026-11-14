@@ -24,7 +24,7 @@ my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
 ## Components overview
 
 - GNU stow to create symlinks to actual user directories
-- Terminal: [kitty](https://github.com/kovidgoyal/kitty)
+- Terminal: [ghostty](https://github.com/ghostty-org/ghostty)
 - Shell: zsh
     - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) for theming and plugins
     - built-in `robbyrussell` theme (minimal prompt)
@@ -68,7 +68,7 @@ The zsh config is modular: `~/.zshrc` only sources `~/.config/zsh/*` in order. M
 - git
 - stow
 - zsh
-- kitty
+- ghostty
 - oh-my-zsh
 - systemd (user session) and GNOME (`gsettings`)
 
@@ -112,10 +112,10 @@ stow -D -t ~ $(cat profiles/*.txt)
 
 ### Desktop configuration
 
-After installing kitty, set it as default terminal.
+After installing ghostty, set it as default terminal.
 
 ```sh
-gsettings set org.gnome.desktop.default-applications.terminal exec kitty
+gsettings set org.gnome.desktop.default-applications.terminal exec ghostty
 ```
 
 ## How Wallpapers work
@@ -133,6 +133,7 @@ run skips) using the light/dark mode, scheme and contrast currently set in DMS, 
 - fzf
 - btop
 - micro
+- ghostty (dark palette even in light mode; open windows reload via `USR2`)
 - cursor (see [Cursor](#cursor))
 
 Toggling light/dark mode in DMS re-runs `matugen-apply.sh` via the `matugen-mode-sync.path` unit (it watches DMS's
@@ -144,13 +145,13 @@ GTK 3/4 colors come from DMS itself (`dank-colors.css`, enabled once via DMS set
 An optional, untracked `~/.local/bin/wallpaper-post.sh` runs afterwards for machine-local steps, e.g. copying the
 Obsidian snippet into a vault (see `wallpaper-post.example.sh`).
 
-The generated color configs (bat, fzf, btop, micro) are not tracked and are listed in
-`.gitignore`. Run matugen once on a fresh clone to create them.
+The generated color configs (bat, fzf, btop, micro, ghostty) are not tracked and are listed in
+`.gitignore`. Run `matugen-apply.sh` once on a fresh clone to create them (without DMS, pass the wallpaper path:
+`matugen-apply.sh <wallpaper>`).
 
 ## Font used
 
-~~[_Hack Nerd Font_](https://www.nerdfonts.com/font-downloads)~~ _JetBrains Mono_, used in
-`kitty/.config/kitty/kitty.conf`
+~~[_Hack Nerd Font_](https://www.nerdfonts.com/font-downloads)~~ _JetBrains Mono_, ghostty's built-in default
 
 ## Cursor
 

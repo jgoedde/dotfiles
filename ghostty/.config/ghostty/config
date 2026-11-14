@@ -48,5 +48,5 @@ keybind = shift+enter=text:\n
 # Rando stuff
 gtk-single-instance = true
 
-# Dank color generation
-theme = dankcolors
+# Colors: rendered by matugen (templates/ghostty)
+theme = matugen

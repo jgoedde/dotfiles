@@ -5,5 +5,5 @@ wrong = "{{colors.error.default.hex}}"
 correct = "{{colors.tertiary.default.hex}}"
 # Unchanged parts and interface elements
 accent = "{{colors.primary.default.hex}}"
-# Keep the terminal foreground (kitty is already matugen-themed)
+# Keep the terminal foreground (ghostty is already matugen-themed)
 normal = "none"

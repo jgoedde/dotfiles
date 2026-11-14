@@ -28,3 +28,8 @@ output_path = "~/.config/micro/colorschemes/matugen.micro"
 [templates.pay-respects]
 input_path = '~/.config/matugen/templates/pay-respects.toml'
 output_path = '~/.cache/matugen/xdg/pay-respects/config.toml'
+
+[templates.ghostty]
+input_path = '~/.config/matugen/templates/ghostty'
+output_path = '~/.config/ghostty/themes/matugen'
+post_hook = 'pkill -USR2 -x ghostty || true'
