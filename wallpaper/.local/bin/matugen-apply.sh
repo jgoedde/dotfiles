@@ -44,10 +44,10 @@ if [ -f "$DMS_SETTINGS" ]; then
 	CONTRAST=$(jq -r '.matugenContrast // 0' "$DMS_SETTINGS" 2>/dev/null || echo 0)
 fi
 
-# DMS renders the user templates but not their post_hooks (cursor, bat cache, btop, ...),
+# DMS renders the user templates but not their post_hooks (bat cache, btop, ...),
 # so run matugen ourselves.
 # The run config is the global [config] table, the shared templates (config.toml) and any
-# package fragments (config.d/*.toml, e.g. GNOME's gtk/albert/cursor from matugen-gnome).
+# package fragments (config.d/*.toml, e.g. GNOME's gtk/albert from matugen-gnome).
 # matugen 4 requires a [config] table; config.toml stays without one because DMS merges
 # it into its own config (which already has [config]). DMS reads only config.toml.
 MATUGEN_DIR="$HOME/.config/matugen"
