@@ -22,3 +22,8 @@ alias dots="cd ~/dotfiles"
 
 alias filemanager='fm'
 alias files='fm'
+
+# Open files or the current directory in the default app, detached from the shell.
+function fm() {
+  xdg-open "${@:-.}" >/dev/null 2>&1 &!
+}
