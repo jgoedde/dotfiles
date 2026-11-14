@@ -12,3 +12,7 @@ fzf/.config/fzf/fzf-colors.conf
 micro/.config/micro/colorschemes/matugen.micro
 /micro/.config/micro/buffers/history
 /micro/.config/micro/bindings.json
+
+# zsh package ships nothing into ~/.oh-my-zsh. If stow tree-folding ever recreates
+# this folder, keep any plugin clones that land here out of git.
+zsh/.oh-my-zsh/

@@ -124,8 +124,8 @@ GTK 3/4 colors come from DMS itself (`dank-colors.css`, enabled once via DMS set
 An optional, untracked `~/.local/bin/wallpaper-post.sh` runs afterwards for machine-local steps, e.g. copying the
 Obsidian snippet into a vault (see `wallpaper-post.example.sh`).
 
-The generated kitty/bat/fzf color configs are committed to the repo (and marked
-`skip-worktree` locally) so a fresh clone has working colors before matugen ever runs.
+The generated color configs (bat, fzf, btop, micro) are not tracked and are listed in
+`.gitignore`. Run matugen once on a fresh clone to create them.
 
 ## Font used
 
