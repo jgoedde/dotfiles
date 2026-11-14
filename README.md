@@ -51,12 +51,13 @@ The repo is expected at `~/dotfiles`.
 ### What install.sh does
 
 1. stows `common` plus the chosen profile with `--no-folding`
-2. runs `profiles/common.sh`: zsh plugin clones into `$ZSH_CUSTOM`
+2. runs `profiles/common.sh`: zsh plugin clones into `$ZSH_CUSTOM`; `color_theme = "matugen"` in
+   `~/.config/btop/btop.conf`, which is not tracked because btop rewrites it in its own version's format on every exit
 3. runs the profile's setup script:
     - `profiles/gnome.sh`: ghostty as default terminal, `Super+Return` terminal and `Super+Ctrl+W` random-wallpaper shortcuts
     - `profiles/niri.sh`: DMS plugin restore, dfiles service, `matugen-sync`
 
-Why `--no-folding`: by default stow links a whole directory (e.g. `~/.config/btop -> ~/dotfiles/btop/.config/btop`)
+Why `--no-folding`: by default stow links a whole directory (e.g. `~/.config/micro -> ~/dotfiles/micro/.config/micro`)
 when only one package owns it. Then everything an app writes there (themes, caches, plugin clones, `systemctl enable`
 links) lands inside the repo. With `--no-folding` stow creates real directories and links files one by one.
 
@@ -103,7 +104,6 @@ Packages in `profiles/common.txt`, identical on every machine.
 - `fzf`: [fzf](https://github.com/junegunn/fzf) fuzzy finder with previewer and `fzf-git`, matugen themed
 - `fd`: [fd](https://github.com/sharkdp/fd) for better `find`, also used as fzf source
 - `bat`: [bat](https://github.com/sharkdp/bat) (better cat), matugen themed
-- `btop`: [btop](https://github.com/aristocratos/btop), matugen themed
 - `micro`: [micro](https://github.com/zyedidia/micro) text editor, matugen themed
 - `pay-respects`: [pay-respects](https://github.com/iffse/pay-respects) corrects the last command. matugen only writes
   the `[colors]` layer to `~/.cache/matugen/xdg/`, added to `XDG_CONFIG_DIRS`; settings stay in the package
@@ -134,7 +134,8 @@ The run config is `config.toml` (the templates for every machine, also read by D
 `~/.config/matugen/config.d/*.toml` fragment that a profile's packages add. Only `matugen-gnome` adds one,
 so niri never renders the GNOME templates.
 
-The generated color configs (bat, fzf, btop, micro, ghostty) are not tracked and are listed in `.gitignore`. Run
+The generated color configs (bat, fzf, micro, ghostty) are not tracked and are listed in `.gitignore`. btop's theme goes
+straight to `~/.config/btop/themes`, outside the repo. Run
 `matugen-apply.sh` once on a fresh clone to create them (without DMS, pass the wallpaper path:
 `matugen-apply.sh <wallpaper>`).
 

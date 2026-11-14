@@ -3,7 +3,6 @@ git
 fzf
 fd
 bat
-btop
 micro
 claude
 npm

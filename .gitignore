@@ -8,7 +8,6 @@ __pycache__/
 */.config/systemd/user/*.wants/
 
 bat/.config/bat/themes/matugen-bat-colors.tmTheme
-btop/.config/btop/themes/matugen.theme
 fzf/.config/fzf/fzf-colors.conf
 micro/.config/micro/colorschemes/matugen.micro
 ghostty/.config/ghostty/themes/matugen
