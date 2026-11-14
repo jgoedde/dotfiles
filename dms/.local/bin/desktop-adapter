@@ -1,0 +1,47 @@
+#!/bin/bash
+# Desktop adapter for the niri profile (DankMaterialShell). The Common theming scripts
+# (wallpaper-change.sh, matugen-apply.sh) ask it every desktop question; they never
+# talk to DMS themselves.
+#
+# Usage: desktop-adapter <command>
+#   wallpaper            print the current wallpaper (absolute path); exit 1 if none
+#   set-wallpaper PATH   show PATH as the wallpaper
+#   mode                 print light or dark
+#   scheme               print the matugen scheme (e.g. scheme-tonal-spot)
+#   contrast             print the matugen contrast (-1 to 1)
+#   reload               apply the new theme to the desktop's own UI (no-op: DMS themes itself)
+
+DMS_SESSION="${XDG_STATE_HOME:-$HOME/.local/state}/dms/session.json"
+DMS_SETTINGS="${XDG_CONFIG_HOME:-$HOME/.config}/dms/settings.json"
+
+# setting <key> <default>: read a DMS setting, falling back to the DMS default
+setting() {
+	jq -r ".$1 // \"$2\"" "$DMS_SETTINGS" 2>/dev/null || echo "$2"
+}
+
+case "${1:-}" in
+wallpaper)
+	current=$(dms ipc call wallpaper get 2>/dev/null)
+	[ -f "$current" ] || exit 1
+	echo "$current"
+	;;
+set-wallpaper)
+	[ -n "${2:-}" ] || { echo "desktop-adapter: set-wallpaper needs a path" >&2; exit 2; }
+	# DMS draws the wallpaper (and its own shell/niri colors)
+	dms ipc call wallpaper set "$2" >/dev/null
+	;;
+mode)
+	if [ "$(jq -r '.isLightMode // false' "$DMS_SESSION" 2>/dev/null)" = "true" ]; then
+		echo light
+	else
+		echo dark
+	fi
+	;;
+scheme) setting matugenScheme scheme-tonal-spot ;;
+contrast) setting matugenContrast 0 ;;
+reload) ;;
+*)
+	echo "Usage: desktop-adapter wallpaper|set-wallpaper PATH|mode|scheme|contrast|reload" >&2
+	exit 2
+	;;
+esac

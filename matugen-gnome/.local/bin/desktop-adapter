@@ -1,0 +1,54 @@
+#!/bin/bash
+# Desktop adapter for the gnome profile. The Common theming scripts
+# (wallpaper-change.sh, matugen-apply.sh) ask it every desktop question; they never
+# call gsettings themselves.
+#
+# Usage: desktop-adapter <command>
+#   wallpaper            print the current wallpaper (absolute path); exit 1 if none
+#   set-wallpaper PATH   show PATH as the wallpaper (light and dark picture URIs)
+#   mode                 print light or dark (prefer-light is light, anything else dark)
+#   scheme               print the matugen scheme (always scheme-content)
+#   contrast             print the matugen contrast (always 0)
+#   reload               make open GTK apps pick up the new gtk.css
+
+BACKGROUND=org.gnome.desktop.background
+INTERFACE=org.gnome.desktop.interface
+
+case "${1:-}" in
+wallpaper)
+	uri=$(gsettings get "$BACKGROUND" picture-uri 2>/dev/null)
+	uri=${uri#\'}
+	uri=${uri%\'}
+	current=${uri#file://}
+	[ -f "$current" ] || exit 1
+	echo "$current"
+	;;
+set-wallpaper)
+	[ -n "${2:-}" ] || { echo "desktop-adapter: set-wallpaper needs a path" >&2; exit 2; }
+	gsettings set "$BACKGROUND" picture-uri "file://$2"
+	gsettings set "$BACKGROUND" picture-uri-dark "file://$2"
+	;;
+mode)
+	if [ "$(gsettings get "$INTERFACE" color-scheme 2>/dev/null)" = "'prefer-light'" ]; then
+		echo light
+	else
+		echo dark
+	fi
+	;;
+scheme) echo scheme-content ;;
+contrast) echo 0 ;;
+reload)
+	# GTK only re-reads gtk.css on a color-scheme change: flip it, then restore it.
+	current=$(gsettings get "$INTERFACE" color-scheme | tr -d "'")
+	if [ "$current" = prefer-dark ]; then
+		gsettings set "$INTERFACE" color-scheme prefer-light
+	else
+		gsettings set "$INTERFACE" color-scheme prefer-dark
+	fi
+	gsettings set "$INTERFACE" color-scheme "$current"
+	;;
+*)
+	echo "Usage: desktop-adapter wallpaper|set-wallpaper PATH|mode|scheme|contrast|reload" >&2
+	exit 2
+	;;
+esac
