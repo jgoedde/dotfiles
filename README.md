@@ -84,8 +84,8 @@ If one slipped through: `git -C ~/dotfiles checkout zsh/.zshrc`.
 hand to re-theme without changing the wallpaper. On niri, `matugen-sync.path` also re-themes when the
 wallpaper or light/dark mode changes in DMS.
 
-Both scripts live in Common and ask a **desktop adapter** for anything desktop-specific. Each desktop
-profile ships one at `~/.local/bin/desktop-adapter`: `dms/` for niri (DMS IPC, session and settings),
+Both scripts live in Common and ask a **desktop adapter** for anything desktop-specific. A package in
+each desktop profile ships one at `~/.local/bin/desktop-adapter`: `dms/` for niri (DMS IPC, session and settings),
 `matugen-gnome/` for gnome (gsettings, `scheme-content`, contrast 0). Its interface:
 
 | Command              | Does                                                                |

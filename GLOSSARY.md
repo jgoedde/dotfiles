@@ -17,7 +17,7 @@ The profile every machine gets. It holds the packages that must be identical eve
 _Avoid_: base, shared, core
 
 **Desktop adapter**:
-The one executable a desktop Profile ships at `~/.local/bin/desktop-adapter` (niri: in `dms`, gnome: in `matugen-gnome`). It answers the wallpaper, light/dark mode, matugen scheme and contrast, and sets the wallpaper and reloads the desktop theme, so the Common theming scripts never check which desktop they run on.
+The one executable at `~/.local/bin/desktop-adapter`, shipped by a Package in each desktop Profile (niri: `dms`, gnome: `matugen-gnome`). It answers the wallpaper, light/dark mode, matugen scheme and contrast, and sets the wallpaper and reloads the desktop theme, so the Common theming scripts never check which desktop they run on.
 _Avoid_: backend, driver, desktop module
 
 **Machine-local override**:
