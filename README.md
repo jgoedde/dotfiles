@@ -11,7 +11,8 @@ my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
 * [Components overview](#components-overview)
 * [Prerequisites](#prerequisites)
 * [Installation](#installation)
-    * [What install.sh installs](#what-installsh-installs)
+    * [Profiles](#profiles)
+    * [What install.sh does](#what-installsh-does)
     * [Desktop configuration](#desktop-configuration)
 * [How Wallpapers work](#how-wallpapers-work)
 * [Font used](#font-used)
@@ -76,19 +77,38 @@ The zsh config is modular: `~/.zshrc` only sources `~/.config/zsh/*` in order. M
 ```shell
 git clone https://github.com/jgoedde/dotfiles ~/dotfiles
 cd ~/dotfiles
-./install.sh
+./install.sh <profile>   # gnome or niri
 ```
 
-### What install.sh installs
+The chosen profile is saved in `~/.config/dotfiles/profile`; later runs of `./install.sh` without an argument reuse it.
 
-`install.sh` is doing three things:
+### Profiles
 
-1. stowing the config dirs (each top-level dir is a stow package mirroring `$HOME`)
-2. installing the zsh plugins
-3. setting up the wallpaper change timer
+Packages are the top-level folders. A profile is a list of package names in `profiles/<name>.txt`, with an optional
+setup script `profiles/<name>.sh` beside it.
+
+- `common`: applied on every machine (shell, git, CLI tools, matugen, wallpaper, ghostty, ...)
+- `gnome`: albert
+- `niri`: niri, dms, dfiles
+
+### What install.sh does
+
+1. stows `common` plus the chosen profile with `--no-folding` (files are linked one by one, so nothing an app writes
+   into `~/.config/<app>` lands in the repo)
+2. runs `profiles/common.sh`: zsh plugin clones into `$ZSH_CUSTOM`, wallpaper timer
+3. runs the profile's setup script, e.g. `profiles/niri.sh`: DMS plugin restore, dfiles service
 
 It does not download any other dependencies that are listed in Components section. Install them yourself.
 The repo is expected at `~/dotfiles`.
+
+Machines stowed before `--no-folding` still have whole directories linked into the repo (e.g. `~/.config/systemd`).
+stow keeps those as they are. Unfold them once by unstowing everything and installing again:
+
+```shell
+cd ~/dotfiles
+stow -D -t ~ $(cat profiles/*.txt)
+./install.sh <profile>
+```
 
 ### Desktop configuration
 

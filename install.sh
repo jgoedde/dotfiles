@@ -1,46 +1,68 @@
 #!/usr/bin/env bash
+# Install the dotfiles: stow Common plus one profile, then run their setup scripts.
+#
+#   ./install.sh <profile>   apply a profile and remember it
+#   ./install.sh             re-apply the remembered profile
 set -e
 
-DOTFILES="$HOME/dotfiles"
-ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROFILES="$DOTFILES/profiles"
+STATE_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/dotfiles/profile"
+export DOTFILES
 
-stow -t ~ -d "$DOTFILES" \
-	zsh \
-	albert \
-	fastfetch \
-	ghostty \
-	wallpaper \
-	matugen \
-	bat \
-	git \
-	fzf \
-	fd \
-	claude \
-	btop \
-	micro \
-	pay-respects \
-	niri \
-	dms \
-	dfiles \
-	npm
+available_profiles() {
+	for f in "$PROFILES"/*.txt; do
+		name=$(basename "$f" .txt)
+		[ "$name" = common ] || echo "$name"
+	done
+}
 
-# DMS plugins (launcher web search, calculator, ...), pinned in the lockfile
-dms plugins restore "$DOTFILES/dms/.config/dms/plugins.lock.json"
+usage() {
+	echo "Usage: $0 <profile>" >&2
+	echo "Profiles: $(available_profiles | tr '\n' ' ')" >&2
+	echo "Without an argument, the profile saved in $STATE_FILE is reused." >&2
+}
 
-# Third-Party-Plugins
-while read -r repo; do
-	name=$(basename "$repo")
-	target="$ZSH_CUSTOM/plugins/$name"
-	[ -d "$target" ] || git clone --depth 1 "$repo" "$target"
-done < "$DOTFILES/zsh/custom-plugins.txt"
+if [ $# -gt 1 ]; then
+	usage
+	exit 1
+fi
 
-# Wallpaper colors
-echo "Setting up wallpaper timer..."
-systemctl --user daemon-reload
-systemctl --user enable --now wallpaper-change.timer
-systemctl --user enable --now matugen-mode-sync.path
+profile="$1"
+if [ -z "$profile" ]; then
+	if [ -s "$STATE_FILE" ]; then
+		profile=$(<"$STATE_FILE")
+		echo "Reusing saved profile: $profile"
+	else
+		usage
+		exit 1
+	fi
+fi
 
-# dfiles Qt 6.8 workaround (see dfiles/.local/bin/dfiles-patch-ui.sh)
-systemctl --user enable --now dfiles-patch-ui.service
+if [[ ! $profile =~ ^[A-Za-z0-9_-]+$ ]] || [ "$profile" = common ] || [ ! -f "$PROFILES/$profile.txt" ]; then
+	echo "Unknown profile: '$profile'" >&2
+	usage
+	exit 1
+fi
 
-echo "Setup complete"
+read_packages() {
+	grep -v -e '^[[:space:]]*$' -e '^[[:space:]]*#' "$1"
+}
+
+mapfile -t packages < <(read_packages "$PROFILES/common.txt"; read_packages "$PROFILES/$profile.txt")
+
+# --no-folding: link files, never whole directories, so nothing written into
+# ~/.config/<app> (e.g. plugin clones) can end up inside the repo.
+stow --no-folding -t "$HOME" -d "$DOTFILES" "${packages[@]}"
+
+mkdir -p "$(dirname "$STATE_FILE")"
+echo "$profile" >"$STATE_FILE"
+
+for script in "$PROFILES/common.sh" "$PROFILES/$profile.sh"; do
+	if [ -f "$script" ]; then
+		echo "Running $(basename "$script")..."
+		bash "$script"
+	fi
+done
+
+echo "Setup complete ($profile)"

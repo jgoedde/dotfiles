@@ -1,0 +1,14 @@
+zsh
+git
+fzf
+fd
+bat
+btop
+micro
+claude
+npm
+pay-respects
+fastfetch
+matugen
+wallpaper
+ghostty
