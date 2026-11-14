@@ -8,7 +8,7 @@ output_path = '~/.config/gtk-3.0/gtk.css'
 [templates.gtk4]
 input_path = '~/.config/matugen/templates/gtk-colors.css'
 output_path = '~/.config/gtk-4.0/gtk.css'
-post_hook = '~/.config/matugen/post-hook-scripts/gtk-themes-reload.sh'
+# GTK reload: the desktop adapter's reload, run by matugen-apply.sh after matugen
 
 [templates.albert]
 input_path = '~/.config/matugen/templates/albert-theme.ini'

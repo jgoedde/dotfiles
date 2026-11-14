@@ -4,6 +4,13 @@ set -e
 
 gsettings set org.gnome.desktop.default-applications.terminal exec ghostty
 
+# The GTK reload moved into the desktop adapter; stow leaves the old link dangling.
+OLD_RELOAD="$HOME/.config/matugen/post-hook-scripts/gtk-themes-reload.sh"
+if [ -L "$OLD_RELOAD" ] && [ ! -e "$OLD_RELOAD" ]; then
+	rm "$OLD_RELOAD"
+	rmdir --ignore-fail-on-non-empty "$(dirname "$OLD_RELOAD")"
+fi
+
 # Custom shortcuts live under their own dconf path; add each to the list only once.
 MEDIA_KEYS=org.gnome.settings-daemon.plugins.media-keys
 
