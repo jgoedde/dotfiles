@@ -11,6 +11,15 @@ if (( $+commands[pay-respects] )); then
   eval "$(pay-respects zsh --alias fuck)"
 fi
 
+# Completion menu. Palette indices only, so colours follow matugen via the ghostty theme.
+zstyle ':completion:*' menu select
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:descriptions' format '%K{0}%F{4}%B %d %b%f%k'
+zstyle ':completion:*' list-rows-first true
+zstyle ':completion:*' list-packed true
+zstyle ':completion:*' select-prompt '%F{8}─ %l · %p ─%f'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} 'ma=1;30;44'
+
 # Greeting
 if [[ $(tty) == *"pts"* && "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]]; then
     fastfetch
