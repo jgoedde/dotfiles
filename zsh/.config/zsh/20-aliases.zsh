@@ -10,7 +10,6 @@ alias lt="eza -a --tree --level=1 --icons=always"
 alias shutdown="systemctl poweroff"
 alias ff="fastfetch"
 alias cat="bat"
-alias knew='(setsid kitty --directory="$PWD" >/dev/null 2>&1 &); exit'
 
 # Common aliases: Hand-picked from https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/common-aliases/README.md
 alias zshrc="${=EDITOR} ~/.zshrc"
@@ -23,6 +22,3 @@ alias dots="cd ~/dotfiles"
 
 alias filemanager='fm'
 alias files='fm'
-
-alias wp-tui='wp-tui && exit'
-
