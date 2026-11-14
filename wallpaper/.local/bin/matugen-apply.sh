@@ -6,7 +6,7 @@
 # Usage: matugen-apply.sh [--if-changed] [WALLPAPER]
 #   WALLPAPER     defaults to the current wallpaper (from the desktop adapter)
 #   --if-changed  only run when the wallpaper or the light/dark mode differs from
-#                 the last run (used by matugen-sync.path on DMS session changes)
+#                 the last run (used by watchers that fire on desktop changes)
 
 IF_CHANGED=0
 if [ "${1:-}" = "--if-changed" ]; then
@@ -23,7 +23,7 @@ LAST_APPLY="${XDG_CACHE_HOME:-$HOME/.cache}/matugen/last-apply"
 MODE=$("$ADAPTER" mode) || exit 1
 
 WALLPAPER="${1:-}"
-[ -n "$WALLPAPER" ] || WALLPAPER=$("$ADAPTER" wallpaper 2>/dev/null)
+[ -n "$WALLPAPER" ] || WALLPAPER=$("$ADAPTER" wallpaper)
 [ -f "$WALLPAPER" ] || { echo "matugen-apply: no wallpaper found" >&2; exit 1; }
 
 APPLY_STATE=$(printf '%s\n%s' "$MODE" "$WALLPAPER")
@@ -35,12 +35,12 @@ fi
 SCHEME=$("$ADAPTER" scheme) || exit 1
 CONTRAST=$("$ADAPTER" contrast) || exit 1
 
-# DMS renders the user templates but not their post_hooks (bat cache, btop, ...),
-# so run matugen ourselves.
+# Run matugen ourselves so every template renders and its post_hooks (bat cache, btop,
+# ...) run, whatever the desktop does on its own.
 # The run config is the global [config] table, the shared templates (config.toml) and any
-# package fragments (config.d/*.toml, e.g. GNOME's gtk/albert from matugen-gnome).
-# matugen 4 requires a [config] table; config.toml stays without one because DMS merges
-# it into its own config (which already has [config]). DMS reads only config.toml.
+# package fragments (config.d/*.toml, e.g. gtk/albert from matugen-gnome).
+# matugen 4 requires a [config] table; config.toml stays without one because a desktop
+# shell may merge it into its own config (DMS does, and reads only config.toml).
 MATUGEN_DIR="$HOME/.config/matugen"
 TMP_CONFIG=$(mktemp --suffix=.toml)
 trap 'rm -f "$TMP_CONFIG"' EXIT
@@ -57,8 +57,8 @@ matugen image "$WALLPAPER" -c "$TMP_CONFIG" -m "$MODE" -t "$SCHEME" --contrast "
 mkdir -p "$(dirname "$LAST_APPLY")"
 printf '%s\n' "$APPLY_STATE" > "$LAST_APPLY"
 
-# Let the desktop's own UI pick up the new theme (GTK apps on GNOME)
-"$ADAPTER" reload
+# Let the desktop's own UI pick up the new theme
+"$ADAPTER" reload || echo "matugen-apply: warning: desktop adapter reload failed" >&2
 
 POST_SCRIPT="$HOME/.local/bin/wallpaper-post.sh"
 [ -x "$POST_SCRIPT" ] && "$POST_SCRIPT" "$WALLPAPER"
