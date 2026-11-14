@@ -1,6 +1,7 @@
 #!/bin/bash
-# Render the own matugen templates (~/.config/matugen/config.toml) for a wallpaper,
-# matching the light/dark mode, scheme and contrast currently set in DMS.
+# Render the own matugen templates (~/.config/matugen/config.toml plus config.d/*.toml)
+# for a wallpaper, matching the light/dark mode, scheme and contrast currently set in DMS
+# (without DMS: dark mode, scheme-content).
 #
 # Usage: matugen-apply.sh [--if-changed] [WALLPAPER]
 #   WALLPAPER     defaults to the wallpaper currently shown by DMS
@@ -34,18 +35,31 @@ if [ "$IF_CHANGED" = 1 ] && [ "$(cat "$LAST_APPLY" 2>/dev/null)" = "$APPLY_STATE
 	exit 0
 fi
 
-# Keep scheme and contrast in sync with what DMS renders, so both runs produce the same colors
-SCHEME=$(jq -r '.matugenScheme // "scheme-tonal-spot"' "$DMS_SETTINGS" 2>/dev/null || echo scheme-tonal-spot)
-CONTRAST=$(jq -r '.matugenContrast // 0' "$DMS_SETTINGS" 2>/dev/null || echo 0)
+# Keep scheme and contrast in sync with what DMS renders, so both runs produce the same colors.
+# Without DMS (GNOME), use the content scheme GNOME was themed with before.
+SCHEME=scheme-content
+CONTRAST=0
+if [ -f "$DMS_SETTINGS" ]; then
+	SCHEME=$(jq -r '.matugenScheme // "scheme-tonal-spot"' "$DMS_SETTINGS" 2>/dev/null || echo scheme-tonal-spot)
+	CONTRAST=$(jq -r '.matugenContrast // 0' "$DMS_SETTINGS" 2>/dev/null || echo 0)
+fi
 
 # DMS renders the user templates but not their post_hooks (cursor, bat cache, btop, ...),
 # so run matugen ourselves.
+# The run config is the global [config] table, the shared templates (config.toml) and any
+# package fragments (config.d/*.toml, e.g. GNOME's gtk/albert/cursor from matugen-gnome).
 # matugen 4 requires a [config] table; config.toml stays without one because DMS merges
-# it into its own config (which already has [config]), so prepend it to a temp copy.
-MATUGEN_CONFIG="$HOME/.config/matugen/config.toml"
+# it into its own config (which already has [config]). DMS reads only config.toml.
+MATUGEN_DIR="$HOME/.config/matugen"
 TMP_CONFIG=$(mktemp --suffix=.toml)
 trap 'rm -f "$TMP_CONFIG"' EXIT
-{ printf '[config]\n\n'; cat "$MATUGEN_CONFIG"; } > "$TMP_CONFIG"
+{
+	printf '[config]\n\n'
+	cat "$MATUGEN_DIR/config.toml"
+	for fragment in "$MATUGEN_DIR"/config.d/*.toml; do
+		[ -f "$fragment" ] && printf '\n' && cat "$fragment"
+	done
+} > "$TMP_CONFIG"
 matugen image "$WALLPAPER" -c "$TMP_CONFIG" -m "$MODE" -t "$SCHEME" --contrast "$CONTRAST" \
 	-q --source-color-index 0 || exit 1
 

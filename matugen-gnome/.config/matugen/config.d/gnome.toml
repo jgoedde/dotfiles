@@ -1,0 +1,21 @@
+# GNOME-only templates. matugen-apply.sh appends every config.d/*.toml to the shared
+# config.toml for its own run; DMS reads only config.toml, so niri never sees these.
+
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/gtk-colors.css'
+output_path = '~/.config/gtk-3.0/gtk.css'
+
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/gtk-colors.css'
+output_path = '~/.config/gtk-4.0/gtk.css'
+post_hook = '~/.config/matugen/post-hook-scripts/gtk-themes-reload.sh'
+
+[templates.albert]
+input_path = '~/.config/matugen/templates/albert-theme.ini'
+output_path = '~/.local/share/albert/widgetsboxmodel/themes/Matugen.ini'
+post_hook = 'albert restart'
+
+[templates.cursor]
+input_path = '~/.config/matugen/templates/cursors.json'
+output_path = '~/.config/colors.json'
+post_hook = '~/.config/matugen/post-hook-scripts/cursor_matugen.sh'

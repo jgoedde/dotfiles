@@ -1,1 +1,2 @@
 albert
+matugen-gnome

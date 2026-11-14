@@ -13,7 +13,6 @@ my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
 * [Installation](#installation)
     * [Profiles](#profiles)
     * [What install.sh does](#what-installsh-does)
-    * [Desktop configuration](#desktop-configuration)
 * [How Wallpapers work](#how-wallpapers-work)
 * [Font used](#font-used)
 * [Cursor](#cursor)
@@ -88,7 +87,7 @@ Packages are the top-level folders. A profile is a list of package names in `pro
 setup script `profiles/<name>.sh` beside it.
 
 - `common`: applied on every machine (shell, git, CLI tools, matugen, wallpaper, ghostty, ...)
-- `gnome`: albert
+- `gnome`: albert, matugen-gnome (gtk, albert and cursor templates)
 - `niri`: niri, dms, dfiles
 
 ### What install.sh does
@@ -96,7 +95,9 @@ setup script `profiles/<name>.sh` beside it.
 1. stows `common` plus the chosen profile with `--no-folding` (files are linked one by one, so nothing an app writes
    into `~/.config/<app>` lands in the repo)
 2. runs `profiles/common.sh`: zsh plugin clones into `$ZSH_CUSTOM`
-3. runs the profile's setup script, e.g. `profiles/niri.sh`: DMS plugin restore, dfiles service, `matugen-sync`
+3. runs the profile's setup script:
+    - `profiles/niri.sh`: DMS plugin restore, dfiles service, `matugen-sync`
+    - `profiles/gnome.sh`: ghostty as default terminal, `Super+Ctrl+W` random-wallpaper shortcut
 
 It does not download any other dependencies that are listed in Components section. Install them yourself.
 The repo is expected at `~/dotfiles`.
@@ -110,22 +111,15 @@ stow -D -t ~ $(cat profiles/*.txt)
 ./install.sh <profile>
 ```
 
-### Desktop configuration
-
-After installing ghostty, set it as default terminal.
-
-```sh
-gsettings set org.gnome.desktop.default-applications.terminal exec ghostty
-```
-
 ## How Wallpapers work
 
 Walls are expected to live in `<XDG pictures dir>/Walls` (e.g. `~/Pictures/Walls` or `~/Bilder/Walls`; override with
 `WALLS_DIR`).
-Pick a wallpaper in the DMS wallpaper browser (`Mod+Y`), or press `Mod+Ctrl+W` for a random one from the dir
-(`wallpaper-change.sh`; it sets the wallpaper via DMS when it is running, otherwise via GNOME `gsettings`). Then,
-`matugen-apply.sh` runs matugen (with its post hooks, which DMS's own matugen run skips) using the light/dark mode,
-scheme and contrast currently set in DMS, to generate themes for following apps:
+On niri, pick a wallpaper in the DMS wallpaper browser (`Mod+Y`), or press `Mod+Ctrl+W` for a random one from the dir.
+On GNOME, `Super+Ctrl+W` does the same. Both run `wallpaper-change.sh`, which sets the wallpaper via DMS when it is
+running, otherwise via GNOME `gsettings`. Then, `matugen-apply.sh` runs matugen (with its post hooks, which DMS's own
+matugen run skips) using the light/dark mode, scheme and contrast currently set in DMS, to generate themes for following
+apps. Without DMS, it uses dark mode and `scheme-content`.
 
 - bat
 - obsidian
@@ -134,14 +128,17 @@ scheme and contrast currently set in DMS, to generate themes for following apps:
 - btop
 - micro
 - ghostty (dark palette even in light mode; open windows reload via `USR2`)
-- cursor (see [Cursor](#cursor))
+- GNOME only: gtk3/gtk4, albert, cursor (see [Cursor](#cursor))
+
+The run config is `config.toml` (shared templates, also read by DMS) plus every `~/.config/matugen/config.d/*.toml`
+fragment. The `matugen-gnome` package adds `config.d/gnome.toml`, so niri never renders the GNOME templates.
 
 On niri, the `matugen-sync.path` unit watches DMS's `session.json` and re-runs `matugen-apply.sh` when the wallpaper
 or the light/dark mode changed since the last run (both are recorded in `~/.cache/matugen/last-apply`). Other session
 changes are ignored. The Obsidian snippet holds both palettes (`.theme-dark` / `.theme-light`), so with Obsidian's
 base color scheme set to "Adapt to system" it switches instantly.
 
-GTK 3/4 colors come from DMS itself (`dank-colors.css`, enabled once via DMS settings → "Apply GTK colors").
+On niri, GTK 3/4 colors come from DMS itself (`dank-colors.css`, enabled once via DMS settings → "Apply GTK colors").
 
 An optional, untracked `~/.local/bin/wallpaper-post.sh` runs afterwards for machine-local steps, e.g. copying the
 Obsidian snippet into a vault (see `wallpaper-post.example.sh`).
@@ -164,8 +161,8 @@ The generated color configs (bat, fzf, btop, micro, ghostty) are not tracked and
 
 ## Cursor
 
-Matugen is wired up with [Material Bibata Cursor](https://github.com/SakibShahariar/material-bibata-cursor). That setup
-changes the cursor colors based on the wallpaper colors. It requires the cursor pack to live under `~/.icons`. One
+On GNOME, matugen is wired up with [Material Bibata Cursor](https://github.com/SakibShahariar/material-bibata-cursor).
+That setup changes the cursor colors based on the wallpaper colors. It requires the cursor pack to live under `~/.icons`. One
 directory in there for each cursor. Something like
 
 ```text
