@@ -5,3 +5,10 @@ __pycache__/
 *.log
 
 wallpaper/.config/systemd/user/timers.target.wants/
+
+bat/.config/bat/themes/matugen-bat-colors.tmTheme
+btop/.config/btop/themes/matugen.theme
+fzf/.config/fzf/fzf-colors.conf
+micro/.config/micro/colorschemes/matugen.micro
+/micro/.config/micro/buffers/history
+/micro/.config/micro/bindings.json

@@ -1,15 +1,28 @@
 #!/bin/bash
+# Switch to a random wallpaper and re-theme everything via matugen.
+# Used by the systemd timer and the niri Mod+Ctrl+W binding.
 
-WALLS_DIR="$HOME/Pictures/walls"
+PICTURES_DIR=$(xdg-user-dir PICTURES 2>/dev/null || echo "$HOME/Pictures")
+WALLS_DIR="${WALLS_DIR:-$PICTURES_DIR/Walls}"
 
-WALLPAPER=$(find "$WALLS_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) | shuf -n1)
+if command -v dms >/dev/null 2>&1 && dms ipc call wallpaper get >/dev/null 2>&1; then
+	CURRENT=$(dms ipc call wallpaper get)
+	HAS_DMS=1
+fi
+
+# Random image, never the current one
+WALLPAPER=$(find "$WALLS_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) |
+	grep -vxF "${CURRENT:-}" | shuf -n1)
 
 [ -z "$WALLPAPER" ] && exit 1
 
-gsettings set org.gnome.desktop.background picture-uri "file://$WALLPAPER"
-gsettings set org.gnome.desktop.background picture-uri-dark "file://$WALLPAPER"
+if [ -n "$HAS_DMS" ]; then
+	# DMS draws the wallpaper (and its own shell/niri colors)
+	dms ipc call wallpaper set "$WALLPAPER"
+else
+	gsettings set org.gnome.desktop.background picture-uri "file://$WALLPAPER"
+	gsettings set org.gnome.desktop.background picture-uri-dark "file://$WALLPAPER"
+fi
 
-matugen image "$WALLPAPER" -m dark -q --source-color-index 0
-
-POST_SCRIPT="$HOME/.local/bin/wallpaper-post.sh"
-[ -x "$POST_SCRIPT" ] && "$POST_SCRIPT" "$WALLPAPER"
+# Re-theme the own matugen templates for the new wallpaper (honours DMS light/dark mode)
+"$HOME/.local/bin/matugen-apply.sh" "$WALLPAPER"

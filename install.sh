@@ -8,7 +8,7 @@ stow -t ~ -d "$DOTFILES" \
 	zsh \
 	albert \
 	fastfetch \
-	kitty \
+	ghostty \
 	wallpaper \
 	matugen \
 	bat \
@@ -19,7 +19,13 @@ stow -t ~ -d "$DOTFILES" \
 	btop \
 	micro \
 	pay-respects \
+	niri \
+	dms \
+	dfiles \
 	npm
+
+# DMS plugins (launcher web search, calculator, ...), pinned in the lockfile
+dms plugins restore "$DOTFILES/dms/.config/dms/plugins.lock.json"
 
 # Third-Party-Plugins
 while read -r repo; do
@@ -32,5 +38,9 @@ done < "$DOTFILES/zsh/custom-plugins.txt"
 echo "Setting up wallpaper timer..."
 systemctl --user daemon-reload
 systemctl --user enable --now wallpaper-change.timer
+systemctl --user enable --now matugen-mode-sync.path
+
+# dfiles Qt 6.8 workaround (see dfiles/.local/bin/dfiles-patch-ui.sh)
+systemctl --user enable --now dfiles-patch-ui.service
 
 echo "Setup complete"

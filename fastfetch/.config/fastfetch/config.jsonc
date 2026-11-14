@@ -1,7 +1,7 @@
 {
   "display": {
     "color": {
-      "keys": "#ffffff"
+      "keys": "38;2;255;255;255"
     },
     "key": {
       "width": 14
@@ -10,7 +10,7 @@
   },
   "logo": {
     "color": {
-      "1": "#ffffff"
+      "1": "38;2;255;255;255"
     },
     "padding": {
       "left": 2,
@@ -22,9 +22,9 @@
   "modules": [
     {
       "color": {
-        "at": "#666666",
-        "host": "#ff8a8a",
-        "user": "#ff8a8a"
+        "at": "38;2;102;102;102",
+        "host": "38;2;255;138;138",
+        "user": "38;2;255;138;138"
       },
       "type": "title"
     },
@@ -32,35 +32,35 @@
     {
       "format": "{pretty-name}",
       "key": "  OS",
-      "keyColor": "#71b7ff",
+      "keyColor": "38;2;113;183;255",
       "type": "os"
     },
     {
       "key": " 󰌽 Kernel",
-      "keyColor": "#d2a8ff",
+      "keyColor": "38;2;210;168;255",
       "type": "kernel"
     },
     {
       "format": "{pretty-name}",
       "key": "  WM",
-      "keyColor": "#ff8a8a",
+      "keyColor": "38;2;255;138;138",
       "type": "wm"
     },
     {
       "format": "{pretty-name}",
       "key": "  Shell",
-      "keyColor": "#8ddb8c",
+      "keyColor": "38;2;141;219;140",
       "type": "shell"
     },
     {
       "key": " 󰔚 Uptime",
-      "keyColor": "#d2b45f",
+      "keyColor": "38;2;210;180;95",
       "type": "uptime"
     },
     {
       "format": "{used} / {total}",
       "key": "  Ram",
-      "keyColor": "#71b7ff",
+      "keyColor": "38;2;113;183;255",
       "type": "memory"
     },
     {

@@ -1,118 +1,122 @@
 /* Matugen Obsidian Dynamic Colors Snippet
  * Place output in: <vault>/.obsidian/snippets/matugen.css
  * Then enable it in: Settings → Appearance → CSS Snippets
+ *
+ * Holds both palettes: Obsidian picks .theme-dark or .theme-light, so with
+ * Appearance → Base color scheme = "Adapt to system" it follows the DMS
+ * light/dark toggle without regenerating.
  */
 
-.theme-dark, .theme-light {
+.theme-dark {
 
     /* ── Material You RGB helpers ──────────────────────────── */
-    --mat-bg-rgb:             {{colors.background.default.red}}, {{colors.background.default.green}}, {{colors.background.default.blue}};
-    --mat-surface-rgb:        {{colors.surface.default.red}}, {{colors.surface.default.green}}, {{colors.surface.default.blue}};
-    --mat-on-surface-rgb:     {{colors.on_surface.default.red}}, {{colors.on_surface.default.green}}, {{colors.on_surface.default.blue}};
-    --mat-primary-rgb:        {{colors.primary.default.red}}, {{colors.primary.default.green}}, {{colors.primary.default.blue}};
-    --mat-on-primary-rgb:     {{colors.on_primary.default.red}}, {{colors.on_primary.default.green}}, {{colors.on_primary.default.blue}};
+    --mat-bg-rgb:             {{colors.background.dark.red}}, {{colors.background.dark.green}}, {{colors.background.dark.blue}};
+    --mat-surface-rgb:        {{colors.surface.dark.red}}, {{colors.surface.dark.green}}, {{colors.surface.dark.blue}};
+    --mat-on-surface-rgb:     {{colors.on_surface.dark.red}}, {{colors.on_surface.dark.green}}, {{colors.on_surface.dark.blue}};
+    --mat-primary-rgb:        {{colors.primary.dark.red}}, {{colors.primary.dark.green}}, {{colors.primary.dark.blue}};
+    --mat-on-primary-rgb:     {{colors.on_primary.dark.red}}, {{colors.on_primary.dark.green}}, {{colors.on_primary.dark.blue}};
 
     /* ── Core Backgrounds ──────────────────────────────────── */
-    --background-primary:           {{colors.background.default.hex}};
-    --background-primary-alt:       {{colors.surface_dim.default.hex}};
-    --background-secondary:         {{colors.surface_container_low.default.hex}};
-    --background-secondary-alt:     {{colors.surface_container.default.hex}};
+    --background-primary:           {{colors.background.dark.hex}};
+    --background-primary-alt:       {{colors.surface_dim.dark.hex}};
+    --background-secondary:         {{colors.surface_container_low.dark.hex}};
+    --background-secondary-alt:     {{colors.surface_container.dark.hex}};
 
     /* ── Titlebar ──────────────────────────────────────────── */
-    --titlebar-background:          {{colors.surface_dim.default.hex}};
-    --titlebar-background-focused:  {{colors.surface_container_low.default.hex}};
-    --titlebar-text-color:          {{colors.on_surface.default.hex}};
+    --titlebar-background:          {{colors.surface_dim.dark.hex}};
+    --titlebar-background-focused:  {{colors.surface_container_low.dark.hex}};
+    --titlebar-text-color:          {{colors.on_surface.dark.hex}};
 
     /* ── Borders & Dividers ────────────────────────────────── */
-    --background-modifier-border:         {{colors.outline_variant.default.hex}};
-    --background-modifier-border-focus:   {{colors.outline.default.hex}};
-    --background-modifier-border-hover:   {{colors.outline.default.hex}};
+    --background-modifier-border:         {{colors.outline_variant.dark.hex}};
+    --background-modifier-border-focus:   {{colors.outline.dark.hex}};
+    --background-modifier-border-hover:   {{colors.outline.dark.hex}};
 
     /* ── Text Colors ───────────────────────────────────────── */
-    --text-normal:      {{colors.on_surface.default.hex}};
-    --text-muted:       {{colors.on_surface_variant.default.hex}};
-    --text-faint:       {{colors.outline.default.hex}};
-    --text-on-accent:   {{colors.on_primary.default.hex}};
-    --text-selection:   rgba({{colors.primary.default.red}}, {{colors.primary.default.green}}, {{colors.primary.default.blue}}, 0.25);
+    --text-normal:      {{colors.on_surface.dark.hex}};
+    --text-muted:       {{colors.on_surface_variant.dark.hex}};
+    --text-faint:       {{colors.outline.dark.hex}};
+    --text-on-accent:   {{colors.on_primary.dark.hex}};
+    --text-selection:   rgba({{colors.primary.dark.red}}, {{colors.primary.dark.green}}, {{colors.primary.dark.blue}}, 0.25);
 
     /* ── Accent & Interactive ──────────────────────────────── */
-    --interactive-accent:           {{colors.primary.default.hex}};
-    --interactive-accent-hover:     {{colors.primary_container.default.hex}};
-    --interactive-accent-rgb:       {{colors.primary.default.red}}, {{colors.primary.default.green}}, {{colors.primary.default.blue}};
-    --text-accent:                  {{colors.primary.default.hex}};
-    --text-accent-hover:            {{colors.primary_container.default.hex}};
+    --interactive-accent:           {{colors.primary.dark.hex}};
+    --interactive-accent-hover:     {{colors.primary_container.dark.hex}};
+    --interactive-accent-rgb:       {{colors.primary.dark.red}}, {{colors.primary.dark.green}}, {{colors.primary.dark.blue}};
+    --text-accent:                  {{colors.primary.dark.hex}};
+    --text-accent-hover:            {{colors.primary_container.dark.hex}};
 
     /* ── Hover & Active Modifiers ──────────────────────────── */
     --background-modifier-hover:          rgba(var(--mat-on-surface-rgb), 0.06);
     --background-modifier-active-hover:   rgba(var(--mat-primary-rgb), 0.15);
-    --background-modifier-success:        {{colors.tertiary_container.default.hex}};
-    --background-modifier-error:          {{colors.error_container.default.hex}};
-    --background-modifier-error-hover:    {{colors.error.default.hex}};
+    --background-modifier-success:        {{colors.tertiary_container.dark.hex}};
+    --background-modifier-error:          {{colors.error_container.dark.hex}};
+    --background-modifier-error-hover:    {{colors.error.dark.hex}};
 
     /* ── Obsidian Color Scale (--color-base-XX) ────────────── */
-    --color-base-00:    {{colors.background.default.hex}};
-    --color-base-05:    {{colors.surface_dim.default.hex}};
-    --color-base-10:    {{colors.surface_container_lowest.default.hex}};
-    --color-base-20:    {{colors.surface_container_low.default.hex}};
-    --color-base-25:    {{colors.surface_container.default.hex}};
-    --color-base-30:    {{colors.surface_container_high.default.hex}};
-    --color-base-35:    {{colors.surface_container_highest.default.hex}};
-    --color-base-40:    {{colors.outline_variant.default.hex}};
-    --color-base-50:    {{colors.outline.default.hex}};
-    --color-base-60:    {{colors.on_surface_variant.default.hex}};
-    --color-base-70:    {{colors.on_surface.default.hex}};
-    --color-base-100:   {{colors.inverse_surface.default.hex}};
+    --color-base-00:    {{colors.background.dark.hex}};
+    --color-base-05:    {{colors.surface_dim.dark.hex}};
+    --color-base-10:    {{colors.surface_container_lowest.dark.hex}};
+    --color-base-20:    {{colors.surface_container_low.dark.hex}};
+    --color-base-25:    {{colors.surface_container.dark.hex}};
+    --color-base-30:    {{colors.surface_container_high.dark.hex}};
+    --color-base-35:    {{colors.surface_container_highest.dark.hex}};
+    --color-base-40:    {{colors.outline_variant.dark.hex}};
+    --color-base-50:    {{colors.outline.dark.hex}};
+    --color-base-60:    {{colors.on_surface_variant.dark.hex}};
+    --color-base-70:    {{colors.on_surface.dark.hex}};
+    --color-base-100:   {{colors.inverse_surface.dark.hex}};
 
     /* ── Semantic Colors ───────────────────────────────────── */
-    --color-red:        {{colors.error.default.hex}};
-    --color-orange:     {{colors.tertiary.default.hex}};
-    --color-yellow:     {{colors.secondary.default.hex}};
-    --color-green:      {{colors.tertiary_container.default.hex}};
-    --color-cyan:       {{colors.secondary_container.default.hex}};
-    --color-blue:       {{colors.primary.default.hex}};
-    --color-purple:     {{colors.secondary.default.hex}};
-    --color-pink:       {{colors.tertiary.default.hex}};
+    --color-red:        {{colors.error.dark.hex}};
+    --color-orange:     {{colors.tertiary.dark.hex}};
+    --color-yellow:     {{colors.secondary.dark.hex}};
+    --color-green:      {{colors.tertiary_container.dark.hex}};
+    --color-cyan:       {{colors.secondary_container.dark.hex}};
+    --color-blue:       {{colors.primary.dark.hex}};
+    --color-purple:     {{colors.secondary.dark.hex}};
+    --color-pink:       {{colors.tertiary.dark.hex}};
 
     /* ── Headings ──────────────────────────────────────────── */
-    --h1-color:     {{colors.primary.default.hex}};
-    --h2-color:     {{colors.primary.default.hex}};
-    --h3-color:     {{colors.secondary.default.hex}};
-    --h4-color:     {{colors.tertiary.default.hex}};
-    --h5-color:     {{colors.on_surface_variant.default.hex}};
-    --h6-color:     {{colors.outline.default.hex}};
+    --h1-color:     {{colors.primary.dark.hex}};
+    --h2-color:     {{colors.primary.dark.hex}};
+    --h3-color:     {{colors.secondary.dark.hex}};
+    --h4-color:     {{colors.tertiary.dark.hex}};
+    --h5-color:     {{colors.on_surface_variant.dark.hex}};
+    --h6-color:     {{colors.outline.dark.hex}};
 
     /* ── Links ─────────────────────────────────────────────── */
-    --link-color:           {{colors.primary.default.hex}};
-    --link-color-hover:     {{colors.on_primary_container.default.hex}};
-    --link-external-color:  {{colors.tertiary.default.hex}};
-    --link-unresolved-color: {{colors.outline.default.hex}};
+    --link-color:           {{colors.primary.dark.hex}};
+    --link-color-hover:     {{colors.on_primary_container.dark.hex}};
+    --link-external-color:  {{colors.tertiary.dark.hex}};
+    --link-unresolved-color: {{colors.outline.dark.hex}};
 
     /* ── Tags ──────────────────────────────────────────────── */
-    --tag-color:            {{colors.on_primary_container.default.hex}};
-    --tag-background:       {{colors.primary_container.default.hex}};
-    --tag-border-color:     {{colors.primary.default.hex}};
-    --tag-color-hover:      {{colors.on_primary.default.hex}};
-    --tag-background-hover: {{colors.primary.default.hex}};
+    --tag-color:            {{colors.on_primary_container.dark.hex}};
+    --tag-background:       {{colors.primary_container.dark.hex}};
+    --tag-border-color:     {{colors.primary.dark.hex}};
+    --tag-color-hover:      {{colors.on_primary.dark.hex}};
+    --tag-background-hover: {{colors.primary.dark.hex}};
 
     /* ── Checkboxes ────────────────────────────────────────── */
-    --checkbox-color:           {{colors.primary.default.hex}};
-    --checkbox-color-hover:     {{colors.primary_container.default.hex}};
-    --checkbox-border-color:    {{colors.outline.default.hex}};
-    --checkbox-marker-color:    {{colors.on_primary.default.hex}};
+    --checkbox-color:           {{colors.primary.dark.hex}};
+    --checkbox-color-hover:     {{colors.primary_container.dark.hex}};
+    --checkbox-border-color:    {{colors.outline.dark.hex}};
+    --checkbox-marker-color:    {{colors.on_primary.dark.hex}};
 
     /* ── Code Blocks ───────────────────────────────────────── */
-    --code-background:  {{colors.surface_container_low.default.hex}};
-    --code-normal:      {{colors.on_surface.default.hex}};
-    --code-comment:     {{colors.outline.default.hex}};
-    --code-function:    {{colors.primary.default.hex}};
-    --code-important:   {{colors.error.default.hex}};
-    --code-keyword:     {{colors.secondary.default.hex}};
-    --code-operator:    {{colors.tertiary.default.hex}};
-    --code-property:    {{colors.on_surface_variant.default.hex}};
-    --code-punctuation: {{colors.outline_variant.default.hex}};
-    --code-string:      {{colors.tertiary.default.hex}};
-    --code-tag:         {{colors.error.default.hex}};
-    --code-value:       {{colors.secondary.default.hex}};
+    --code-background:  {{colors.surface_container_low.dark.hex}};
+    --code-normal:      {{colors.on_surface.dark.hex}};
+    --code-comment:     {{colors.outline.dark.hex}};
+    --code-function:    {{colors.primary.dark.hex}};
+    --code-important:   {{colors.error.dark.hex}};
+    --code-keyword:     {{colors.secondary.dark.hex}};
+    --code-operator:    {{colors.tertiary.dark.hex}};
+    --code-property:    {{colors.on_surface_variant.dark.hex}};
+    --code-punctuation: {{colors.outline_variant.dark.hex}};
+    --code-string:      {{colors.tertiary.dark.hex}};
+    --code-tag:         {{colors.error.dark.hex}};
+    --code-value:       {{colors.secondary.dark.hex}};
 
     /* ── Scrollbar ─────────────────────────────────────────── */
     --scrollbar-thumb-bg:           rgba(var(--mat-on-surface-rgb), 0.12);
@@ -121,16 +125,147 @@
 
     /* ── Inputs ────────────────────────────────────────────── */
     --input-shadow: none;
-    --input-shadow-hover: 0 0 0 2px {{colors.outline.default.hex}};
+    --input-shadow-hover: 0 0 0 2px {{colors.outline.dark.hex}};
 
     /* ── Graph View ────────────────────────────────────────── */
-    --graph-node:           {{colors.primary.default.hex}};
-    --graph-node-unresolved: {{colors.outline.default.hex}};
-    --graph-node-focused:   {{colors.on_primary_container.default.hex}};
-    --graph-node-tag:       {{colors.secondary.default.hex}};
-    --graph-node-attachment: {{colors.tertiary.default.hex}};
-    --graph-line:           {{colors.outline_variant.default.hex}};
-    --graph-background:     {{colors.background.default.hex}};
+    --graph-node:           {{colors.primary.dark.hex}};
+    --graph-node-unresolved: {{colors.outline.dark.hex}};
+    --graph-node-focused:   {{colors.on_primary_container.dark.hex}};
+    --graph-node-tag:       {{colors.secondary.dark.hex}};
+    --graph-node-attachment: {{colors.tertiary.dark.hex}};
+    --graph-line:           {{colors.outline_variant.dark.hex}};
+    --graph-background:     {{colors.background.dark.hex}};
+
+}
+
+.theme-light {
+
+    /* ── Material You RGB helpers ──────────────────────────── */
+    --mat-bg-rgb:             {{colors.background.light.red}}, {{colors.background.light.green}}, {{colors.background.light.blue}};
+    --mat-surface-rgb:        {{colors.surface.light.red}}, {{colors.surface.light.green}}, {{colors.surface.light.blue}};
+    --mat-on-surface-rgb:     {{colors.on_surface.light.red}}, {{colors.on_surface.light.green}}, {{colors.on_surface.light.blue}};
+    --mat-primary-rgb:        {{colors.primary.light.red}}, {{colors.primary.light.green}}, {{colors.primary.light.blue}};
+    --mat-on-primary-rgb:     {{colors.on_primary.light.red}}, {{colors.on_primary.light.green}}, {{colors.on_primary.light.blue}};
+
+    /* ── Core Backgrounds ──────────────────────────────────── */
+    --background-primary:           {{colors.background.light.hex}};
+    --background-primary-alt:       {{colors.surface_dim.light.hex}};
+    --background-secondary:         {{colors.surface_container_low.light.hex}};
+    --background-secondary-alt:     {{colors.surface_container.light.hex}};
+
+    /* ── Titlebar ──────────────────────────────────────────── */
+    --titlebar-background:          {{colors.surface_dim.light.hex}};
+    --titlebar-background-focused:  {{colors.surface_container_low.light.hex}};
+    --titlebar-text-color:          {{colors.on_surface.light.hex}};
+
+    /* ── Borders & Dividers ────────────────────────────────── */
+    --background-modifier-border:         {{colors.outline_variant.light.hex}};
+    --background-modifier-border-focus:   {{colors.outline.light.hex}};
+    --background-modifier-border-hover:   {{colors.outline.light.hex}};
+
+    /* ── Text Colors ───────────────────────────────────────── */
+    --text-normal:      {{colors.on_surface.light.hex}};
+    --text-muted:       {{colors.on_surface_variant.light.hex}};
+    --text-faint:       {{colors.outline.light.hex}};
+    --text-on-accent:   {{colors.on_primary.light.hex}};
+    --text-selection:   rgba({{colors.primary.light.red}}, {{colors.primary.light.green}}, {{colors.primary.light.blue}}, 0.25);
+
+    /* ── Accent & Interactive ──────────────────────────────── */
+    --interactive-accent:           {{colors.primary.light.hex}};
+    --interactive-accent-hover:     {{colors.primary_container.light.hex}};
+    --interactive-accent-rgb:       {{colors.primary.light.red}}, {{colors.primary.light.green}}, {{colors.primary.light.blue}};
+    --text-accent:                  {{colors.primary.light.hex}};
+    --text-accent-hover:            {{colors.primary_container.light.hex}};
+
+    /* ── Hover & Active Modifiers ──────────────────────────── */
+    --background-modifier-hover:          rgba(var(--mat-on-surface-rgb), 0.06);
+    --background-modifier-active-hover:   rgba(var(--mat-primary-rgb), 0.15);
+    --background-modifier-success:        {{colors.tertiary_container.light.hex}};
+    --background-modifier-error:          {{colors.error_container.light.hex}};
+    --background-modifier-error-hover:    {{colors.error.light.hex}};
+
+    /* ── Obsidian Color Scale (--color-base-XX) ────────────── */
+    --color-base-00:    {{colors.background.light.hex}};
+    --color-base-05:    {{colors.surface_dim.light.hex}};
+    --color-base-10:    {{colors.surface_container_lowest.light.hex}};
+    --color-base-20:    {{colors.surface_container_low.light.hex}};
+    --color-base-25:    {{colors.surface_container.light.hex}};
+    --color-base-30:    {{colors.surface_container_high.light.hex}};
+    --color-base-35:    {{colors.surface_container_highest.light.hex}};
+    --color-base-40:    {{colors.outline_variant.light.hex}};
+    --color-base-50:    {{colors.outline.light.hex}};
+    --color-base-60:    {{colors.on_surface_variant.light.hex}};
+    --color-base-70:    {{colors.on_surface.light.hex}};
+    --color-base-100:   {{colors.inverse_surface.light.hex}};
+
+    /* ── Semantic Colors ───────────────────────────────────── */
+    --color-red:        {{colors.error.light.hex}};
+    --color-orange:     {{colors.tertiary.light.hex}};
+    --color-yellow:     {{colors.secondary.light.hex}};
+    --color-green:      {{colors.tertiary_container.light.hex}};
+    --color-cyan:       {{colors.secondary_container.light.hex}};
+    --color-blue:       {{colors.primary.light.hex}};
+    --color-purple:     {{colors.secondary.light.hex}};
+    --color-pink:       {{colors.tertiary.light.hex}};
+
+    /* ── Headings ──────────────────────────────────────────── */
+    --h1-color:     {{colors.primary.light.hex}};
+    --h2-color:     {{colors.primary.light.hex}};
+    --h3-color:     {{colors.secondary.light.hex}};
+    --h4-color:     {{colors.tertiary.light.hex}};
+    --h5-color:     {{colors.on_surface_variant.light.hex}};
+    --h6-color:     {{colors.outline.light.hex}};
+
+    /* ── Links ─────────────────────────────────────────────── */
+    --link-color:           {{colors.primary.light.hex}};
+    --link-color-hover:     {{colors.on_primary_container.light.hex}};
+    --link-external-color:  {{colors.tertiary.light.hex}};
+    --link-unresolved-color: {{colors.outline.light.hex}};
+
+    /* ── Tags ──────────────────────────────────────────────── */
+    --tag-color:            {{colors.on_primary_container.light.hex}};
+    --tag-background:       {{colors.primary_container.light.hex}};
+    --tag-border-color:     {{colors.primary.light.hex}};
+    --tag-color-hover:      {{colors.on_primary.light.hex}};
+    --tag-background-hover: {{colors.primary.light.hex}};
+
+    /* ── Checkboxes ────────────────────────────────────────── */
+    --checkbox-color:           {{colors.primary.light.hex}};
+    --checkbox-color-hover:     {{colors.primary_container.light.hex}};
+    --checkbox-border-color:    {{colors.outline.light.hex}};
+    --checkbox-marker-color:    {{colors.on_primary.light.hex}};
+
+    /* ── Code Blocks ───────────────────────────────────────── */
+    --code-background:  {{colors.surface_container_low.light.hex}};
+    --code-normal:      {{colors.on_surface.light.hex}};
+    --code-comment:     {{colors.outline.light.hex}};
+    --code-function:    {{colors.primary.light.hex}};
+    --code-important:   {{colors.error.light.hex}};
+    --code-keyword:     {{colors.secondary.light.hex}};
+    --code-operator:    {{colors.tertiary.light.hex}};
+    --code-property:    {{colors.on_surface_variant.light.hex}};
+    --code-punctuation: {{colors.outline_variant.light.hex}};
+    --code-string:      {{colors.tertiary.light.hex}};
+    --code-tag:         {{colors.error.light.hex}};
+    --code-value:       {{colors.secondary.light.hex}};
+
+    /* ── Scrollbar ─────────────────────────────────────────── */
+    --scrollbar-thumb-bg:           rgba(var(--mat-on-surface-rgb), 0.12);
+    --scrollbar-active-thumb-bg:    rgba(var(--mat-on-surface-rgb), 0.25);
+    --scrollbar-bg:                 transparent;
+
+    /* ── Inputs ────────────────────────────────────────────── */
+    --input-shadow: none;
+    --input-shadow-hover: 0 0 0 2px {{colors.outline.light.hex}};
+
+    /* ── Graph View ────────────────────────────────────────── */
+    --graph-node:           {{colors.primary.light.hex}};
+    --graph-node-unresolved: {{colors.outline.light.hex}};
+    --graph-node-focused:   {{colors.on_primary_container.light.hex}};
+    --graph-node-tag:       {{colors.secondary.light.hex}};
+    --graph-node-attachment: {{colors.tertiary.light.hex}};
+    --graph-line:           {{colors.outline_variant.light.hex}};
+    --graph-background:     {{colors.background.light.hex}};
 
 }
 
