@@ -26,7 +26,7 @@ my personal dotfiles, tested and used on Ubuntu 24 & 22 (Zorin OS)
 - Terminal: [kitty](https://github.com/kovidgoyal/kitty)
 - Shell: zsh
     - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) for theming and plugins
-    - [`spaceship prompt`](https://github.com/spaceship-prompt/spaceship-prompt)
+    - built-in `robbyrussell` theme (minimal prompt)
     - [`fzf`](https://github.com/junegunn/fzf) (fuzzy file utility)
     - [`bat`](https://github.com/sharkdp/bat) (better cat)
     - [`fastfetch`](https://github.com/fastfetch-cli/fastfetch) on launch
@@ -72,7 +72,7 @@ cd ~/dotfiles
 `install.sh` is doing three things:
 
 1. stowing the config dirs (each top-level dir is a stow package mirroring `$HOME`)
-2. installing the zsh plugins and spaceship prompt
+2. installing the zsh plugins
 3. setting up the wallpaper change timer
 
 It does not download any other dependencies that are listed in Components section. Install them yourself.
