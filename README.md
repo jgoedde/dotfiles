@@ -77,6 +77,28 @@ If one slipped through: `git -C ~/dotfiles checkout zsh/.zshrc`.
 - **Profile**: a list of packages, `profiles/<name>.txt`, plus an optional setup script `profiles/<name>.sh`.
   Every machine gets `common` plus one desktop profile.
 
+### Theming
+
+`wallpaper-change.sh` (Super/Mod+Ctrl+W) picks a random image from `~/Pictures/Walls`, sets it, and runs
+`matugen-apply.sh`, which renders the matugen templates for the current wallpaper. Run `matugen-apply.sh` by
+hand to re-theme without changing the wallpaper. On niri, `matugen-sync.path` also re-themes when the
+wallpaper or light/dark mode changes in DMS.
+
+Both scripts live in Common and ask a **desktop adapter** for anything desktop-specific. Each desktop
+profile ships one at `~/.local/bin/desktop-adapter`: `dms/` for niri (DMS IPC, session and settings),
+`matugen-gnome/` for gnome (gsettings, `scheme-content`, contrast 0). Its interface:
+
+| Command              | Does                                                                |
+|----------------------|---------------------------------------------------------------------|
+| `wallpaper`          | print the current wallpaper path, exit non-zero if none             |
+| `set-wallpaper PATH` | show `PATH` as the wallpaper                                        |
+| `mode`               | print `light` or `dark`                                             |
+| `scheme`             | print the matugen scheme, e.g. `scheme-tonal-spot`                  |
+| `contrast`           | print the matugen contrast                                          |
+| `reload`             | after a matugen run, re-theme the desktop's own UI (may do nothing) |
+
+A new desktop profile only needs its own adapter. Without one, both scripts exit with an error.
+
 Machine-local changes, without touching the repo:
 
 - `~/.config/zsh/custom/<file>` replaces the same file from `~/.config/zsh/`
