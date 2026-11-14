@@ -1,7 +1,8 @@
 # Interactive shell: tool hooks and startup output.
 
 # fzf
-source "$HOME/.config/fzf/fzf-config"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source "$HOME/.config/fzf/fzf-config"
 
 # pay-respects (https://github.com/iffse/pay-respects)
 if (( $+commands[pay-respects] )); then
