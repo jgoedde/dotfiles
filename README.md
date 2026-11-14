@@ -53,7 +53,7 @@ The repo is expected at `~/dotfiles`.
 1. stows `common` plus the chosen profile with `--no-folding`
 2. runs `profiles/common.sh`: zsh plugin clones into `$ZSH_CUSTOM`
 3. runs the profile's setup script:
-    - `profiles/gnome.sh`: ghostty as default terminal, `Super+Ctrl+W` random-wallpaper shortcut
+    - `profiles/gnome.sh`: ghostty as default terminal, `Super+Return` terminal and `Super+Ctrl+W` random-wallpaper shortcuts
     - `profiles/niri.sh`: DMS plugin restore, dfiles service, `matugen-sync`
 
 Why `--no-folding`: by default stow links a whole directory (e.g. `~/.config/btop -> ~/dotfiles/btop/.config/btop`)
@@ -160,6 +160,7 @@ Packages in `profiles/gnome.txt`:
 
 - ghostty as default terminal
 - a `Super+Ctrl+W` custom shortcut running `wallpaper-change.sh`; re-running it does not add a second one
+- a `Super+Return` custom shortcut opening ghostty
 
 The wallpaper changes on demand only: press `Super+Ctrl+W` for a new random wallpaper and a fresh theme.
 
