@@ -11,6 +11,7 @@ bat/.config/bat/themes/matugen-bat-colors.tmTheme
 fzf/.config/fzf/fzf-colors.conf
 micro/.config/micro/colorschemes/matugen.micro
 ghostty/.config/ghostty/themes/matugen
+yazi/.config/yazi/theme.toml
 /micro/.config/micro/buffers/history
 /micro/.config/micro/bindings.json
 

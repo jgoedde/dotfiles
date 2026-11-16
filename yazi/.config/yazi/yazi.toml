@@ -1,0 +1,7 @@
+#:schema https://yazi-rs.github.io/schemas/yazi.json
+# Colors: matugen renders ~/.config/yazi/theme.toml (template: matugen/.config/matugen/templates/yazi.toml).
+# Search (s/S), fzf (z) and zoxide (Z) use the shell's fd, fzf and zoxide.
+
+[mgr]
+# Same as eza -a and fd --hidden in the shell
+show_hidden = true

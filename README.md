@@ -47,7 +47,7 @@ puts one. Move the listed files away and run `install.sh` again. On `niri` this 
 `~/.config/niri/config.kdl` and `~/.config/dms/*.json`.
 
 Then create the first theme: put images in `~/Pictures/Walls` and press `Super+Ctrl+W` (GNOME) or `Mod+Ctrl+W`
-(niri). Until then, bat, fzf, micro and ghostty run without their matugen colors.
+(niri). Until then, bat, fzf, micro, ghostty and yazi run without their matugen colors.
 
 ## 3. Safe to install afterwards
 
@@ -56,6 +56,8 @@ None of these write over the linked config files, so install them in any order, 
 - matugen (needed for theming)
 - ghostty, micro, btop, fzf + fd (on Debian/Ubuntu fd is `fdfind`, link it to `~/.local/bin/fd`), zoxide,
   pay-respects
+- [yazi](https://github.com/sxyazi/yazi) file manager, started with `y` (the shell follows its directory on quit).
+  Optional for its previews and search: ffmpeg, 7zip, poppler, ripgrep, imagemagick
 - jq and xdg-user-dirs (used by the wallpaper scripts)
 - wl-clipboard (fzf `Ctrl+Y` copy)
 - Claude Code, plus Node.js for its status line (`npx ccstatusline`)

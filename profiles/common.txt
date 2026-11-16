@@ -11,3 +11,4 @@ fastfetch
 matugen
 wallpaper
 ghostty
+yazi
