@@ -344,7 +344,7 @@
   "mouseAccelProfile": "flat",
   "touchpadAccelSpeed": 0,
   "mouseAccelSpeed": 0.5,
-  "focusFollowsMouse": 1,
+  "focusFollowsMouse": 0,
   "dockConfigs": [
     {
       "id": "dock",
