@@ -5,3 +5,9 @@
 [mgr]
 # Same as eza -a and fd --hidden in the shell
 show_hidden = true
+
+[opener]
+# Edit with micro instead of $EDITOR
+edit = [
+	{ run = "micro %s", desc = "micro", block = true, for = "unix" },
+]
