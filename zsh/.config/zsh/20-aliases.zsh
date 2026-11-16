@@ -27,3 +27,13 @@ alias files='fm'
 function fm() {
   xdg-open "${@:-.}" >/dev/null 2>&1 &!
 }
+
+# yazi: on quit, the shell changes to yazi's last directory (through zoxide's cd, so it is recorded).
+function y() {
+  local tmp cwd
+  tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+  command yazi "$@" --cwd-file="$tmp"
+  IFS= read -r -d '' cwd < "$tmp"
+  [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && cd -- "$cwd"
+  rm -f -- "$tmp"
+}
