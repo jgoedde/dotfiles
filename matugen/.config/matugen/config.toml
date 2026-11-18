@@ -37,3 +37,7 @@ post_hook = 'pkill -USR2 -x ghostty || true'
 [templates.yazi]
 input_path = '~/.config/matugen/templates/yazi.toml'
 output_path = '~/.config/yazi/theme.toml'
+
+[templates.wptui]
+input_path = '~/.config/matugen/templates/wptui.json'
+output_path = '~/.config/wptui/theme.json'
