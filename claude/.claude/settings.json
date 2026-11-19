@@ -29,5 +29,5 @@
   },
   "theme": "auto",
   "voiceEnabled": true,
-  "switchModelsOnFlag": true
+  "language": "de"
 }
