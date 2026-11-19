@@ -1,6 +1,15 @@
 {
   "quickCapture": {
-    "enabled": true
+    "enabled": true,
+    "color_palette_preset": "custom",
+    "toolbar_color_primary": "#B2C8ED",
+    "toolbar_color_0": "#FA746F",
+    "toolbar_color_1": "#FF9800",
+    "toolbar_color_2": "#2196F3",
+    "toolbar_color_3": "#BDC7DC",
+    "toolbar_color_4": "#22262D",
+    "toolbar_color_5": "#FFFFFF",
+    "toolbar_color_6": "#0C0E12"
   },
   "emojiPicker": {
     "enabled": true
