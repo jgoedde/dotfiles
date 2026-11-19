@@ -1,6 +1,6 @@
 {
   "permissions": {
-    "defaultMode": "default"
+    "defaultMode": "auto"
   },
   "statusLine": {
     "type": "command",
@@ -23,5 +23,11 @@
       "effortLevel": "high"
     }
   },
-  "theme": "auto"
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
+  "theme": "auto",
+  "voiceEnabled": true,
+  "switchModelsOnFlag": true
 }
